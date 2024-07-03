@@ -4,10 +4,7 @@ on:
   push:
     branches:
       - frontend
-  pull_request:
-    branches:
-      - frontend
-
+    
 jobs:
   deploy:
     name: 'Deploy to Netlify'
