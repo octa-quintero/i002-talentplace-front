@@ -1,16 +1,14 @@
 import React from 'react'
+import "../Card/Card.css"
 
-const Card = ({img, alt, title, size}) => {
-    const cardStyle = {
-        width: size || '90px',
-        height: size || '90px'
-    }
+const Card = ({title, alt, type, Icon}) => {
+    
   return (
     <div className='card-container'>
-        <div className='card' style={cardStyle}>
-            <img className='card-img' src={img} alt={alt} />
+        <div className={`card ${type}`}>
+          <Icon alt={alt} className="card-icon"/>
         </div>
-        <h3>{title}</h3>
+        <p>{title}</p>
     </div>
   )
 }

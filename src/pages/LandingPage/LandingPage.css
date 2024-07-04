@@ -1,0 +1,78 @@
+.landing-page p{
+    font-size: var(--font-size-body-1);
+}
+
+.section1{
+    height: 80vh;
+}
+
+.section1-left{
+    padding-left: 74px;
+}
+
+
+.section1-right{
+    border-radius: 63px 0 0 63px;
+    padding: 60px 12% 62px 65px;
+    box-shadow: -7px 3px 80px -29px #5B5B5B66;
+    background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(../../assets/assets-svg/3.svg);
+    background-position: -65% 50%; 
+    background-size: 130% auto;
+    background-repeat: no-repeat;
+}
+
+.section1-right h1{
+    font-size: var(--font-size-headline-1);
+    font-weight: var( --font-weight-bold);
+}
+
+.section2{
+    height: 40vh;
+    background-color: var(--color-white);
+    overflow: hidden;
+}
+
+/* LOS SVGS NO SOLO SE VEN EN PANATALLA GRANDE */
+.section2-svgs{
+    position: relative;
+}
+
+.section2-svgs::before,
+.section2-svgs::after{
+    content: '';
+    position: absolute;
+    z-index: 1;
+    background-size: contain; 
+    background-repeat: no-repeat;
+    
+}
+
+.section2-svgs::before {
+    background-image: url('/src/assets/assets-svg/6.svg');
+    top: 720%;
+    left: -190%;
+    width: 670%; 
+    height: 670%; 
+    transform: translate(-50%, -50%) rotate(166deg);
+    opacity: 0.4;
+}
+
+.section2-svgs::after {
+    background-image: url('/src/assets/assets-svg/7.svg');
+    top: 595%;
+    left: -230%;
+    width: 710%; 
+    height: 710%; 
+    transform: translate(-50%, -50%) rotate(170deg);
+    opacity: 0.5;
+}
+
+.section2-content{
+    z-index: 99;
+}
+
+.section2 h1{
+    font-size: var(--font-size-headline-3);
+    
+}
+

@@ -7,7 +7,7 @@
 
 :root {
     /* background */
-    --bg-color: background-image: linear-gradient(
+    --bg-color: linear-gradient(
         180deg,
         hsl(0deg 0% 100%) 0%,
         hsl(256deg 100% 98%) 21%,
@@ -20,6 +20,8 @@
         hsl(253deg 100% 88%) 79%,
         hsl(252deg 100% 86%) 100%
     );
+    
+
 
      /* colors */
     --main-color-purple: #8c52ff;
@@ -36,21 +38,20 @@
 
     /* font */
     --font-family-sans-serif: "Lato";
-
     --font-weight-regular: 400; 
     --font-weight-bold: 700;
 
     /* font size */
-    --font-size-headline-1: 62px;
-    --font-size-headline-2: 48px;
-    --font-size-headline-3: 34px;
+    --font-size-headline-1: 3.875rem;
+    --font-size-headline-2: 3rem;
+    --font-size-headline-3: 2.125rem;
 
-    --font-size-subt: 28px;
+    --font-size-subt: 1.8rem;
 
-    --font-size-body-1: 18px;
-    --font-size-body-2: 16px;
+    --font-size-body-1: 1.1rem;
+    --font-size-body-2: 1rem;
 
-    /* font size responsive */
+    /* font size responsive*/
     --font-size-res-headline-1: 72px;
     --font-size-res-headline-2: 58px;
     --font-size-res-headline-3: 42px;
@@ -71,17 +72,20 @@
     font-style: normal;  */
 
     /* spacing*/
-    --space-padding-s: 8px;
-    --space-padding-m: 16px;
-    --space-padding-l: 24px;
-    --space-padding-xl: 32px;
+    --space-padding-s: 0.5rem;
+    --space-padding-m: 1rem;
+    --space-padding-l: 1.5rem;
+    --space-padding-xl: 2rem;
 
-    --space-margin-s: 8px;
-    --space-margin-m: 16px;
-    --space-margin-l: 24px;
-    --space-margin-xl: 32px;
+    --space-margin-s: 0.5rem;
+    --space-margin-m: 1rem;
+    --space-margin-l: 1.5rem;
+    --space-margin-xl: 2rem;
 }
 
 html, body{
     font-family: var(--font-family-sans-serif);
+    background: var(--bg-color);
 }
+
+

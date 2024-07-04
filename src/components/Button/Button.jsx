@@ -1,19 +1,20 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import "../Button/Button.css"
 
 
-const Button = ({type, onClick, children, width}) => {
-  const buttonWidth = {
-    width: width || '160px'
-  }
+const Button = ({type, children, to, width}) => {
+  const buttonStyle = {
+    width: width || '100%'
+  };
   return (
-    <button
+    <NavLink
+        to={to}
         className={`button ${type}`}
-        onClick={onClick}
-        style={buttonWidth}
+        style={buttonStyle}
     >
         {children}
-    </button>
+    </NavLink>
     
   )
 }
