@@ -1,5 +1,5 @@
 export * from './AboutUs';
-export * from './LandingPage';
+export * from './LandingPage/LandingPage';
 export * from './PrivacyPolicy';
 export * from './Login';
 export * from './Register';

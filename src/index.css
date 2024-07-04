@@ -3,10 +3,11 @@
 /**************************************/
 /* NO ESTA TERMINADO... VER CON UX/UI */
 /**************************************/
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 :root {
     /* background */
-    --bg-color: background-image: linear-gradient(
+    --bg-color: linear-gradient(
         180deg,
         hsl(0deg 0% 100%) 0%,
         hsl(256deg 100% 98%) 21%,
@@ -19,6 +20,8 @@
         hsl(253deg 100% 88%) 79%,
         hsl(252deg 100% 86%) 100%
     );
+    
+
 
      /* colors */
     --main-color-purple: #8c52ff;
@@ -38,7 +41,6 @@
 
     /* font */
     --font-family-sans-serif: "Lato";
-
     --font-weight-regular: 400; 
     --font-weight-bold: 700;
 
@@ -73,17 +75,20 @@
     font-style: normal;  */
 
     /* spacing*/
-    --space-padding-s: 8px;
-    --space-padding-m: 16px;
-    --space-padding-l: 24px;
-    --space-padding-xl: 32px;
+    --space-padding-s: 0.5rem;
+    --space-padding-m: 1rem;
+    --space-padding-l: 1.5rem;
+    --space-padding-xl: 2rem;
 
-    --space-margin-s: 8px;
-    --space-margin-m: 16px;
-    --space-margin-l: 24px;
-    --space-margin-xl: 32px;
+    --space-margin-s: 0.5rem;
+    --space-margin-m: 1rem;
+    --space-margin-l: 1.5rem;
+    --space-margin-xl: 2rem;
 }
 
 html, body{
     font-family: var(--font-family-sans-serif);
+    background: var(--bg-color);
 }
+
+
