@@ -1,0 +1,28 @@
+.container-proyect-card{
+    /* width: ; */
+}
+
+.ri-outlineheart, .ri-bookmark{
+    color: var(--main-color-purple);
+    width: 18px;
+    height: 18px;
+}
+
+.container-ri{
+    align-items:end;
+}
+
+.container-item{
+    height: 48px;
+}
+
+.btn-postularse{
+    background-color: var(--main-color-purple);
+    color: var(--color-white);
+    border-radius: 5px;
+    width: 103px;
+}
+
+.btn-postularse:hover{
+    background-color: var(--main-color-purple_hover);
+}

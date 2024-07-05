@@ -1,13 +1,15 @@
 import React from 'react'
 import './ProyectCard.css'
 import '../../index.css'
+import { AiOutlineHeart } from 'react-icons/ai'
+import { BiBookmark } from 'react-icons/bi'
 
 const ProyectCard = () => {
     return (
-        <article className='container-fluid'>
-            <div className='d-flex container-fluid '>
-                <div>
-                    <h3>Titulo del proyecto</h3>
+        <article className='container-fluid rounded'>
+            <div className='d-flex container-fluid pt-3'>
+                <div className='w-100'>
+                    <h3 className='mb-0'>Titulo del proyecto</h3>
                     <p>Duracion:</p>
                 </div>
                 <div>
@@ -15,17 +17,17 @@ const ProyectCard = () => {
                     <p><strong>Precio</strong></p>
                 </div>
             </div>
-            <div>
+            <div className='container-fluid pb-3'>
                 <p>Informacion sobre el proyecto</p>
-                <p><strong>Categoría:</strong>Categoria</p>
-                <p><strong>Disponibilidad:</strong>Tiempo completo / Parcial</p>
-                <p><strong>Habilidades:</strong>habilidad, habilidad, habilidad, habilidad</p>
-                <div>
-                    <div>
-                        <img src="" alt="corazon" />
-                        <img src="" alt="guardar" />
+                <p className='mb-0'><strong>Categoría: </strong>Categoria</p>
+                <p className='mb-0'><strong>Disponibilidad: </strong>Tiempo completo / Parcial</p>
+                <p className='mb-0'><strong>Habilidades: </strong>habilidad, habilidad, habilidad, habilidad</p>
+                <div className='d-flex justify-content-between mt-1 container-item'>
+                    <div className='d-flex gap-3 container-ri'>
+                        <AiOutlineHeart className='ri-outlineheart' />
+                        <BiBookmark className='ri-bookmark'/>
                     </div>
-                    <button>Postularse</button>
+                    <button className='border-0 btn-postularse'>Postularse</button>
                 </div>
             </div>
         </article>
