@@ -1,0 +1,7 @@
+.container-filter{
+    width: 33%;
+}
+.container-filter__title{
+    border-radius: 15px;
+    border: 1px solid var(--secondary-color-label);
+}

@@ -38,9 +38,9 @@ export const Navbar = () => {
               className={({ isActive }) =>
                 `nav-item nav-link ${isActive ? "active" : ""}`
               }
-              to="/privacy"
+              to="/opportunities"
             >
-              Privacy Policy
+              Opportunities
             </NavLink>
             <NavLink
               className={({ isActive }) =>
