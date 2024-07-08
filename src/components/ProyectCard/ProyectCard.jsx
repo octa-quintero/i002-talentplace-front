@@ -6,7 +6,7 @@ import { BiBookmark } from 'react-icons/bi'
 
 const ProyectCard = () => {
     return (
-        <article className='container-fluid rounded'>
+        <article className='container-fluid my-3 container-proyect-card'>
             <div className='d-flex container-fluid pt-3'>
                 <div className='w-100'>
                     <h3 className='mb-0'>Titulo del proyecto</h3>

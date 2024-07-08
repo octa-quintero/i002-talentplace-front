@@ -1,11 +1,13 @@
 .container-proyect-card{
-    /* width: ; */
+    background-color: var(--color-white);
+    border-radius: 15px;
 }
 
 .ri-outlineheart, .ri-bookmark{
     color: var(--main-color-purple);
     width: 18px;
     height: 18px;
+    cursor: pointer;
 }
 
 .container-ri{
