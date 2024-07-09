@@ -5,6 +5,7 @@
 /**************************************/
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
+
 :root {
     /* background */
     --bg-color: linear-gradient(
@@ -85,7 +86,13 @@
 
 html, body{
     font-family: var(--font-family-sans-serif);
-    background: var(--bg-color);
+    background: var(--bg-color) no-repeat center center fixed;
+   
+  
+    
 }
+
+
+
 
 
