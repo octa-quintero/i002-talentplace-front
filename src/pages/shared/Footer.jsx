@@ -80,7 +80,7 @@ export const Footer = () => {
           </Col>
           <Col xs={12} lg={6} className="footer-background footer-background-right">
             <Row className="mt-lg-5">
-              <Col xs={12} lg={{ span: 6, offset: 6 }}>  
+              <Col xs={12} lg={{ span: 6, offset: 6 }} className="text-center">  
                 <p className="footer-subtitle">¡Seguinos en nuetras redes!</p>
                 <ul className="list-inline">
                   <li className="list-inline-item footer-social-icon">

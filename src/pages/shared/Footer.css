@@ -1,8 +1,3 @@
-.footer {
-    text-align: center;
-    flex-shrink: 0;
-}
-
 .footer .list-group li {
     margin-top: .25rem !important;
     list-style: none;
