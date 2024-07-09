@@ -23,9 +23,3 @@ body, html {
     justify-content: center;
     align-items: center;
   }
-  
-  .footer {
-    padding: 10px;
-    text-align: center;
-    flex-shrink: 0; 
-  }
