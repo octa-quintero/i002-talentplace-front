@@ -5,7 +5,7 @@ import { BiSearch } from 'react-icons/bi'
 
 const Search = () => {
     return (
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between container-search">
                 <div className='w-100'>
                     <div id="search-input">
                         <div className="input-group col-md-12">
@@ -16,7 +16,7 @@ const Search = () => {
                         </div>
                     </div>
                 </div>
-                <div className='w-25'>
+                <div className='container-search__dropdown'>
 
                     <div id="search-input">
                         <div className='search-query form-control'>

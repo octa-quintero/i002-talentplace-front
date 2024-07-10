@@ -22,3 +22,13 @@
 .container-section-proyectCard{
     width: 66%;
 }
+
+@media (width<992px){
+    .container-opportunities{
+        flex-direction: column;
+        padding: 15px;
+    }
+    .container-section-proyectCard{
+        width: 100%;
+    }
+}
