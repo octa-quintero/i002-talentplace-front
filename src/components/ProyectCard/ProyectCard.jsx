@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './ProyectCard.css'
 import '../../index.css'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { BiBookmark } from 'react-icons/bi'
+import Button from '../Button/Button'
+import { BsBookmarkFill, BsHeartFill } from 'react-icons/bs'
 
 const ProyectCard = () => {
+    const [clickedHeart, setClickedHeart] = useState(true);
+    const [clickedBookmark, setClickedBookmark] = useState(true);
+
+    // Logica si el usuario esta logeado
+    
+    const toggleClickedHeart = () => {
+        setClickedHeart(!clickedHeart)
+    }
+
+    const toggleClickedBookmark = () => {
+        setClickedBookmark(!clickedBookmark)
+    }
+    
+
+
     return (
         <article className='container-fluid my-3 container-proyect-card'>
             <div className='d-flex container-fluid pt-3'>
@@ -24,10 +41,20 @@ const ProyectCard = () => {
                 <p className='mb-0'><strong>Habilidades: </strong>habilidad, habilidad, habilidad, habilidad</p>
                 <div className='d-flex justify-content-between mt-1 container-item'>
                     <div className='d-flex gap-3 container-ri'>
-                        <AiOutlineHeart className='ri-outlineheart' />
-                        <BiBookmark className='ri-bookmark'/>
+                        {clickedHeart=== true ? 
+                            <AiOutlineHeart onClick={toggleClickedHeart} className='ri-outlineheart' />
+                            :
+                            <BsHeartFill onClick={toggleClickedHeart} className='ri-outlineheart' />
+                        }
+                        {clickedBookmark===true ?
+                            <BiBookmark onClick={toggleClickedBookmark} className='ri-bookmark'/>
+                            :
+                            <BsBookmarkFill  onClick={toggleClickedBookmark} className='ri-bookmark'/>
+                        }
                     </div>
-                    <button className='border-0 btn-postularse'>Postularse</button>
+                    <div className='col-md-4 col-lg-2'>
+                        <Button type='primary'  to="/login">Postularse</Button>
+                    </div>
                 </div>
             </div>
         </article>
