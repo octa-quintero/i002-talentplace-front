@@ -1,5 +1,10 @@
+import React from 'react'
+import RegisterForm from '../components/Forms/RegisterForm'
+
 export const Register = () => {
   return (
-    <h5 className='text-center'>Este es el Register</h5>
+    <div>
+      <RegisterForm />
+    </div>
   )
 }

@@ -1,0 +1,12 @@
+.container-forms {
+    background: white;
+    border-radius: 5px;
+}
+
+.container-forms-header img {
+    width: 78px;
+}
+
+.container-forms small {
+    font-size: small;
+}
