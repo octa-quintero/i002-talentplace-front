@@ -1,6 +1,7 @@
 import React from 'react'
 import './Filter.css'
 import '../../index.css'
+import Dropdown from '../Dropdown/Dropdown'
 
 const Filter = () => {
     return (
@@ -165,6 +166,9 @@ const Filter = () => {
                             </ul>
                         </div>
                     </li>
+
+                    <li className="border-top my-3"></li>
+                    <Dropdown />
 
                 </ul>
             </div>
