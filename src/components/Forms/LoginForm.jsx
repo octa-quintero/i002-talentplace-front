@@ -1,18 +1,25 @@
 import React, { useState } from "react";
-import logo from '../../assets/assets-png/2.png'
+import logo from '../../assets/assets-png/2.png';
 import './Form.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 const LoginForm = () => {
 
     const [loginData, setLoginData] = useState({
-        password: '',
-        email: ''
+        email: '',
+        contrasenia: ''
     });
+
 
     const [errors, setErrors] = useState({});
 
+
     const [isSubmitting, setIsSubmitting] = useState(false);
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,6 +28,7 @@ const LoginForm = () => {
             [name]: value
         });
     };
+
 
     const validate = () => {
         const newErrors = {};
@@ -31,20 +39,24 @@ const LoginForm = () => {
             newErrors.email = "Email format is invalid";
         }
 
-        if(!loginData.password) {
-            newErrors.password = "Password is required";
-        } else if(loginData.password.length < 8) {
-            newErrors.password = "Password must be at least 8 characters";
-        } else if (!/[A-Z]/.test(loginData.password)) {
-            newErrors.password = 'Password must contain at least one uppercase letter';
-        } else if (!/[0-9]/.test(loginData.password)) {
-            newErrors.password = 'Password must contain at least one number';
+        if(!loginData.contrasenia) {
+            newErrors.contrasenia = "Password is required";
+        } else if(loginData.contrasenia.length < 8) {
+            newErrors.contrasenia = "Password must be at least 8 characters";
+        } else if (!/[A-Z]/.test(loginData.contrasenia)) {
+            newErrors.contrasenia = 'Password must contain at least one uppercase letter';
+        } else if (!/[0-9]/.test(loginData.contrasenia)) {
+            newErrors.contrasenia = 'Password must contain at least one number';
         }
 
         return newErrors;
     }
 
-    const handleSubmit = (e) => {
+
+    const navigate = useNavigate();
+
+    
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const formErrors = validate();
@@ -54,17 +66,37 @@ const LoginForm = () => {
             setErrors({});
             setIsSubmitting(true);
 
-            console.log('Login data submitted:\n', loginData);
+            // Backend connection to send login data
+            axios.post(`${BACKEND_URL}/auth/login`, loginData)
+                .then((loginData) => {
 
-            // TODO Backend connection to send register data
-            setTimeout(() => {
-                setIsSubmitting(false);
-            }, 20000); // Simulate a network request while not connected to backend
+                    // DONE connected to backend
+                    // TODO redirect to dashboard & send data from server
+                    console.log(loginData.data);
+
+                    /* 200 OK -> loginData.data
+                    {
+                        "message": "Inicio de sesión exitoso",
+                        "refreshToken": "xxx",
+                        "user": {
+                            "id": "xxx",
+                            "nombre": "Johhny Melavo",
+                            "email": "johnny@melavo.com",
+                            "tipo": "empresa"
+                        }
+                    }*/
+                    
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+
+            console.log('Login data submitted:\n', loginData);
         }
     }
     
     return(
-        <form onSubmit={handleSubmit} className='container-forms container w-50 p-5 my-5'>
+        <form id="login-form" onSubmit={handleSubmit} className='container-forms container w-50 p-5 my-5'>
 
             <div className="container-forms-header row">
                 <h2 className="col-md-10">Ingreso a cuenta</h2>
@@ -89,18 +121,18 @@ const LoginForm = () => {
                     <input 
                         type="password" 
                         className="form-control p-2 my-3" 
-                        name="password" 
+                        name="contrasenia" 
                         placeholder="Password" 
-                        value={loginData.password} 
+                        value={loginData.contrasenia} 
                         onChange={handleChange}
                     />
-                    {errors.password && <p style={{color: 'red'}}>{errors.password}</p>}
+                    {errors.contrasenia && <p style={{color: 'red'}}>{errors.contrasenia}</p>}
                     <small className="form-text text-muted p-2">¿Olvidaste tu contraseña?</small>
                 </div>
 
                 <div className="form-group">
                     <button 
-                        className="border-0 btn-postularse w-100 p-2 my-3" 
+                        className="border-0 button primary w-100 p-2 my-3" 
                         type="submit"
                         disabled={isSubmitting}
                     >Ingresar</button>

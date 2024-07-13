@@ -1,22 +1,28 @@
 import React, { useState } from "react";
 import './Form.css';
-import logo from '../../assets/assets-png/2.png'
+import logo from '../../assets/assets-png/2.png';
+import axios from 'axios';
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 const RegisterForm = () => {
     const [registerData, setRegisterData] = useState({
-        name: '',
-        surname: '',
-        country: '',
-        telephone: '',
-        search: '',
-        email: '',
-        password: ''
+        nombre: '',
+        apellido: '',
+        telefono: '',
+        pais: '',
+        tipo: '',
+        contrasenia: '',
+        email: ''
     });
+
 
     const [errors, setErrors] = useState({});
 
+
     const [isSubmitting, setIsSubmitting] = useState(false);
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -26,29 +32,30 @@ const RegisterForm = () => {
         });
     };
 
+
     const validate = () => {
         const newErrors = {};
         
-        if(!registerData.name) {
-            newErrors.name = "Name is required";
+        if(!registerData.nombre) {
+            newErrors.nombre = "Name is required";
         }
 
-        if(!registerData.surname) {
-            newErrors.surname = "Surname is required";
+        if(!registerData.apellido) {
+            newErrors.apellido = "Surname is required";
         }
 
-        if(!registerData.country) {
-            newErrors.country = "Country is required";
+        if(!registerData.pais) {
+            newErrors.pais = "Country is required";
         }
 
-        if(!registerData.telephone) {
-            newErrors.telephone = "Telephone is required";
-        } else if (!/^\d{10}$/.test(registerData.telephone)) {
-            newErrors.password = 'Telephone must contain 10 digits';
+        if(!registerData.telefono) {
+            newErrors.telefono = "Telephone is required";
+        } else if (!/^\d{10}$/.test(registerData.telefono)) {
+            newErrors.telefono = 'Telephone must contain 10 digits';
         }
 
-        if(!registerData.search) {
-            newErrors.search = "Search is required";
+        if(!registerData.tipo) {
+            newErrors.tipo = "Type is required";
         }
 
         if(!registerData.email) {
@@ -57,20 +64,21 @@ const RegisterForm = () => {
             newErrors.email = "Email format is invalid";
         }
 
-        if(!registerData.password) {
-            newErrors.password = "Password is required";
-        } else if(registerData.password.length < 8) {
-            newErrors.password = "Password must be at least 8 characters";
-        } else if (!/[A-Z]/.test(registerData.password)) {
-            newErrors.password = 'Password must contain at least one uppercase letter';
-        } else if (!/[0-9]/.test(registerData.password)) {
-            newErrors.password = 'Password must contain at least one number';
+        if(!registerData.contrasenia) {
+            newErrors.contrasenia = "Password is required";
+        } else if(registerData.contrasenia.length < 8) {
+            newErrors.contrasenia = "Password must be at least 8 characters";
+        } else if (!/[A-Z]/.test(registerData.contrasenia)) {
+            newErrors.contrasenia = 'Password must contain at least one uppercase letter';
+        } else if (!/[0-9]/.test(registerData.contrasenia)) {
+            newErrors.contrasenia = 'Password must contain at least one number';
         }
 
         return newErrors;
     }
 
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const formErrors = validate();
@@ -79,12 +87,27 @@ const RegisterForm = () => {
         } else {
             setErrors({});
             setIsSubmitting(true);
-            console.log("Register data submitted:\n",registerData);
             
-            // TODO Backend connection to send register data
-            setTimeout(() => {
-                setIsSubmitting(false);
-            }, 20000); // Simulating a network request while not connected to backend
+            // Backend connection to send register data
+            axios.post(`${BACKEND_URL}/auth/register`, registerData)
+                .then((registerData) => {
+
+
+                    // DONE connected to backend
+                    // TODO redirect to dashboard & send data from server
+                    console.log(registerData);
+
+                    /* 200 OK -> registerData.data
+                    {
+                        message: "Usuario creado exitosamente"
+                    }*/
+
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+
+                console.log('Register data submitted:\n', registerData);
         }
     }
 
@@ -104,11 +127,11 @@ const RegisterForm = () => {
                             type="text" 
                             className="form-control p-2 my-3" 
                             placeholder="Nombre" 
-                            name="name" 
-                            value={registerData.name} 
+                            name="nombre" 
+                            value={registerData.nombre} 
                             onChange={handleChange}
                         />
-                        {errors.name && <p style={{color: 'red'}}>{errors.name}</p>}
+                        {errors.nombre && <p style={{color: 'red'}}>{errors.nombre}</p>}
                     </div>
 
                     <div className="form-group col-md-6">
@@ -116,19 +139,19 @@ const RegisterForm = () => {
                             type="text" 
                             className="form-control p-2 my-3" 
                             placeholder="Apellido" 
-                            name="surname" 
-                            value={registerData.surname} 
+                            name="apellido" 
+                            value={registerData.apellido} 
                             onChange={handleChange}
                         />
-                        {errors.surname && <p style={{color: 'red'}}>{errors.surname}</p>}
+                        {errors.apellido && <p style={{color: 'red'}}>{errors.apellido}</p>}
                     </div>
                 </div>
 
                 <div className="form-group">
                     <select 
                         className="form-control p-2 mt-3"
-                        name="country"
-                        value={registerData.country}
+                        name="pais"
+                        value={registerData.pais}
                         onChange={handleChange}
                     >
                         <option value="">Seleccione su país</option>
@@ -137,7 +160,7 @@ const RegisterForm = () => {
                         <option value="Chile">Chile</option>
                         <option value="Brasil">Brasil</option>
                     </select>
-                    {errors.country && <p style={{color: 'red'}}>{errors.country}</p>}
+                    {errors.pais && <p style={{color: 'red'}}>{errors.pais}</p>}
                     <small className="form-text text-muted p-2">Actualmente sólo tenemos disponibilidad en Latinoamérica</small>
                 </div>
 
@@ -146,25 +169,25 @@ const RegisterForm = () => {
                         type="tel" 
                         className="form-control p-2 my-3" 
                         placeholder="Ingrese un teléfono" 
-                        name="telephone" 
-                        value={registerData.telephone} 
+                        name="telefono" 
+                        value={registerData.telefono} 
                         onChange={handleChange}
                     />
-                    {errors.telephone && <p style={{color: 'red'}}>{errors.telephone}</p>}
+                    {errors.telefono && <p style={{color: 'red'}}>{errors.telefono}</p>}
                 </div>
 
                 <div className="form-group">
                     <select 
                         className="form-control p-2 mt-3"
-                        name="search"
-                        value={registerData.search}
+                        name="tipo"
+                        value={registerData.tipo}
                         onChange={handleChange}    
                     >
                         <option value="">Busco</option>
-                        <option value="trabajar">Trabajar</option>
-                        <option value="contratar">Contratar</option>
+                        <option value="junior">Trabajar</option>
+                        <option value="empresa">Contratar</option>
                     </select>
-                    {errors.search && <p style={{color: 'red'}}>{errors.search}</p>}
+                    {errors.tipo && <p style={{color: 'red'}}>{errors.tipo}</p>}
                 </div>
 
                 <div className="form-group">
@@ -184,16 +207,16 @@ const RegisterForm = () => {
                         type="password" 
                         className="form-control p-2 my-3" 
                         placeholder="Password" 
-                        name="password" 
-                        value={registerData.password} 
+                        name="contrasenia" 
+                        value={registerData.contrasenia} 
                         onChange={handleChange}
                     />
-                    {errors.password && <p style={{color: 'red'}}>{errors.password}</p>}
+                    {errors.contrasenia && <p style={{color: 'red'}}>{errors.contrasenia}</p>}
                 </div>
 
                 <div className="form-group">
                     <button 
-                        className="border-0 btn-postularse w-100 p-2 my-3" 
+                        className="border-0 button primary w-100 p-2 my-3" 
                         type="submit"
                         disabled={isSubmitting}
                     >Registrarse</button>
