@@ -1,0 +1,230 @@
+.landing-page p{
+    font-size: var(--font-size-body-1);
+}
+
+.section1{
+    height: 80vh;
+}
+
+.section1-left{
+    padding-left: 74px;
+}
+
+
+.section1-right{
+    border-radius: 63px 0 0 63px;
+    padding: 60px 12% 62px 65px;
+    box-shadow: -7px 3px 80px -29px #5B5B5B66;
+    background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(../../assets/assets-svg/3.svg);
+    background-position: -65% 50%; 
+    background-size: 130% auto;
+    background-repeat: no-repeat;
+}
+
+.section1-right h1{
+    font-size: var(--font-size-headline-1);
+    font-weight: var( --font-weight-bold);
+}
+
+.section2{
+    height: 40vh;
+    background-color: var(--color-white);
+    overflow: hidden;
+}
+
+/* LOS SVGS NO SOLO SE VEN EN PANATALLA GRANDE */
+.section2-svgs{
+    position: relative;
+}
+
+.section2-svgs::before,
+.section2-svgs::after{
+    content: '';
+    position: absolute;
+    z-index: 1;
+    background-size: contain; 
+    background-repeat: no-repeat;
+}
+
+.section2-svgs::before {
+    background-image: url('/src/assets/assets-svg/6.svg');
+    top: 720%;
+    left: -190%;
+    width: 670%; 
+    height: 670%; 
+    transform: translate(-50%, -50%) rotate(166deg);
+    opacity: 0.4;
+}
+
+.section2-svgs::after {
+    background-image: url('/src/assets/assets-svg/7.svg');
+    top: 595%;
+    left: -230%;
+    width: 710%; 
+    height: 710%; 
+    transform: translate(-50%, -50%) rotate(170deg);
+    opacity: 0.5;
+}
+
+.section2-content{
+    z-index: 99;
+}
+
+.section2 h1{
+    font-size: var(--font-size-headline-3);    
+}
+
+.section3 {
+    height: 65vh;
+}
+.section3 h1{
+    font-size: var(--font-size-headline-3);   
+}
+
+
+
+.icon-container{
+    padding: 10%;
+    border-radius: 50%;
+}
+
+.section4 .icons{
+    color: var(--main-color-purple);
+    font-size: 5.625em;
+}
+
+.contratar{
+    position: relative;
+    box-shadow: -7px 3px 80px -29px #5B5B5B66;
+    width: 65%;
+    height: 75vh;
+    border-radius: 15px;
+    background-color: white; 
+    z-index: 0;
+}
+
+.contratar, .trabajar{
+    position: relative;
+    box-shadow: -7px 3px 80px -29px #5B5B5B66;
+    width: 65%;
+    height: 75vh;
+    border-radius: 15px;
+    background-color: white; 
+    z-index: 0;
+}
+
+.contratar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)), url('/src/assets/assets-svg/9.svg');
+    background-position: 50% 100%; 
+    background-size: 220% auto;
+    background-repeat: no-repeat;
+    transform: scaleX(-1); 
+    border-radius: 15px; 
+    z-index: -1; 
+}
+
+
+
+.trabajar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)), url('/src/assets/assets-svg/9.svg');
+    background-position: 50% 100%; 
+    background-size: 220% auto;
+    background-repeat: no-repeat;
+    border-radius: 15px; 
+    z-index: -1; 
+}
+
+.section4{
+    position: relative;
+    background-color: white;
+    height: auto;
+    overflow: hidden;  
+    z-index: 1;
+}
+
+
+.section4::before,
+.section4::after{
+    position: absolute;
+    content:'';
+    width: 100%;
+    height: 100%;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+.section4::before{
+    background-image: url('/src/assets/assets-svg/5.svg');
+    top: 23%;
+    left: -18%;
+    width: 100%;
+    height: 175%;
+    opacity: 0.4;   
+    transform: translate(-10%, -10%) rotate(30deg);  
+}
+.section4::after{
+    background-image: url('/src/assets/assets-svg/7.svg');
+    top: -35%;
+    left: 48%;
+    width: 100%;
+    height: 175%;  
+    opacity: 0.4; 
+    transform: translate(-10%, -10%) rotate(210deg);  
+    
+}
+
+.section4 .svg3{
+    position: absolute;
+    top: -25%;
+    left: 26%;
+    width: 100%;
+    height: 175%;
+    background-image: url('/src/assets/assets-svg/8.svg'); /* Ajusta la ruta del SVG según sea necesario */
+    background-size: 90% auto;
+    background-repeat: no-repeat;
+    opacity: 0.17;
+    transform: translate(-10%, -10%) rotate(30deg);
+    z-index: -1; 
+}
+
+@media  (max-width: 1500px){
+    .section2-svgs::before {
+        top: 440%;
+        left: -110%;
+        width: 500%; 
+    }
+    
+    .section2-svgs::after {
+        top: 440%;
+        left: -195%;
+        width: 710%; 
+        height: 710%; 
+        transform: translate(-50%, -50%) rotate(170deg);
+        opacity: 0.5;
+    }
+    .section4 .svg3{
+        top: -14%;
+        left: 22%;
+    }
+    .contratar::before{
+        background-size: 250% auto;
+    }
+
+    .trabajar::before{
+        background-size: 250% auto;
+    }
+}
+

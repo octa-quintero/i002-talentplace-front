@@ -1,7 +1,10 @@
 import React from 'react'
+import LoginForm from '../components/Forms/LoginForm'
 
 export const Login = () => {
   return (
-    <h5 className='text-center'>Este es el Login</h5>
+    <div>
+      <LoginForm />
+    </div>
   )
 }

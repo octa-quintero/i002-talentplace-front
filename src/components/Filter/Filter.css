@@ -1,0 +1,15 @@
+.container-filter{
+    width: 33%;
+}
+
+@media (width<992px){
+    .container-filter{
+        width: 100%;
+    }
+}
+
+.container-filter__title{
+    margin-top: 5px;
+    border-radius: 15px;
+    border: 1px solid var(--secondary-color-label);
+}

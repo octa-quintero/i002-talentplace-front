@@ -1,5 +1,5 @@
 export * from './AboutUs';
-export * from './LandingPage';
+export * from './LandingPage/LandingPage';
 export * from './PrivacyPolicy';
 export * from './Login';
 export * from './Contratar'
@@ -8,3 +8,5 @@ export * from './Oportunidades'
 export * from './Register';
 export * from './shared/Footer';
 export * from './shared/Navbar';
+export * from './Opportunities/Opportunities';
+

@@ -1,0 +1,34 @@
+.container-opportunities{
+    height: auto;
+    background-image: linear-gradient(
+        180deg,
+        hsl(0deg 0% 100%) 0%,
+        hsl(256deg 100% 98%) 21%,
+        hsl(255deg 100% 97%) 30%,
+        hsl(255deg 100% 95%) 39%,
+        hsl(254deg 100% 94%) 46%,
+        hsl(254deg 100% 92%) 54%,
+        hsl(253deg 100% 91%) 61%,
+        hsl(253deg 100% 89%) 69%,
+        hsl(253deg 100% 88%) 79%,
+        hsl(252deg 100% 86%) 100%
+    );
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    margin-block: 15px;
+}
+
+.container-section-proyectCard{
+    width: 66%;
+}
+
+@media (width<992px){
+    .container-opportunities{
+        flex-direction: column;
+        padding: 15px;
+    }
+    .container-section-proyectCard{
+        width: 100%;
+    }
+}
