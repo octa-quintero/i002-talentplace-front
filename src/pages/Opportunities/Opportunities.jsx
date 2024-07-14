@@ -13,8 +13,6 @@ export const Opportunities = () => {
             <section className='container-section-proyectCard'>
                 <Search />
                 <ProyectCard />
-                <ProyectCard />
-                <ProyectCard />
             </section>
         </main>
     )
