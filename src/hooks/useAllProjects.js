@@ -7,12 +7,20 @@ const useAllProjects = () => {
     // Manejo del estado de los proyectos
     const [projects, setProjects] = useState([]);
 
+    // Estado de loading
+    const [loading, setLoading] = useState(true)
+    console.log(loading);
+
+
     // funcion para llamar a la api
     useEffect(() => {
         const loadProjects = async () => {
             try {
                 const data = await fetchAllProjects();
                 setProjects(data);
+
+                // Cambia a falso si la promesa resulta exitosa
+                setLoading(false);
             } catch (error) {
                 console.error('Error fetching projects:', error);
             }
@@ -43,8 +51,8 @@ const useAllProjects = () => {
             )
         );
     };
-    
-    return {toggleClickedBookmark, toggleClickedHeart, projects}
+
+    return {toggleClickedBookmark, toggleClickedHeart, projects, loading}
 
 }
 
