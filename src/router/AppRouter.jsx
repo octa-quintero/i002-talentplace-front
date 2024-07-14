@@ -1,11 +1,9 @@
 import { Route, Routes } from "react-router-dom"
-import { LandingPage, AboutUs, Login, Register, Opportunities } from "../pages"
-
+import { LandingPage, PrivacyPolicy, AboutUs, Login, Register, Opportunities } from "../pages"
 
 export const AppRouter = () => {
   return (
     <>
-
       <Routes>
         <Route path="/home" element={<LandingPage />} /> 
         <Route path="/*" element={<LandingPage />} /> 
@@ -15,7 +13,6 @@ export const AppRouter = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/opportunities" element={<Opportunities />} />
       </Routes>
-
     </>
   )
 }
