@@ -1,16 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
+import './Navbar.css';
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <img
-            src="src/assets/assets-png/2.png"
-            alt="imagen logo"
-            width="30px"
-            height="30px"
-          />
+          <img src="src/assets/assets-png/2.png" alt="imagen logo" />
         </Link>
 
         <button
@@ -24,8 +20,9 @@ export const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
+          <div className="navbar-nav mx-auto justify-content-center" >
             <NavLink
               className={({ isActive }) =>
                 `nav-item nav-link ${isActive ? "active" : ""}`
@@ -34,7 +31,6 @@ export const Navbar = () => {
             >
               Contratar
             </NavLink>
-
             <NavLink
               className={({ isActive }) =>
                 `nav-item nav-link ${isActive ? "active" : ""}`
@@ -47,7 +43,7 @@ export const Navbar = () => {
               className={({ isActive }) =>
                 `nav-item nav-link ${isActive ? "active" : ""}`
               }
-              to="/contact"
+              to="/contacto"
             >
               Contactanos
             </NavLink>
@@ -55,15 +51,15 @@ export const Navbar = () => {
               className={({ isActive }) =>
                 `nav-item nav-link ${isActive ? "active" : ""}`
               }
-              to="/about"
+              to="/nosotros"
             >
               Nosotros
             </NavLink>
           </div>
+          <div className="ml-auto">
+            <a href="/ingreso" className="btn btn-primary" type="button">Ingresar</a>
+          </div>
         </div>
-        
-        <a href="/login" class="btn btn-primary" role="button" aria-disabled="true">Ingresar</a>
-        
       </div>
     </nav>
   );
