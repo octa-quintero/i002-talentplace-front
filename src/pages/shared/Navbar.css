@@ -1,13 +1,14 @@
 
 .navbar{
   padding: 12px 63px;
-   background-color:var(--main-color-white);
-   font-size: var(--font-size-body-1);
+  background-color:var(--main-color-white);
+  font-size: var(--font-size-body-1);
 }
 .navbar-nav{
   padding: 10px;
   height: 48px;
-  width: 720px;
+  /* width: 720px; */
+  width: 80%;
   gap: 18px;
   display: flex;
   justify-content: center; /* Centrar horizontalmente */

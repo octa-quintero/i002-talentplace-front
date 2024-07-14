@@ -57,8 +57,10 @@ export const Navbar = () => {
               Nosotros
             </NavLink>
           </div>
-          <div className="ml-auto">
-            <a href="/ingreso" className="btn btn-primary" type="button">Ingresar</a>
+          <div>
+            <NavLink  to="/login">
+              <btn className="btn btn-primary" type="button">Ingresar</btn>
+            </NavLink>
           </div>
         </div>
       </div>
