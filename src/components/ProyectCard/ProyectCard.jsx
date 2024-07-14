@@ -1,20 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { BsBookmarkFill, BsHeartFill } from 'react-icons/bs';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BiBookmark } from 'react-icons/bi';
-import { endPoints } from '../../api/endPoints';
 import Button from '../Button/Button';
 import './ProyectCard.css';
 import '../../index.css';
-import '../../api/endPoints';
 import useAllProjects from '../../hooks/useAllProjects';
 
-
-const ProyectCard = () => {
-
-    // Hook con los fetch para llamar a la api y funciones para el seteo de favoritos
-    const { projects, toggleClickedHeart, toggleClickedBookmark } = useAllProjects();
+const ProyectCard = ({ projects }) => {
+    const { toggleClickedHeart, toggleClickedBookmark } = useAllProjects();
 
     return (
         <div>

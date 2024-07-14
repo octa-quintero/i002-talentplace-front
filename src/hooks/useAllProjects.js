@@ -1,25 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import {fetchAllProjects} from '../api/fetchAllProjects'
-
+import { useEffect, useState } from 'react';
+import { fetchAllProjects } from '../api/fetchAllProjects';
 
 const useAllProjects = () => {
-    
-    // Manejo del estado de los proyectos
     const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    // Estado de loading
-    const [loading, setLoading] = useState(true)
-    console.log(loading);
-
-
-    // funcion para llamar a la api
     useEffect(() => {
         const loadProjects = async () => {
             try {
                 const data = await fetchAllProjects();
                 setProjects(data);
-
-                // Cambia a falso si la promesa resulta exitosa
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching projects:', error);
@@ -29,8 +19,6 @@ const useAllProjects = () => {
         loadProjects();
     }, []);
 
-
-    // Funcion para clickear favoritos por id del proyecto
     const toggleClickedHeart = (projectId) => {
         setProjects(prevProjects =>
             prevProjects.map(project => 
@@ -41,7 +29,6 @@ const useAllProjects = () => {
         );
     };
 
-    // Funcion para clickear guardado por id del proyecto
     const toggleClickedBookmark = (projectId) => {
         setProjects(prevProjects =>
             prevProjects.map(project => 
@@ -52,8 +39,7 @@ const useAllProjects = () => {
         );
     };
 
-    return {toggleClickedBookmark, toggleClickedHeart, projects, loading}
+    return { toggleClickedBookmark, toggleClickedHeart, projects, loading };
+};
 
-}
-
-export default useAllProjects
+export default useAllProjects;
