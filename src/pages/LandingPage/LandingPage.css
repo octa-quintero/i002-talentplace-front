@@ -228,3 +228,9 @@
     }
 }
 
+@media  (max-width: 576px){
+    .section1-right h1{
+        font-size: var(--font-size-res-headline-1);
+        
+    }
+}

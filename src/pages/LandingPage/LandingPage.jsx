@@ -18,19 +18,19 @@ export const LandingPage = () => {
     <div className="landing-page d-flex flex-column">
       <section className="container-fluid section1 mb-5">
         <div className="row h-100">
-          <div className="col-md-6 col-sm-12 pe-5 section1-left">
+          <div className="col-md-6 col-sm-12 order-sm-2 order-md-1 pe-5 section1-left">
             <div className='d-flex h-100 flex-column justify-content-between'>
-              <div className="row mt-5">
-                <div className='col-md-3'>
+              <div className="row mt-5 ">
+                <div className='col-6 col-md-3 '>
                   <Card Icon={BiGitPullRequest} type='small' alt="IT" title="It"/>
                 </div>
-                <div className='col-md-3'>
+                <div className='col-6 col-md-3'>
                   <Card Icon={TfiMarkerAlt} type='small' alt="Diseño" title="Diseño"/>
                 </div>
-                <div className='col-md-3'>
+                <div className='col-6 col-md-3'>
                   <Card Icon={PiHandCoins} type='small' alt="Marketing" title="Marketing"/>
                 </div>
-                <div className='col-md-3'>
+                <div className='col-6 col-md-3'>
                   <Card Icon={MdTranslate} type='small' alt="Traducción" title="Traducción"/>
                 </div>
               </div>  
@@ -46,7 +46,7 @@ export const LandingPage = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-sm-12 pe-0 ps-5">
+          <div className="col-12 col-md-6 order-sm-1 order-md-2 pe-0 ps-5">
             <div className='d-flex h-100 flex-column justify-content-between bg-white section1-right'>
               <div className='row'>
                 <p>Tu talento, nuestra plataforma. Juntos, hacemos grandes cosas.</p>
@@ -88,7 +88,7 @@ export const LandingPage = () => {
       <section className='container-fluid section4 pt-4 pb-5 mb-5'>
         <div className='svg3'></div>
         <div className='row'>
-          <div className='col-md-6 p-0 pe-5'>
+          <div className='sm-12 col-md-6 p-0 pe-5'>
             <div className='d-flex align-items-center justify-content-end'>
               <div className='contratar d-flex flex-column align-items-center justify-content-center'>
                 <div className='icon-container d-flex align-items-center justify-content-center bg-white mb-4 mt-5'>
@@ -104,7 +104,7 @@ export const LandingPage = () => {
               </div>
             </div>
           </div>
-          <div className='col-md-6 p-0 ps-5'>
+          <div className='sm-12 col-md-6 p-0 ps-5 '>
             <div className='d-flex align-items-center justify-content-start'>
               <div className='trabajar d-flex flex-column align-items-center justify-content-center'>
                 <div className='icon-container d-flex align-items-center justify-content-center bg-white mb-4 mt-5'>
