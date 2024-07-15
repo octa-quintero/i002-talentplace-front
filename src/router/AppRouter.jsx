@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 
-import { LandingPage, PrivacyPolicy, AboutUs, Login, Register, Opportunities} from "../pages"
+import { LandingPage, PrivacyPolicy, AboutUs, Login, Register, Opportunities } from "../pages"
 
 
 export const AppRouter = () => {
@@ -15,7 +15,6 @@ export const AppRouter = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/opportunities" element={<Opportunities />} />
       </Routes>
-
     </>
   )
 }

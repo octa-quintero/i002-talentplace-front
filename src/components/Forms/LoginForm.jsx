@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from '../../assets/assets-png/2.png';
 import './Form.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -138,7 +138,11 @@ const LoginForm = () => {
                     >Ingresar</button>
                 </div>
             </div>
-            <p className="mx-auto w-50 text-center">¿Aún no estás registrado? <a><strong>Registrate acá</strong></a></p>
+            <p className="mx-auto w-50 text-center">¿Aún no estás registrado?&nbsp;
+                <NavLink to="/register">
+                    <strong>Registrate acá</strong>
+                </NavLink> 
+            </p>
         </form>
     )
 }
