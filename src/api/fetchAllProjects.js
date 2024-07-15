@@ -10,7 +10,10 @@ const fetchAllProjects = async () => {
 
     // Hace el fetch a la api segun el endpoint para todos los proyectos y mapea el fetch de los proyectos
     try {
-        const response = await axios.get(endPoints.projects.url);
+        const urlAllProjects = endPoints.projects.url + "/projects"
+        console.log(urlAllProjects);
+        const response = await axios.get(urlAllProjects);
+        console.log(response.data);
         return response.data.map(project => ({
             ...project,
             clickedHeart: false,
