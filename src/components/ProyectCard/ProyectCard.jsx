@@ -5,10 +5,8 @@ import { BiBookmark } from 'react-icons/bi';
 import Button from '../Button/Button';
 import './ProyectCard.css';
 import '../../index.css';
-import useAllProjects from '../../hooks/useAllProjects';
 
 const ProyectCard = ({ projects }) => {
-    const { toggleClickedHeart, toggleClickedBookmark } = useAllProjects();
 
     return (
         <div>
@@ -28,17 +26,16 @@ const ProyectCard = ({ projects }) => {
                         <p>{project.descripcion}</p>
                         
                         <p className='mb-0'><strong>Categoría: </strong>{project.categoria.nombre}</p>
-
                         <p className='mb-0'><strong>Habilidades: </strong>{project.habilidades.map((habilidad)=>(<li key={habilidad.id}>{habilidad.nombre}</li>))}</p>
                         <div className='d-flex justify-content-between mt-1 container-item'>
                             <div className='d-flex gap-3 container-ri'>
                                 {project.clickedHeart 
-                                    ? <BsHeartFill onClick={() => toggleClickedHeart(project.id)} className='ri-outlineheart' />
-                                    : <AiOutlineHeart onClick={() => toggleClickedHeart(project.id)} className='ri-outlineheart' />
+                                    ? <BsHeartFill className='ri-outlineheart' />
+                                    : <AiOutlineHeart className='ri-outlineheart' />
                                 }
                                 {project.clickedBookmark 
-                                    ? <BsBookmarkFill onClick={() => toggleClickedBookmark(project.id)} className='ri-bookmark' />
-                                    : <BiBookmark onClick={() => toggleClickedBookmark(project.id)} className='ri-bookmark' />
+                                    ? <BsBookmarkFill className='ri-bookmark' />
+                                    : <BiBookmark className='ri-bookmark' />
                                 }
                             </div>
                             <div className='col-md-4 col-lg-2'>

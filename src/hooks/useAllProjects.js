@@ -20,27 +20,7 @@ const useAllProjects = () => {
         loadProjects();
     }, []);
 
-    const toggleClickedHeart = (projectId) => {
-        setProjects(prevProjects =>
-            prevProjects.map(project => 
-                project.id === projectId 
-                    ? { ...project, clickedHeart: !project.clickedHeart } 
-                    : project
-            )
-        );
-    };
-
-    const toggleClickedBookmark = (projectId) => {
-        setProjects(prevProjects =>
-            prevProjects.map(project => 
-                project.id === projectId 
-                    ? { ...project, clickedBookmark: !project.clickedBookmark } 
-                    : project
-            )
-        );
-    };
-
-    return { toggleClickedBookmark, toggleClickedHeart, projects, loading };
+    return { projects, loading };
 };
 
 export default useAllProjects;
