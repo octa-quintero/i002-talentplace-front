@@ -1,13 +1,12 @@
 import React from 'react'
 import './Filter.css'
 import '../../index.css'
+import Dropdown from '../Dropdown/Dropdown'
 
 const Filter = () => {
     return (
         <aside className='container-filter'>
-            <div className="b-example-divider b-example-vr">
-            </div>
-            <div className="flex-shrink-0 p-3 bg-white container-filter__title">
+            <div className=" p-3 bg-white container-filter__title">
                 <span className="d-flex align-items-center pl-3 pb-3 fs-5 fw-semibold">Filtrá tu búsqueda</span>
                 <ul className="list-unstyled ps-0">
 
@@ -167,6 +166,9 @@ const Filter = () => {
                             </ul>
                         </div>
                     </li>
+
+                    <li className="border-top my-3"></li>
+                    <Dropdown />
 
                 </ul>
             </div>

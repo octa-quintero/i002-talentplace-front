@@ -3,6 +3,7 @@ import { AppRouter } from "./router/AppRouter";
 import { Navbar, Footer } from "./pages";
 import "./App.css";
 
+
 function App() {
   return (
     <>

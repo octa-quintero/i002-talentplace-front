@@ -17,14 +17,3 @@
 .container-item{
     height: 48px;
 }
-
-.btn-postularse{
-    background-color: var(--main-color-purple);
-    color: var(--color-white);
-    border-radius: 5px;
-    width: 103px;
-}
-
-.btn-postularse:hover{
-    background-color: var(--main-color-purple_hover);
-}

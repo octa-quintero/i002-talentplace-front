@@ -53,3 +53,15 @@
     background-color: transparent;
 }
 
+.dropdown-menu.show{
+    width: 100%;
+}
+
+@media (width<992px){
+    .container-search{
+        flex-direction: column;
+    }
+    .container-search__dropdown{
+        width: calc(100% - 26px) !important;
+    }
+}
