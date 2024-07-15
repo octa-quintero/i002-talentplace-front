@@ -18,19 +18,19 @@ export const LandingPage = () => {
     <div className="landing-page d-flex flex-column">
       <section className="container-fluid section1 mb-5">
         <div className="row h-100">
-          <div className="col-md-6 col-sm-12 pe-5 section1-left">
+          <div className="col-12 col-md-6 pe-5 section1-left">
             <div className='d-flex h-100 flex-column justify-content-between'>
               <div className="row mt-5">
-                <div className='col-md-3'>
+                <div className='col-6 col-md-3'>
                   <Card Icon={BiGitPullRequest} type='small' alt="IT" title="It"/>
                 </div>
-                <div className='col-md-3'>
+                <div className='col-6 col-md-3'>
                   <Card Icon={TfiMarkerAlt} type='small' alt="Diseño" title="Diseño"/>
                 </div>
-                <div className='col-md-3'>
+                <div className='col-6 col-md-3'>
                   <Card Icon={PiHandCoins} type='small' alt="Marketing" title="Marketing"/>
                 </div>
-                <div className='col-md-3'>
+                <div className='col-6 col-md-3'>
                   <Card Icon={MdTranslate} type='small' alt="Traducción" title="Traducción"/>
                 </div>
               </div>  
@@ -46,7 +46,7 @@ export const LandingPage = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-sm-12 pe-0 ps-5">
+          <div className="col-12 col-md-6 pe-0  ">
             <div className='d-flex h-100 flex-column justify-content-between bg-white section1-right'>
               <div className='row'>
                 <p>Tu talento, nuestra plataforma. Juntos, hacemos grandes cosas.</p>
@@ -57,8 +57,8 @@ export const LandingPage = () => {
               <div className='row '>
                 <p>En TalentPlace, los juniors encuentran oportunidades reales. Aquí son tomados en serio y consiguen trabajos auténticos que valoran su verdadero talento y potencial.</p>
               </div>
-              <div className='row me-5'>
-                  <div className='col-md-12 col-lg-6'>
+              <div className='row '>
+                  <div className='col-md-12 col-lg-6 sm-pb-1'>
                     <Button type='primary'  to="/opportunities">Busco Trabajar</Button>
                   </div>
                   <div className='col-md-12 col-lg-6'>
@@ -69,16 +69,16 @@ export const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section className='container-fluid section2 d-flex align-items-center justify-content-center'>
+      <section className='container-fluid section2 p-3 d-flex align-items-center justify-content-center'>
         <div className='row text-center w-75 section2-svgs'>
           <div className='col-12 section2-content'>
             <h1 className='mb-4'>TalentPlace es el lugar ideal para trabajar ágilmente. Ya sea que estés contratando o seas freelancer, encontrarás lo que necesitas aquí.</h1>
-            <Button className="section2-button" width="17%" type='primary'>Forma parte aquí</Button>
+            <Button className="section2-button" width="auto" type='primary'>Forma parte aquí</Button>
           </div>
         </div>
       </section>
       <section className='container-fluid section3'>
-        <div className='row pt-5 '>
+        <div className='row py-4'>
           <div className='col-md-12 p-0 '>
             <h1 className='text-center pb-4'>Descubre profesionales talentosos con las habilidades que necesitas</h1>
             <CardCarousel/>
@@ -88,7 +88,7 @@ export const LandingPage = () => {
       <section className='container-fluid section4 pt-4 pb-5 mb-5'>
         <div className='svg3'></div>
         <div className='row'>
-          <div className='col-md-6 p-0 pe-5'>
+          <div className='col-sm-6 col-md-6  md-pe-sec4'>
             <div className='d-flex align-items-center justify-content-end'>
               <div className='contratar d-flex flex-column align-items-center justify-content-center'>
                 <div className='icon-container d-flex align-items-center justify-content-center bg-white mb-4 mt-5'>
@@ -104,7 +104,7 @@ export const LandingPage = () => {
               </div>
             </div>
           </div>
-          <div className='col-md-6 p-0 ps-5'>
+          <div className='col-sm-6 col-md-6  md-ps-sec4'>
             <div className='d-flex align-items-center justify-content-start'>
               <div className='trabajar d-flex flex-column align-items-center justify-content-center'>
                 <div className='icon-container d-flex align-items-center justify-content-center bg-white mb-4 mt-5'>
