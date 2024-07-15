@@ -1,17 +1,15 @@
 import { BrowserRouter } from "react-router-dom";
 import { AppRouter } from "./router/AppRouter";
-import { Navbar, Footer } from "./pages";
+import Layout from "./components/Layout/Layout";
 import "./App.css";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
-        <div className="main-content">
+        <Layout>
           <AppRouter />
-        </div>
-        <Footer />
+        </Layout>
       </BrowserRouter>
     </>
   );

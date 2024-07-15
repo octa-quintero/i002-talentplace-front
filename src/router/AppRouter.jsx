@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { LandingPage, AboutUs, Login, Register, Opportunities } from "../pages"
-
+import { SideBar } from "../pages/SideBar/SideBar"
 
 export const AppRouter = () => {
   return (
@@ -14,6 +14,8 @@ export const AppRouter = () => {
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
         <Route path="/opportunities" element={<Opportunities />} />
+        {/* SideBar */}
+        <Route path="/projects" element={<SideBar />} />
       </Routes>
 
     </>
