@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom"
+
 import { LandingPage, PrivacyPolicy, AboutUs, Login, Register, Opportunities } from "../pages"
+
 
 export const AppRouter = () => {
   return (

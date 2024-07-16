@@ -1,6 +1,7 @@
 .footer .list-group li {
     margin-top: .25rem !important;
     list-style: none;
+    z-index: 1;
 }
 
 .footer .list-group li a {
@@ -25,7 +26,6 @@
 
 .footer-background {
     position: relative;
-    min-height: 350px;
 }
 
 .footer-background-left::before,
@@ -42,10 +42,15 @@
 }
 
 .footer-background-left::before {
-    background-image: url(src/assets/assets-png/2.png);
+    background-image: url(../../assets/assets-png/2.png);
 }
 
 .footer-background-right::before {
-    background-image: url(src/assets/assets-png/9.png);
+    background-image: url(../../assets/assets-png/9.png);
 }
 
+@media (min-width: 992px) {
+    .footer-background {
+        min-height: 350px;
+    }
+}
