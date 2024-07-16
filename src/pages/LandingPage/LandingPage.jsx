@@ -18,7 +18,7 @@ export const LandingPage = () => {
     <div className="landing-page d-flex flex-column">
       <section className="container-fluid section1 mb-5">
         <div className="row h-100">
-          <div className="col-12 col-md-6 pe-5 section1-left">
+          <div className="col-12 col-md-6  section1-left-container">
             <div className='d-flex h-100 flex-column justify-content-between'>
               <div className="row mt-5">
                 <div className='col-6 col-md-3'>
@@ -46,7 +46,7 @@ export const LandingPage = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-sm-12 pe-0 ps-5">
+          <div className="col-md-6 col-sm-12 pe-0  section1-right-container">
             <div className='d-flex h-100 flex-column justify-content-between bg-white section1-right'>
               <div className='row'>
                 <p>Tu talento, nuestra plataforma. Juntos, hacemos grandes cosas.</p>
