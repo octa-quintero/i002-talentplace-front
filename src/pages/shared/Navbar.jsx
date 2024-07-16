@@ -37,7 +37,7 @@ export const Navbar = () => {
               }
               to="/opportunities"
             >
-              Opportunities
+              Oportunidades
 
             </NavLink>
             <NavLink
