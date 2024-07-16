@@ -55,14 +55,14 @@
     --font-size-body-2: 1rem;
 
     /* font size responsive */
-    /* --font-size-res-headline-1: 72px;
-    --font-size-res-headline-2: 58px;
-    --font-size-res-headline-3: 42px;
+    --font-size-res-headline-1: 40px;
+    --font-size-res-headline-2: 54px;
+    --font-size-res-headline-3: 20px;
 
     --font-size-res-subt: 32x;
 
     --font-size-res-body-1: 28px;
-    --font-size-res-body-2: 24px; */
+    --font-size-res-body-2: 24px; 
 
     /* regular:
     font-family: "Lato", sans-serif;   

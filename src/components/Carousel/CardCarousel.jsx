@@ -9,6 +9,7 @@ import { MdTranslate } from "react-icons/md";
 import { PiChartLineBold } from "react-icons/pi";
 import Bullhorn from "../../assets/assets-svg/Bullhorn.svg"
 import Admin from "../../assets/assets-svg/Admin.svg"
+import '../Carousel/CardCarousel.css'
 
 
 export default function CardCarousel() {
@@ -22,7 +23,7 @@ export default function CardCarousel() {
   };
   return (
     
-      <Slider {...settings}>
+      <Slider {...settings} className='custom-slider'>
         <div>
           <Card Icon={BiGitPullRequest} type='large' alt="It y programación" title="It y Programación"/>
         </div>
