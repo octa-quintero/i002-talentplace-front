@@ -1,9 +1,12 @@
-import { Button, Card, Col, Row } from "react-bootstrap"
+import { Button, Card, Col, Nav, Row } from "react-bootstrap"
 import { useEffect, useState } from "react";
 import "./ProjectList.css";
 import { useUserContext } from "../../context/UserProvider";
 import axios from "axios";
 import formatDateLocal from "../../utils/formatDateLocal";
+import { AiOutlineMail } from "react-icons/ai";
+import { GoEye } from "react-icons/go";
+import { LuPencilLine } from "react-icons/lu";
 
 const BACKEND_ENDPOINT = import.meta.env.VITE_BACKEND_URL;
 
@@ -149,13 +152,20 @@ export const ProjectList = () => {
                                 </Row>
                             </Col>
                             <Col lg={3}>
-                                <Card.Title className="fw-bold">
-                                    ICONOS
-                                </Card.Title>
+                                <Nav activeKey="" className="justify-content-lg-end justify-content-center">
+                                    <Nav.Link eventKey="link-event-key">
+                                        <LuPencilLine className="color-purple fs-2"/>                                            
+                                    </Nav.Link>
+                                    <Nav.Link eventKey="link-event-key">
+                                        <GoEye className="color-purple fs-2"/>
+                                    </Nav.Link>
+                                    <Nav.Link eventKey="link-event-key">
+                                        <AiOutlineMail className="color-purple fs-2"/>                                            
+                                    </Nav.Link>                                        
+                                </Nav>
                             </Col>
         
                         </Row>
-                        {/* <Button variant="primary">Go somewhere</Button> */}
                     </Card.Body>
                 </Card>
                 ))

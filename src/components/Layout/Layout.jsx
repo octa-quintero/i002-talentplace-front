@@ -5,13 +5,16 @@ import "./Layout.css";
 const Layout = ({ children }) => {
 
   const location = useLocation();
-  const hideNavbarRoutes = ["/projects"];
+  //rutas padre e hijas
+  const hideNavbarRoutes = location.pathname.startsWith("/dashboard");
+  //ruta especifica
+  // const hideNavbarRoutes = ["/dashboard"];
 
   return (
     <>
-      {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
+      {!hideNavbarRoutes && <Navbar />}
       <div className="main-content">{children}</div>
-      <Footer />
+      {!hideNavbarRoutes && <Footer />}
     </>
   );
 };
