@@ -1,0 +1,63 @@
+
+.sidebar-container, .sidebar-top, .sidebar-menu, .sidebar-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-container {
+    justify-content: space-between;
+    
+    /*TODO
+        - adjust to 3 of 8 cols on react bootstrap
+        - height 100%    
+        - remove white background
+        - auto hide burguer menu on mobile version (adjust media queries)
+    */
+    border: 1px solid;
+    width: 300px;
+    height: 75vh;
+    background: var(--bg-color) no-repeat center center fixed;
+    background: white;
+}
+
+.sidebar-top {
+    height: 20%;
+    border: 1px solid blue;
+}
+
+.sidebar-options {
+    justify-content: space-between;
+    height: 20%;
+    border: 1px solid green;
+}
+
+.sidebar-menu {
+    justify-content: space-between;
+    height: 40%;
+    border: 1px solid red;
+}
+
+.sidebar-top, .sidebar-options, .sidebar-menu {
+    width: 100%;
+}
+
+
+.sidebar-menu-row, .sidebar-options-row {
+    display: flex;
+    width: 80%;
+}
+
+.sidebar-menu-icon, .sidebar-options-icon {
+    padding-right: 5%;
+}
+
+.sidebar-menu-row:hover, .sidebar-options-row:hover {
+    cursor: pointer;
+}
+
+
+/*  Images  */
+.sidebar-top-logo {
+    width: 78px;
+}
