@@ -1,36 +1,15 @@
 import { Button, Card, Col, Nav, Row } from "react-bootstrap"
-import { useEffect, useState } from "react";
-import "./ProjectList.css";
-import { useUserContext } from "../../context/UserProvider";
-import axios from "axios";
-import formatDateLocal from "../../utils/formatDateLocal";
 import { AiOutlineMail } from "react-icons/ai";
 import { GoEye } from "react-icons/go";
 import { LuPencilLine } from "react-icons/lu";
-
-const BACKEND_ENDPOINT = import.meta.env.VITE_BACKEND_URL;
+import formatDateLocal from "../../utils/formatDateLocal";
+import { useAllProjectsByUserId } from "../../hooks/useAllProjectsByUserId";
+import "./ProjectList.css";
+import Loading from "../../pages/shared/Loading";
 
 export const ProjectList = () => {
 
-    const [projects, setProjects] = useState([]);
-    
-    const { setToken } = useUserContext();
-
-    useEffect(() => {
-        const fetchProjects = async () => {
-          const storedToken = await localStorage.getItem("token");
-          setToken(storedToken);
-    
-          const response = await axios.get(`${BACKEND_ENDPOINT}/projects`, {
-            headers: { Authorization: `Bearer ${storedToken}` },
-          });
-          const projects = response.data;
-    
-          setProjects(projects);
-        };
-    
-        fetchProjects();
-    }, [setToken]);
+    const { projects, loading } = useAllProjectsByUserId();
 
     const stateProjectParse = (boolean) => {
         return boolean ? "Vigente" : "No vigente";
@@ -44,7 +23,9 @@ export const ProjectList = () => {
 
     return(
         <>
-            { projects.length > 0 ? projects.map((project) => (
+            {loading ? (
+                    <div className="loading"><Loading/></div>
+                ) : projects.map((project) => (
                 <Card key={project.id} className="border border-info align-items-start m-3">
                     <Card.Body className="pt-0">
                         <Row>
@@ -169,12 +150,6 @@ export const ProjectList = () => {
                     </Card.Body>
                 </Card>
                 ))
-                : (
-                    <Row>
-                        <Card.Title className="fw-bold">
-                            No se encontraron Projectos
-                        </Card.Title>
-                    </Row>)
             }
         </>
     )

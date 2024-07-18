@@ -5,10 +5,9 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 
 export const Dashboard = () => {
     return(
-        <main className="container-sidebar">
+        <main className="container-sidebar bg-white">
             <Container fluid className="d-flex">
-
-                <Row>
+                <Row className="w-100">
                     <Col md={3} className="d-md-block bg-success">
                         <Sidebar />
                     </Col>
