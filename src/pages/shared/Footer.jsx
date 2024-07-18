@@ -126,7 +126,7 @@ export const Footer = () => {
               </ul>
               <div className="mt-5">
                 <img
-                  src="src/assets/assets-png/2.png"
+                  src="2.png"
                   alt="talentplace-icon"
                   width={100}
                   height={80}

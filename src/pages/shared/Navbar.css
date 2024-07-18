@@ -53,4 +53,8 @@
   }
     
 
-  
+@media (width<992px){
+  .navbar-nav{
+    height: 250px;
+  }
+}

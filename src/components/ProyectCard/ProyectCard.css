@@ -17,3 +17,18 @@
 .container-item{
     height: 48px;
 }
+
+@media (width<768px){
+    .category-container{
+        flex-direction: column;
+    }
+    .hability-container{
+        flex-direction: column;
+    }
+    .hability-group{
+        flex-wrap: wrap;
+    }
+    .hability-group p{
+        margin-bottom: 0px;
+    }
+}

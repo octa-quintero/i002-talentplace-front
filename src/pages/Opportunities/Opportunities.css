@@ -39,4 +39,5 @@
     justify-content: center;
     width: 100%;
     background-color: var(--color-white);
+    border-radius: 15px;
 }
