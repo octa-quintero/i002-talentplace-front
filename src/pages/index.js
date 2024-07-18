@@ -9,5 +9,5 @@ export * from './Register';
 export * from './shared/Footer';
 export * from './shared/Navbar';
 export * from './Opportunities/Opportunities';
-export * from './Dashboard';
+export * from './Sidebar';
 

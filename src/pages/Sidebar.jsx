@@ -1,10 +1,10 @@
 import React from "react";
-import SidebarDashboard from "../components/Dashboard/SidebarDashboard";
+import Sidebar from "../components/Sidebar/Sidebar";
 
 export const Dashboard = () => {
     return(
         <div>
-            <SidebarDashboard />
+            <Sidebar />
         </div>
     );
 }
