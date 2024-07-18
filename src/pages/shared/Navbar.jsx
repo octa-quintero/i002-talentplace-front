@@ -3,7 +3,7 @@ import './Navbar.css';
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-lg" id="navbar-dom">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <img src="src/assets/assets-png/2.png" alt="imagen logo" />

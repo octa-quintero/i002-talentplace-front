@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 
-import { LandingPage, PrivacyPolicy, AboutUs, Login, Register, Opportunities } from "../pages"
+import { LandingPage, PrivacyPolicy, AboutUs, Login, Register, Opportunities, PaginaEnConstruccion } from "../pages"
 
 
 export const AppRouter = () => {
@@ -14,6 +14,10 @@ export const AppRouter = () => {
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
         <Route path="/opportunities" element={<Opportunities />} />
+        <Route path="/contratar" element={<PaginaEnConstruccion />} />
+        <Route path="/nosotros" element={<PaginaEnConstruccion />} />
+        <Route path="/contacto" element={<PaginaEnConstruccion />} />
+        <Route path="/paginaenconstruccion" element={<PaginaEnConstruccion />} />
       </Routes>
     </>
   )
