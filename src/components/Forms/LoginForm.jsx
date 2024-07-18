@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import logo from '../../assets/assets-png/2.png';
-import './Form.css';
-import axios from 'axios';
 import { NavLink, useNavigate } from 'react-router-dom';
+import logo from '../../assets/assets-png/2.png';
+import axios from 'axios';
+import './Form.css';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -96,7 +96,7 @@ const LoginForm = () => {
     }
     
     return(
-        <form id="login-form" onSubmit={handleSubmit} className='container-forms container w-50 p-5 my-5'>
+        <form id="login-form" onSubmit={handleSubmit} className='container-forms container p-5 my-5 form-width'>
 
             <div className="container-forms-header row">
                 <h2 className="col-md-10">Ingreso a cuenta</h2>
@@ -139,6 +139,7 @@ const LoginForm = () => {
                 </div>
             </div>
             <p className="mx-auto w-50 text-center">¿Aún no estás registrado?&nbsp;
+                <br />
                 <NavLink to="/register">
                     <strong>Registrate acá</strong>
                 </NavLink> 
