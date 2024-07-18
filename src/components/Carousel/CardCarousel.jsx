@@ -19,8 +19,21 @@ export default function CardCarousel() {
     speed: 500,
     slidesToShow: 4.5,
     swipeToSlide: true,
-    arrows: false
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 3.3,
+          infinite: true,
+          dots: true,
+        }
+      },
+    ]
   };
+
+
+
   return (
     
       <Slider {...settings} className='custom-slider'>

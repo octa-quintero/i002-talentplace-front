@@ -3,6 +3,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FiYoutube } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import logo from "../../assets/assets-png/2.png"
 import "./Footer.css";
 
 export const Footer = () => {
@@ -126,7 +127,7 @@ export const Footer = () => {
               </ul>
               <div className="mt-5">
                 <img
-                  src="2.png"
+                  src={logo}
                   alt="talentplace-icon"
                   width={100}
                   height={80}

@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
+import logo from "../../assets/assets-png/2.png"
 import './Navbar.css';
+import Button from "../../components/Button/Button";
 
 export const Navbar = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -13,7 +15,7 @@ export const Navbar = () => {
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <img src="2.png" alt="imagen logo" />
+          <img src={logo} alt="imagen logo" />
         </Link>
 
         <button
@@ -67,8 +69,8 @@ export const Navbar = () => {
             </NavLink>
           </div>
           <div className="d-flex justify-content-center">
-            <NavLink to="/login">
-              <button onClick={toggleNavbar} className="btn btn-primary" type="button">Ingresar</button>
+            <NavLink to="/login" onClick={toggleNavbar}>
+              <Button width="160px" type='default' to="/login">Ingresar</Button>
             </NavLink>
           </div>
         </div>
