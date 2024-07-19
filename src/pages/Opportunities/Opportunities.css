@@ -16,7 +16,6 @@
     display: flex;
     width: 100%;
     gap: 15px;
-    margin-block: 15px;
 }
 
 .container-section-proyectCard{
@@ -40,4 +39,5 @@
     width: 100%;
     background-color: var(--color-white);
     border-radius: 15px;
+    margin-top: 15px;
 }

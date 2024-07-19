@@ -13,7 +13,7 @@ import {FaBriefcase, FaUserGraduate} from 'react-icons/fa'
 
 export const LandingPage = () => {
   return (
-    <div className="landing-page d-flex flex-column">
+    <div className="landing-page d-flex flex-column asd">
       <section className="container-fluid section1 mb-5">
         <div className="row h-100">
           <div className="col-12 col-md-6  section1-left-container">
