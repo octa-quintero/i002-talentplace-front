@@ -38,25 +38,25 @@ export default function CardCarousel() {
     
       <Slider {...settings} className='custom-slider'>
         <div>
-          <Card Icon={BiGitPullRequest} type='large' alt="It y programación" title="It y Programación"/>
+          <Card Icon={BiGitPullRequest} container="bg-white" type='large' alt="It y programación" title="It y Programación"/>
         </div>
         <div>
-          <Card Icon={TfiMarkerAlt} type='large' alt="Diseño y Multimedia" title="Diseño y Multimedia"/>
+          <Card Icon={TfiMarkerAlt} container="bg-white" type='large' alt="Diseño y Multimedia" title="Diseño y Multimedia"/>
         </div>
         <div>
-          <Card Icon={MdTranslate} type='large' alt="Redacción y Traducción" title="Redacción y Traducción"/>
+          <Card Icon={MdTranslate} container="bg-white" type='large' alt="Redacción y Traducción" title="Redacción y Traducción"/>
         </div>
         <div>
-          <Card Icon={PiChartLineBold} type='large' alt="Gestión y Finanzas" title="Gestión y Finanzas"/>
+          <Card Icon={PiChartLineBold} container="bg-white" type='large' alt="Gestión y Finanzas" title="Gestión y Finanzas"/>
         </div>
         <div>
-          <Card Icon={BiCog} type='large' alt="Ingeniería y Fabricación" title="Ingeniería y Fabricación"/>
+          <Card Icon={BiCog} container="bg-white" type='large' alt="Ingeniería y Fabricación" title="Ingeniería y Fabricación"/>
         </div>
         <div>
-          <Card imgSrc={Bullhorn} type='large' alt="Ventas y Marketing" title="Ventas y Marketing"/>
+          <Card imgSrc={Bullhorn} container="bg-white" type='large' alt="Ventas y Marketing" title="Ventas y Marketing"/>
         </div> 
         <div>
-          <Card imgSrc={Admin} type='large' alt="Administración y Soporte" title="Administración y Soporte"/>
+          <Card imgSrc={Admin} container="bg-white" type='large' alt="Administración y Soporte" title="Administración y Soporte"/>
         </div> 
       </Slider>
     

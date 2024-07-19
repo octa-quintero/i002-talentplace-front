@@ -16,7 +16,7 @@ export const useAllProjectsByUserId = () => {
             try {
                 const storedToken = localStorage.getItem("token");
                 setToken(storedToken);
-          
+        
                 const projects = await fetchAllProjectsByUserId();    
                 setProjects(projects);
                 setLoading(false);

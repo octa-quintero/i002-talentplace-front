@@ -1,3 +1,7 @@
+.landing-page{
+    background: var(--bg-color);
+}
+
 .landing-page p{
     font-size: var(--font-size-body-1);
 }
@@ -12,7 +16,6 @@
 .section1-right-container{
     padding-left: 2em;
 }
-
 
 .section1-right{
     border-radius: 63px 0 0 63px;
