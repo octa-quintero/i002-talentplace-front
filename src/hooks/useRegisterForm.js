@@ -87,7 +87,7 @@ const useRegisterForm = () => {
                 console.log(data);
 
                 // TODO: Manejar la redirección y el almacenamiento del token aquí.
-                // navigate('/dashboard');
+                navigate('/dashboard');
             } catch (error) {
                 console.log(error);
             } finally {

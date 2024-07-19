@@ -58,10 +58,19 @@ const useLoginForm = () => {
 
             try {
                 const data = await fetchLoginForm(loginData);
-                console.log(data);
+                console.log("esto es data del fetchLoginForm",data);
 
                 // TODO: Manejar la redirección y guardar el token aquí.
-                // navigate('/dashboard');
+
+
+                // Save token to local storage
+                localStorage.setItem('token', data.refreshToken);
+                console.log(data.user.nombre);
+
+                // Redirect to dashboard
+                navigate('/');
+
+
             } catch (error) {
                 console.log(error);
             } finally {
