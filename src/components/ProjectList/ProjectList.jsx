@@ -1,13 +1,16 @@
 import { Button, Card, Col, Nav, Row } from "react-bootstrap"
+import { useNavigate } from "react-router-dom";
+import "./ProjectList.css";
+import formatDateLocal from "../../utils/formatDateLocal";
 import { AiOutlineMail } from "react-icons/ai";
 import { GoEye } from "react-icons/go";
 import { LuPencilLine } from "react-icons/lu";
-import formatDateLocal from "../../utils/formatDateLocal";
 import { useAllProjectsByUserId } from "../../hooks/useAllProjectsByUserId";
-import "./ProjectList.css";
 import Loading from "../../pages/shared/Loading";
 
 export const ProjectList = () => {
+
+    const navigate = useNavigate();
 
     const { projects, loading } = useAllProjectsByUserId();
 
@@ -21,9 +24,13 @@ export const ProjectList = () => {
         return firstLetter + restText;
     }
 
+    const handleEditClick = (projectId) => {
+        navigate(`/dashboard/projects/edit/${projectId}`);
+    }
+
     return(
         <>
-            {loading ? (
+            { loading ? (
                     <div className="loading"><Loading/></div>
                 ) : projects.map((project) => (
                 <Card key={project.id} className="border border-info align-items-start m-3">
@@ -134,13 +141,13 @@ export const ProjectList = () => {
                             </Col>
                             <Col lg={3}>
                                 <Nav activeKey="" className="justify-content-lg-end justify-content-center">
-                                    <Nav.Link eventKey="link-event-key">
+                                    <Nav.Link onClick={() => handleEditClick(project.id)}>
                                         <LuPencilLine className="color-purple fs-2"/>                                            
                                     </Nav.Link>
-                                    <Nav.Link eventKey="link-event-key">
+                                    <Nav.Link>
                                         <GoEye className="color-purple fs-2"/>
                                     </Nav.Link>
-                                    <Nav.Link eventKey="link-event-key">
+                                    <Nav.Link>
                                         <AiOutlineMail className="color-purple fs-2"/>                                            
                                     </Nav.Link>                                        
                                 </Nav>

@@ -4,10 +4,13 @@ import logo from '../../assets/assets-png/2.png';
 import axios from 'axios';
 import './Form.css';
 import { IoEye, IoEyeOff } from "react-icons/io5";
+import { useUserContext } from "../../context/UserProvider";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const LoginForm = () => {
+
+    const { setUser, setToken } = useUserContext();
 
     const [loginData, setLoginData] = useState({
         email: '',
@@ -74,6 +77,15 @@ const LoginForm = () => {
             // Backend connection to send login data
             axios.post(`${BACKEND_URL}/auth/login`, loginData)
                 .then((loginData) => {
+
+                    //logica temporal para guardar el token y los datos del user
+                    const token = loginData.data.refreshToken;
+                    const userInfo = loginData.data.user;
+                    const currentUser = JSON.stringify(userInfo);
+                    setUser(currentUser);
+                    localStorage.setItem("user", currentUser);
+                    setToken(token);
+                    localStorage.setItem("token", token);
 
                     // DONE connected to backend
                     // TODO redirect to dashboard & send data from server
