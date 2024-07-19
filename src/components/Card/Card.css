@@ -29,7 +29,6 @@
 .card.large{
     width: 90%;
     padding: 30%;
-   
 }
 
 .card-icon {
@@ -40,5 +39,12 @@
 
 .card-img{
     width: 100%;
-   
+}
+
+@media (width<576px){
+    .card-container p{
+        font-size: 12px;
+        padding-inline: 5px;
+        text-align: center;
+    }    
 }

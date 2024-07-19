@@ -7,11 +7,10 @@
 .navbar-nav{
   padding: 10px;
   height: 48px;
-  /* width: 720px; */
   width: 80%;
   gap: 18px;
   display: flex;
-  justify-content: center; /* Centrar horizontalmente */
+  justify-content: center;
   align-items: center; 
   
 }
@@ -42,6 +41,7 @@
     background-color: var(--main-color-blue);
     width: 160px;
     border: none;
+    border: 2px solid var(--main-color-blue);
     text-decoration: none;
     font-size: var(--font-size-body-1); 
     transition: background-color 0.6s ease, border-color 0.3s ease;
@@ -53,4 +53,8 @@
   }
     
 
-  
+@media (width<992px){
+  .navbar-nav{
+    height: 250px;
+  }
+}

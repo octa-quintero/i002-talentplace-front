@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './Form.css';
 import logo from '../../assets/assets-png/2.png';
 import axios from 'axios';
+import { NavLink } from "react-router-dom";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -112,7 +113,7 @@ const RegisterForm = () => {
     }
 
     return(
-        <form onSubmit={handleSubmit} className='container-forms container w-50 p-5 my-5'>
+        <form onSubmit={handleSubmit} className='container-forms container form-width p-5 my-5'>
 
             <div className="container-forms-header row">
                 <h2 className="col-md-10">Crea tu cuenta</h2>
@@ -222,6 +223,12 @@ const RegisterForm = () => {
                     >Registrarse</button>
                 </div>
             </div>
+            <p className="mx-auto w-50 text-center">¿Ya tienes una cuenta?&nbsp;
+                <br />
+                <NavLink to="/login">
+                    <strong>Inicia sesión</strong>
+                </NavLink> 
+            </p>
         </form>
     )
 }
