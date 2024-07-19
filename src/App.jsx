@@ -4,7 +4,7 @@ import { AppRouter } from "./router/AppRouter";
 
 import Layout from "./components/Layout/Layout";
 
-import { Navbar, Footer } from "./pages";
+// import { Navbar, Footer } from "./pages";
 import ScrollToTop from './components/Scrolltop/ScrollToTop';
 
 import "./App.css";
@@ -15,16 +15,16 @@ function App() {
     <>
       <BrowserRouter>
 
-        <Layout>
+        {/* <Layout>
           <AppRouter />
-        </Layout>
+        </Layout> */}
 
-        <Navbar />
+        {/* <Navbar /> */}
         <ScrollToTop />
           <Layout>
             <AppRouter />
           </Layout>
-        <Footer />
+        {/* <Footer /> */}
 
       </BrowserRouter>
     </>

@@ -9,7 +9,7 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/home" element={<LandingPage />} /> 
         <Route path="/*" element={<LandingPage />} /> 
-        <Route path="/about" element={<AboutUs />} /> 
+        <Route path="/about" element={<AboutUs />} /> npm run dev
         <Route path="/opportunities" element={<Opportunities />} /> 
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
@@ -22,7 +22,7 @@ export const AppRouter = () => {
           {/* <Route path="edit-project" element={<EditProject />} /> */}
         </Route>
 
-        <Route path="/contratar" element={<PaginaEnConstruccion />} />
+        {/* <Route path="/contratar" element={<PaginaEnConstruccion />} /> */}
         <Route path="/nosotros" element={<PaginaEnConstruccion />} />
         <Route path="/contacto" element={<PaginaEnConstruccion />} />
         <Route path="/paginaenconstruccion" element={<PaginaEnConstruccion />} />

@@ -5,13 +5,18 @@
     gap: 9px;
 }
 
+.bg-white{
+    background-color: white;
+}
+
 .card-container h3{
     font-size: 16px;
     line-height: 24px;
 }
 
 .card{
-    background-color: white;
+    /* background-color: white; */
+    background-color: transparent;
     padding: 12px;
     border-radius: 16px;
     border: none;
