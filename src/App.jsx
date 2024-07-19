@@ -12,9 +12,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <ScrollToTop />
-        <div className="main-content">
           <AppRouter />
-        </div>
         <Footer />
       </BrowserRouter>
     </>
