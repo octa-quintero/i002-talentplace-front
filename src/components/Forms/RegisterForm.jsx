@@ -117,9 +117,10 @@ const RegisterForm = () => {
                         value={registerData.contrasenia} 
                         onChange={handleChange}
                     />
-                    <btn className="ioEye" type="button" onClick={togglePasswordVisible}>
+                    {/* Boton para mostrar u ocultar la contraseña */}
+                    <button className="ioEye" type="button" onClick={togglePasswordVisible}>
                         {inputType==="password" ? <IoEye /> : <IoEyeOff />}
-                    </btn>
+                    </button>
                     {errors.contrasenia && <p style={{color: 'red'}}>{errors.contrasenia}</p>}
                 </div>
 

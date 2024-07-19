@@ -15,7 +15,7 @@ const LoginForm = () => {
         isSubmitting,
         handleChange,
         togglePasswordVisible,
-        handleSubmit
+        handleSubmit,
     } = useLoginForm();
     
     return(
@@ -49,9 +49,10 @@ const LoginForm = () => {
                         value={loginData.contrasenia} 
                         onChange={handleChange}
                     />
-                    <btn className="ioEye" type="button" onClick={togglePasswordVisible}>
+                    {/* Boton para mostrar u ocultar la contraseña */}
+                    <button className="ioEye" type="button" onClick={togglePasswordVisible}>
                         {inputType==="password" ? <IoEye /> : <IoEyeOff />}
-                    </btn>
+                    </button>
                     {errors.contrasenia && <p style={{color: 'red'}}>{errors.contrasenia}</p>}
                     <small className="form-text text-muted p-2">¿Olvidaste tu contraseña?</small>
                 </div>

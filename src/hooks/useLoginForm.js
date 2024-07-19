@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { fetchLoginForm } from '../api/fetchLoginForm';
+import { useUserContext } from '../context/UserProvider';
 
 const useLoginForm = () => {
     const [loginData, setLoginData] = useState({
@@ -11,6 +12,7 @@ const useLoginForm = () => {
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
+    const { setToken, setUser } = useUserContext();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -42,6 +44,7 @@ const useLoginForm = () => {
         return newErrors;
     };
 
+    // funcion para mostrar u ocultar la contraseña
     const togglePasswordVisible = () => {
         setInputType((prevType) => (prevType === 'password' ? 'text' : 'password'));
     };
@@ -58,19 +61,17 @@ const useLoginForm = () => {
 
             try {
                 const data = await fetchLoginForm(loginData);
-                console.log("esto es data del fetchLoginForm",data);
+                
+                console.log(data);
+                
+                // Guardar el token y el usuario en el contexto y localStorage
+                setToken(data.refreshToken);
+                setUser(data.user.nombre);
 
-                // TODO: Manejar la redirección y guardar el token aquí.
-
-
-                // Save token to local storage
                 localStorage.setItem('token', data.refreshToken);
-                console.log(data.user.nombre);
+                localStorage.setItem('user', data.user.nombre);
 
-                // Redirect to dashboard
                 navigate('/');
-
-
             } catch (error) {
                 console.log(error);
             } finally {
@@ -79,6 +80,14 @@ const useLoginForm = () => {
         }
     };
 
+    const closeSession = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setToken(null);
+        setUser(null);
+        navigate('/');
+    }
+
     return {
         loginData,
         inputType,
@@ -86,7 +95,8 @@ const useLoginForm = () => {
         isSubmitting,
         handleChange,
         togglePasswordVisible,
-        handleSubmit
+        handleSubmit,
+        closeSession
     };
 };
 
