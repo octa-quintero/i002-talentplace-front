@@ -1,104 +1,22 @@
-import React, { useState } from "react";
-import { NavLink, useNavigate } from 'react-router-dom';
+import React from "react";
+import { NavLink } from 'react-router-dom';
 import logo from '../../assets/assets-png/2.png';
-import axios from 'axios';
 import './Form.css';
 import { IoEye, IoEyeOff } from "react-icons/io5";
+import useLoginForm from '../../hooks/useLoginForm';
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const LoginForm = () => {
 
-    const [loginData, setLoginData] = useState({
-        email: '',
-        contrasenia: ''
-    });
-    const [inputType, setInputType] = useState("password");
-
-
-    const [errors, setErrors] = useState({});
-
-
-    const [isSubmitting, setIsSubmitting] = useState(false);
-
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setLoginData({
-            ...loginData,
-            [name]: value
-        });
-    };
-
-
-    const validate = () => {
-        const newErrors = {};
-
-        if(!loginData.email) {
-            newErrors.email = "Email is required";
-        } else if(!/.+@.+\.[A-Za-z]+$/.test(loginData.email)) {
-            newErrors.email = "Email format is invalid";
-        }
-
-        if(!loginData.contrasenia) {
-            newErrors.contrasenia = "Password is required";
-        } else if(loginData.contrasenia.length < 8) {
-            newErrors.contrasenia = "Password must be at least 8 characters";
-        } else if (!/[A-Z]/.test(loginData.contrasenia)) {
-            newErrors.contrasenia = 'Password must contain at least one uppercase letter';
-        } else if (!/[0-9]/.test(loginData.contrasenia)) {
-            newErrors.contrasenia = 'Password must contain at least one number';
-        }
-
-        return newErrors;
-    }
-
-    // funcion que cambia el type del input
-    const togglePasswordVisible = () => {
-        setInputType((toogleType) => (toogleType === 'password' ? 'text' : 'password'));
-    }
-
-    const navigate = useNavigate();
-
-    
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        const formErrors = validate();
-        if(Object.keys(formErrors).length > 0) {
-            setErrors(formErrors);
-        } else{
-            setErrors({});
-            setIsSubmitting(true);
-
-            // Backend connection to send login data
-            axios.post(`${BACKEND_URL}/auth/login`, loginData)
-                .then((loginData) => {
-
-                    // DONE connected to backend
-                    // TODO redirect to dashboard & send data from server
-                    console.log(loginData.data);
-
-                    /* 200 OK -> loginData.data
-                    {
-                        "message": "Inicio de sesión exitoso",
-                        "refreshToken": "xxx",
-                        "user": {
-                            "id": "xxx",
-                            "nombre": "Johhny Melavo",
-                            "email": "johnny@melavo.com",
-                            "tipo": "empresa"
-                        }
-                    }*/
-                    
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-
-            console.log('Login data submitted:\n', loginData);
-        }
-    }
+    const {
+        loginData,
+        inputType,
+        errors,
+        isSubmitting,
+        handleChange,
+        togglePasswordVisible,
+        handleSubmit
+    } = useLoginForm();
     
     return(
         <form id="login-form" onSubmit={handleSubmit} className='container-forms container p-5 my-5 form-width'>
