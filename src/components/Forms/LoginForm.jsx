@@ -3,9 +3,9 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/assets-png/2.png';
 import axios from 'axios';
 import './Form.css';
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-
 
 const LoginForm = () => {
 
@@ -13,6 +13,7 @@ const LoginForm = () => {
         email: '',
         contrasenia: ''
     });
+    const [inputType, setInputType] = useState("password");
 
 
     const [errors, setErrors] = useState({});
@@ -52,6 +53,10 @@ const LoginForm = () => {
         return newErrors;
     }
 
+    // funcion que cambia el type del input
+    const togglePasswordVisible = () => {
+        setInputType((toogleType) => (toogleType === 'password' ? 'text' : 'password'));
+    }
 
     const navigate = useNavigate();
 
@@ -117,15 +122,18 @@ const LoginForm = () => {
                     {errors.name && <p style={{color: 'red'}}>{errors.name}</p>}
                 </div>
 
-                <div className="form-group">
+                <div className="form-group form-group-password">
                     <input 
-                        type="password" 
+                        type={inputType}
                         className="form-control p-2 my-3" 
                         name="contrasenia" 
                         placeholder="Password" 
                         value={loginData.contrasenia} 
                         onChange={handleChange}
                     />
+                    <btn className="ioEye" type="button" onClick={togglePasswordVisible}>
+                        {inputType==="password" ? <IoEye /> : <IoEyeOff />}
+                    </btn>
                     {errors.contrasenia && <p style={{color: 'red'}}>{errors.contrasenia}</p>}
                     <small className="form-text text-muted p-2">¿Olvidaste tu contraseña?</small>
                 </div>
