@@ -25,7 +25,7 @@ export const Opportunities = () => {
             <section className='container-section-proyectCard'>
                 <Search onSearch={handleFilteredProjects} />
                 {loading ? (
-                    <div className="loading"><Loading/></div>
+                    <Loading/>
                 ) : (
                     <ProyectCard projects={filteredProjects.length > 0 ? filteredProjects : projects} />
                 )}
