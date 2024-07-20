@@ -94,6 +94,10 @@ const useLoginForm = () => {
 
             } catch (error) {
                 console.log(error);
+                Toast.fire({
+                    icon: "error",
+                    title: `Usuario o contraseña inválida`,
+                });
             } finally {
                 setIsSubmitting(false);
             }

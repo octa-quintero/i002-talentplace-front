@@ -83,13 +83,12 @@ export const Navbar = () => {
 
             {/* Si se esta logueado muestra el nombre del usuario, sino se ingresa */}
             {token ?
-            <>
-              <p className="p-user">{recoverUser.nombre}&nbsp;{recoverUser.apellido}</p> 
-              <button className="btn-userAlt" onClick={()=>{closeSession()}}><FaUserAlt className="userAlt"/></button>
-            </>
-            : <NavLink to="/login" onClick={toggleNavbar}>
-              <Button width="160px" type='default' to="/login">Ingresar</Button>
-            </NavLink>}
+              <>
+                <p className="p-user">{recoverUser.nombre}&nbsp;{recoverUser.apellido}</p> 
+                <button className="btn-userAlt" onClick={()=>{closeSession()}}><FaUserAlt className="userAlt"/></button>
+              </>
+              : 
+                <Button onClick={toggleNavbar} width="160px" type='default' to="/login">Ingresar</Button>}
           </div>
         </div>
       </div>
