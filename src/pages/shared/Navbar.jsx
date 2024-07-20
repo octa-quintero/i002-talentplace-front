@@ -13,7 +13,7 @@ export const Navbar = () => {
   const { token, user } = useUserContext();
   const recoverUser = JSON.parse(user)
   
-
+console.log(token);
   const {
     closeSession
 } = useLoginForm();
@@ -42,15 +42,26 @@ export const Navbar = () => {
 
         <div className={`collapse navbar-collapse ${isCollapsed ? "" : "show"}`} id="navbarNavAltMarkup">
           <div className="navbar-nav mx-auto justify-content-center">
-            <NavLink
-              onClick={toggleNavbar}
-              className={({ isActive }) =>
-                `nav-item nav-link ${isActive ? "active" : ""}`
-              }
-              to="/dashboard/projects"
-            >
+            {token ? 
+              <NavLink
+                onClick={toggleNavbar}
+                className={({ isActive }) =>
+                  `nav-item nav-link ${isActive ? "active" : ""}`
+                }
+                to="/dashboard/projects"
+              >
               Contratar
-            </NavLink>
+              </NavLink>
+            :
+              <NavLink
+                onClick={toggleNavbar}
+                className={({ isActive }) =>
+                  `nav-item nav-link ${isActive ? "active" : ""}`
+                }
+                to="/login">
+              Contratar
+              </NavLink>
+            }
             <NavLink
               onClick={toggleNavbar}
               className={({ isActive }) =>
