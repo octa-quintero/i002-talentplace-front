@@ -19,39 +19,54 @@
     height: 80px;
 }
 .navbar-nav .nav-link {
-    color: var(--color-black);
-    font-family: var(--font-family-sans-serif);
-  }
-  
-  .navbar-nav .nav-link.active {
-    font-weight: var(--font-weight-bold);
-  }
+  color: var(--color-black);
+  font-family: var(--font-family-sans-serif);
+}
 
-  .ml-auto {
-    margin-left: auto;
-  }
+.navbar-nav .nav-link.active {
+  font-weight: var(--font-weight-bold);
+}
 
-  .btn-primary {
-    display: inline-block;
-    padding: 12px;
-    text-align: center;
-    gap: 10px;
-    border-radius: 5px;
-    color: white;
-    background-color: var(--main-color-blue);
-    width: 160px;
-    border: none;
-    border: 2px solid var(--main-color-blue);
-    text-decoration: none;
-    font-size: var(--font-size-body-1); 
-    transition: background-color 0.6s ease, border-color 0.3s ease;
-  }
+.ml-auto {
+  margin-left: auto;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px;
+  text-align: center;
+  gap: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--main-color-blue);
+  width: 160px;
+  border: none;
+  border: 2px solid var(--main-color-blue);
+  text-decoration: none;
+  font-size: var(--font-size-body-1); 
+  transition: background-color 0.6s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #70cfff; 
+  border: 2px solid var(--main-color-blue);
+}
+
+.btn-userAlt{
+  border: none;
+  background: transparent;
+}
+
+.userAlt{
+  font-size: 24px;
+  color: var(--main-color-purple);
+}
+
+.p-user{
+  margin-bottom: 0px;
+  padding-right: 10px;
+}
   
-  .btn-primary:hover {
-    background-color: #70cfff; 
-    border: 2px solid var(--main-color-blue);
-  }
-    
 
 @media (width<992px){
   .navbar-nav{

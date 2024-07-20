@@ -1,126 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import './Form.css';
 import logo from '../../assets/assets-png/2.png';
-import axios from 'axios';
 import { NavLink } from "react-router-dom";
-// import { togglePasswordVisible } from "../../hooks/useVisiblePassword"
-import useVisiblePassword from "../../hooks/useVisiblePassword";
 import { IoEye, IoEyeOff } from "react-icons/io5";
-
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+import useRegisterForm from '../../hooks/useRegisterForm';
 
 
 const RegisterForm = () => {
-    const [registerData, setRegisterData] = useState({
-        nombre: '',
-        apellido: '',
-        telefono: '',
-        pais: '',
-        tipo: '',
-        contrasenia: '',
-        email: ''
-    });
-
-    const [inputType, setInputType] = useState("password");
-     // funcion que cambia el type del input
-     const togglePasswordVisible = () => {
-        setInputType((toogleType) => (toogleType === 'password' ? 'text' : 'password'));
-    }
-
-
-
-    const [errors, setErrors] = useState({});
-
-
-    const [isSubmitting, setIsSubmitting] = useState(false);
-
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setRegisterData({
-            ...registerData,
-            [name]: value
-        });
-    };
-
-
-    const validate = () => {
-        const newErrors = {};
-        
-        if(!registerData.nombre) {
-            newErrors.nombre = "Name is required";
-        }
-
-        if(!registerData.apellido) {
-            newErrors.apellido = "Surname is required";
-        }
-
-        if(!registerData.pais) {
-            newErrors.pais = "Country is required";
-        }
-
-        if(!registerData.telefono) {
-            newErrors.telefono = "Telephone is required";
-        } else if (!/^\d{10}$/.test(registerData.telefono)) {
-            newErrors.telefono = 'Telephone must contain 10 digits';
-        }
-
-        if(!registerData.tipo) {
-            newErrors.tipo = "Type is required";
-        }
-
-        if(!registerData.email) {
-            newErrors.email = "Email is required";
-        } else if(!/\S+@\S+\.\S+/.test(registerData.email)) {
-            newErrors.email = "Email format is invalid";
-        }
-
-        if(!registerData.contrasenia) {
-            newErrors.contrasenia = "Password is required";
-        } else if(registerData.contrasenia.length < 8) {
-            newErrors.contrasenia = "Password must be at least 8 characters";
-        } else if (!/[A-Z]/.test(registerData.contrasenia)) {
-            newErrors.contrasenia = 'Password must contain at least one uppercase letter';
-        } else if (!/[0-9]/.test(registerData.contrasenia)) {
-            newErrors.contrasenia = 'Password must contain at least one number';
-        }
-
-        return newErrors;
-    }
-
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        const formErrors = validate();
-        if (Object.keys(formErrors).length > 0) {
-            setErrors(formErrors);
-        } else {
-            setErrors({});
-            setIsSubmitting(true);
-            
-            // Backend connection to send register data
-            axios.post(`${BACKEND_URL}/auth/register`, registerData)
-                .then((registerData) => {
-
-
-                    // DONE connected to backend
-                    // TODO redirect to dashboard & send data from server
-                    console.log(registerData);
-
-                    /* 200 OK -> registerData.data
-                    {
-                        message: "Usuario creado exitosamente"
-                    }*/
-
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-
-                console.log('Register data submitted:\n', registerData);
-        }
-    }
+    const {
+        registerData,
+        inputType,
+        errors,
+        isSubmitting,
+        handleChange,
+        togglePasswordVisible,
+        handleSubmit
+    } = useRegisterForm();
 
     return(
         <form onSubmit={handleSubmit} className='container-forms container form-width p-5 my-5'>
@@ -222,9 +117,10 @@ const RegisterForm = () => {
                         value={registerData.contrasenia} 
                         onChange={handleChange}
                     />
-                    <btn className="ioEye" type="button" onClick={togglePasswordVisible}>
+                    {/* Boton para mostrar u ocultar la contraseña */}
+                    <button className="ioEye" type="button" onClick={togglePasswordVisible}>
                         {inputType==="password" ? <IoEye /> : <IoEyeOff />}
-                    </btn>
+                    </button>
                     {errors.contrasenia && <p style={{color: 'red'}}>{errors.contrasenia}</p>}
                 </div>
 

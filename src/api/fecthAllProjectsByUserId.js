@@ -12,6 +12,7 @@ export const fetchAllProjectsByUserId = async (storedToken) => {
         });
         
         const projects = response.data;
+        console.log(projects);
         return projects;        
 
     } catch (error) {
