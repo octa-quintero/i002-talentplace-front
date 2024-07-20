@@ -98,6 +98,11 @@ const useRegisterForm = () => {
                 navigate('/login');
             } catch (error) {
                 console.log(error);
+                Swal.fire({
+                    icon: "error",
+                    title: "El correo electrónico ya existe.",
+                    timer: 3000,
+                });
             } finally {
                 setIsSubmitting(false);
             }

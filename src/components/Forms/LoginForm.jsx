@@ -54,7 +54,9 @@ const LoginForm = () => {
                         {inputType==="password" ? <IoEye /> : <IoEyeOff />}
                     </button>
                     {errors.contrasenia && <p style={{color: 'red'}}>{errors.contrasenia}</p>}
-                    <small className="form-text text-muted p-2">¿Olvidaste tu contraseña?</small>
+                    <NavLink to="/paginaenconstruccion" className="text-decoration-none">
+                        <small className="form-text text-muted p-2">¿Olvidaste tu contraseña?</small>    
+                    </NavLink>
                 </div>
 
                 <div className="form-group">
@@ -67,7 +69,7 @@ const LoginForm = () => {
             </div>
             <p className="mx-auto w-50 text-center">¿Aún no estás registrado?&nbsp;
                 <br />
-                <NavLink to="/register">
+                <NavLink to="/register" className="text-decoration-none">
                     <strong>Registrate acá</strong>
                 </NavLink> 
             </p>

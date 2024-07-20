@@ -134,7 +134,7 @@ const RegisterForm = () => {
             </div>
             <p className="mx-auto w-50 text-center">¿Ya tienes una cuenta?&nbsp;
                 <br />
-                <NavLink to="/login">
+                <NavLink to="/login" className="text-decoration-none">
                     <strong>Inicia sesión</strong>
                 </NavLink> 
             </p>
