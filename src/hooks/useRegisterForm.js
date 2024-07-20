@@ -17,8 +17,9 @@ const useRegisterForm = () => {
     const [inputType, setInputType] = useState("password");
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -28,6 +29,7 @@ const useRegisterForm = () => {
         });
     };
 
+    // Funcion para validacion de inputs
     const validate = () => {
         const newErrors = {};
 
@@ -72,9 +74,11 @@ const useRegisterForm = () => {
         return newErrors;
     };
 
+    // Funcion para ver mostrar u ocultar la contraseña
     const togglePasswordVisible = () => {
         setInputType((prevType) => (prevType === 'password' ? 'text' : 'password'));
     };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -85,19 +89,30 @@ const useRegisterForm = () => {
         } else {
             setErrors({});
             setIsSubmitting(true);
+            setLoading(true)
 
             try {
+                // En caso de éxito, muestra una notificacion y lleva al home
                 const data = await fetchRegisterForm(registerData);
-                console.log(data);
 
                 Swal.fire({
                     icon: "success",
                     title: "Usuario creado con éxito",
+                    text: "Puede iniciar sesión",
                     timer: 3000,
                 });
                 navigate('/login');
+
             } catch (error) {
+
+                // Si hay un error lo notifica
                 console.log(error);
+                Swal.fire({
+                    icon: "error",
+                    title: "El correo electrónico ya existe.",
+                    timer: 3000,
+                });
+
             } finally {
                 setIsSubmitting(false);
             }
@@ -109,6 +124,7 @@ const useRegisterForm = () => {
         inputType,
         errors,
         isSubmitting,
+        loading,
         handleChange,
         togglePasswordVisible,
         handleSubmit

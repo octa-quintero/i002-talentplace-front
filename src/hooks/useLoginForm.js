@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { fetchLoginForm } from '../api/fetchLoginForm';
 import { useUserContext } from '../context/UserProvider';
@@ -13,8 +13,9 @@ const useLoginForm = () => {
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
-    const { setToken, setUser } = useUserContext();
-
+    const { token, setToken, setUser } = useUserContext();
+    const [loading, setLoading] = useState(false);
+    
 
     const Toast = Swal.mixin({
         toast: true,
@@ -36,6 +37,7 @@ const useLoginForm = () => {
         });
     };
 
+    //funcion para validacion de inputs
     const validate = () => {
         const newErrors = {};
 
@@ -58,12 +60,28 @@ const useLoginForm = () => {
         return newErrors;
     };
 
-    // funcion para mostrar u ocultar la contraseña
+    //Funcion para mostrar u ocultar la contraseña
     const togglePasswordVisible = () => {
         setInputType((prevType) => (prevType === 'password' ? 'text' : 'password'));
     };
 
     const handleSubmit = async (e) => {
+        
+        // Verifica si el usuario ya esta logueado, lo hace sólo cuando vuelve a apretar en INGRESAR o en el input del login
+        // Es decir, cuando se ejecuta handleSumbit
+        if (token) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Ya estás logueado',
+                text: 'No es necesario iniciar sesión nuevamente.',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            });
+            navigate('/');
+            return;
+        }
+
         e.preventDefault();
 
         const formErrors = validate();
@@ -72,37 +90,49 @@ const useLoginForm = () => {
         } else {
             setErrors({});
             setIsSubmitting(true);
+            setLoading(true)
 
             try {
+                // En caso de éxito
+                // Guarda el token y el usuario en el contexto y localStorage y dirige al home
                 const data = await fetchLoginForm(loginData);
-                
-                // Guardar el token y el usuario en el contexto y localStorage
-                // Y redirige al home
+
                 setToken(data.refreshToken);
                 setUser(JSON.stringify(data.user));
                 localStorage.setItem('user', JSON.stringify(data.user));
                 localStorage.setItem('token', data.refreshToken);
                 navigate('/');
 
-                // Activa una notificacion de exito al inicar sesion
+                // Notificación de éxito al iniciar sesión
                 Toast.fire({
                     icon: "success",
                     title: `Bienvenido ${data.user.nombre}`,
                 });
-                console.log("esto es data.user",data.user);
-                return data.user
+                return data.user;
 
             } catch (error) {
+
+                // En caso de error da la notificacion correspondiente
                 console.log(error);
+                if (error.message === "Request failed with status code 401") {
+                    Toast.fire({
+                        icon: "error",
+                        title: `Usuario o contraseña inválida`,
+                    });
+                } else {
+                    Toast.fire({
+                        icon: "error",
+                        title: `Error al intentar iniciar sesión`,
+                    });
+                }
+
             } finally {
                 setIsSubmitting(false);
             }
         }
     };
 
-
-
-    // Funcion para cerrar la sesion con notificacion
+    // Funcion para cerrar la sesion
     const closeSession = () => {
         Swal.fire({
             title: `¿Seguro que quieres cerrar la sesión?`,
@@ -127,17 +157,16 @@ const useLoginForm = () => {
         })
     }
 
-
-
     return {
         loginData,
         inputType,
         errors,
         isSubmitting,
+        loading,
         handleChange,
         togglePasswordVisible,
         handleSubmit,
-        closeSession
+        closeSession,
     };
 };
 

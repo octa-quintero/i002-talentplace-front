@@ -31,13 +31,3 @@
         width: 100%;
     }
 }
-
-.loading{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    background-color: var(--color-white);
-    border-radius: 15px;
-    margin-top: 15px;
-}
