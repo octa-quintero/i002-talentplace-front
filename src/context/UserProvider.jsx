@@ -7,6 +7,7 @@ export const UserProvider = ({ children }) => {
   const [token, setToken] = useState(() => localStorage.getItem('token'));
   const [user, setUser] = useState(() => localStorage.getItem('user'));
 
+
   useEffect(() => {
     if (token) {
       localStorage.setItem('token', token);

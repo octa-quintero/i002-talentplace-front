@@ -7,17 +7,21 @@ import { fetchAllProjectsByUserId } from "../api/fecthAllProjectsByUserId";
 export const useAllProjectsByUserId = () => {
 
     const [projects, setProjects] = useState([]);    
-    const { setToken } = useUserContext();
+    const { setToken, token } = useUserContext();
     const [loading, setLoading] = useState(true);
+    console.log(token);
 
     useEffect(() => {
         const fetchAllProjects = async () => {
 
             try {
-                const storedToken = localStorage.getItem("token");
+                // const storedToken = localStorage.getItem("token");
+
+                const storedToken = token;
                 setToken(storedToken);
         
-                const projects = await fetchAllProjectsByUserId();    
+                const projects = await fetchAllProjectsByUserId();
+                console.log(projects);    
                 setProjects(projects);
                 setLoading(false);
                 

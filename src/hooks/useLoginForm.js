@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { fetchLoginForm } from '../api/fetchLoginForm';
 import { useUserContext } from '../context/UserProvider';
+import Swal from "sweetalert2";
 
 const useLoginForm = () => {
     const [loginData, setLoginData] = useState({
@@ -13,6 +14,19 @@ const useLoginForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
     const { setToken, setUser } = useUserContext();
+
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -62,16 +76,22 @@ const useLoginForm = () => {
             try {
                 const data = await fetchLoginForm(loginData);
                 
-                console.log(data);
-                
                 // Guardar el token y el usuario en el contexto y localStorage
+                // Y redirige al home
                 setToken(data.refreshToken);
-                setUser(data.user.nombre);
-
+                setUser(JSON.stringify(data.user));
+                localStorage.setItem('user', JSON.stringify(data.user));
                 localStorage.setItem('token', data.refreshToken);
-                localStorage.setItem('user', data.user.nombre);
-
                 navigate('/');
+
+                // Activa una notificacion de exito al inicar sesion
+                Toast.fire({
+                    icon: "success",
+                    title: `Bienvenido ${data.user.nombre}`,
+                });
+                console.log("esto es data.user",data.user);
+                return data.user
+
             } catch (error) {
                 console.log(error);
             } finally {
@@ -80,13 +100,34 @@ const useLoginForm = () => {
         }
     };
 
+
+
+    // Funcion para cerrar la sesion con notificacion
     const closeSession = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        setToken(null);
-        setUser(null);
-        navigate('/');
+        Swal.fire({
+            title: `¿Seguro que quieres cerrar la sesión?`,
+            icon: 'question',
+            position: "center",
+            confirmButtonText: "Seguro",
+            confirmButtonColor: "#38b6ff",
+            showCancelButton: true,
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
+                Toast.fire({
+                    icon: "success",
+                    title: "Sesión cerrada"
+                });
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                setToken(null);
+                setUser(null);
+                navigate('/');
+            }
+        })
     }
+
+
 
     return {
         loginData,

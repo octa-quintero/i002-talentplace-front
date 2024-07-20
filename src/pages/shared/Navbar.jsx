@@ -11,6 +11,8 @@ import { FaUserAlt } from "react-icons/fa";
 export const Navbar = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const { token, user } = useUserContext();
+  const recoverUser = JSON.parse(user)
+  
 
   const {
     closeSession
@@ -79,10 +81,10 @@ export const Navbar = () => {
           </div>
           <div className="d-flex justify-content-center">
 
-            {/* Si se esta loguado muestra el cierre de sesion, sino se ingresa */}
+            {/* Si se esta logueado muestra el nombre del usuario, sino se ingresa */}
             {token ?
             <>
-              <p className="p-user">Bienvenido {user}</p> 
+              <p className="p-user">{recoverUser.nombre}&nbsp;{recoverUser.apellido}</p> 
               <button className="btn-userAlt" onClick={()=>{closeSession()}}><FaUserAlt className="userAlt"/></button>
             </>
             : <NavLink to="/login" onClick={toggleNavbar}>

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { fetchRegisterForm } from '../api/fetchRegsiterForm';
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const useRegisterForm = () => {
     const [registerData, setRegisterData] = useState({
@@ -15,6 +17,8 @@ const useRegisterForm = () => {
     const [inputType, setInputType] = useState("password");
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const navigate = useNavigate();
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -86,8 +90,12 @@ const useRegisterForm = () => {
                 const data = await fetchRegisterForm(registerData);
                 console.log(data);
 
-                // TODO: Manejar la redirección y el almacenamiento del token aquí.
-                navigate('/dashboard');
+                Swal.fire({
+                    icon: "success",
+                    title: "Usuario creado con éxito",
+                    timer: 3000,
+                });
+                navigate('/login');
             } catch (error) {
                 console.log(error);
             } finally {

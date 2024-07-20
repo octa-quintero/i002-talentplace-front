@@ -59,6 +59,7 @@
 
 .userAlt{
   font-size: 24px;
+  color: var(--main-color-purple);
 }
 
 .p-user{
