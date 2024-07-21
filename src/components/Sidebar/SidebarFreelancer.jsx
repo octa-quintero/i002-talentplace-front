@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
-import './Sidebar.css';
 import { NavLink } from "react-router-dom";
-import Container from 'react-bootstrap/Container';
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import Container from "react-bootstrap/Container";
+import { Offcanvas } from "react-bootstrap";
+import './Sidebar.css';
 
-
-/*  IMAGES & LOGOS  */
+/*  Images & Logos  */
 import TalentplaceLogo from '../../assets/assets-png/2.png';
 import { LuTable2 } from "react-icons/lu";
 import { AiOutlineProject } from "react-icons/ai";
 import { PiMoneyWavy } from "react-icons/pi";
-import { GoPeople } from "react-icons/go";
 import { MdOutlineUpload } from "react-icons/md";
+import { IoSearch } from "react-icons/io5";
 import { BsChatDots } from "react-icons/bs";
 import { GoPerson } from "react-icons/go";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
 
 
-const Sidebar = () => {
+const SidebarFreelancer = () => {
 
     const [show, setShow] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
@@ -34,8 +33,6 @@ const Sidebar = () => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
-
-
 
     return (
 
@@ -83,7 +80,7 @@ const Sidebar = () => {
                                 }
                                 to="/proyectos"
                             >
-                                <h4>Proyectos</h4>
+                                <h4>Mis proyectos</h4>
                             </NavLink>
                         </div>
 
@@ -97,21 +94,7 @@ const Sidebar = () => {
                                 }
                                 to="/payments"
                             >
-                                <h4>Facturacion</h4>
-                            </NavLink>
-                        </div>
-
-                        <div className="sidebar-menu-row d-flex justify-content-start">
-                            <div className="sidebar-menu-icon">
-                                <GoPeople size={30} />
-                            </div>
-                            <NavLink
-                                className={({ isActive }) =>
-                                    `nav-item nav-link ${isActive ? "active" : ""}`
-                                }
-                                to="/talentos"
-                            >
-                                <h4>Personas</h4>
+                                <h4>Pagos</h4>
                             </NavLink>
                         </div>
 
@@ -123,9 +106,23 @@ const Sidebar = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
+                                to="/opportunities"
+                            >
+                                <h4>Publicar servicio</h4>
+                            </NavLink>
+                        </div>
+
+                        <div className="sidebar-menu-row d-flex justify-content-start">
+                            <div className="sidebar-menu-icon">
+                                <IoSearch size={30} />
+                            </div>
+                            <NavLink
+                                className={({ isActive }) =>
+                                    `nav-item nav-link ${isActive ? "active" : ""}`
+                                }
                                 to="/proyectos"
                             >
-                                <h4>Publicar proyectos</h4>
+                                <h4>Buscar Proyecto</h4>
                             </NavLink>
                         </div>
 
@@ -188,8 +185,7 @@ const Sidebar = () => {
             </div>
 
         </Container>
-
     );
 };
 
-export default Sidebar;
+export default SidebarFreelancer;

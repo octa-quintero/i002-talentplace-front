@@ -1,10 +1,10 @@
 import React from "react";
-import Sidebar from "../components/Sidebar/Sidebar";
+import SidebarFreelancer from "../components/Sidebar/SidebarFreelancer";
 
 export const Dashboard = () => {
     return(
         <div>
-            <Sidebar />
+            <SidebarFreelancer />
         </div>
     );
 }
