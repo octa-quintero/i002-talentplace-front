@@ -1,46 +1,64 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { putProject } from "../api/putProject";
+import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserProvider";
-import { fetchProjectById } from "../api/fetchProjectById";
 
 export const useEditProject = () => {
 
-    const { projectId } = useParams();
-    const { setUser, setToken  } = useUserContext();
-    const [project, setProject] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const { setToken, user } = useUserContext();
+    // const recoverUser = JSON.parse(user);
+    // console.log({ACAAAAAAAAAAAAAAA: recoverUser});
 
-    useEffect(() => {
-        const fetchProject = async () => {
+    const navigate = useNavigate();
 
-            const storedToken = localStorage.getItem("token");
-            setToken(storedToken);
-            const storedUser = localStorage.getItem("user");
-            const currentUser = JSON.parse(storedUser);
-            if (currentUser) {
-              setUser(currentUser);
+    const editProject = async (projectDataUpdate) => {
+
+        const storedToken = localStorage.getItem("token");
+        setToken(storedToken);
+
+        const handleGoProjects = () => {
+            navigate(`/dashboard/projects/`);
+        }
+    
+        try {
+          // console.log(recoverUser, storedToken);    
+            const response = await putProject(JSON.parse(user).id, projectDataUpdate, storedToken);
+      
+            if (response.status === 200) {
+              let timerInterval;
+              
+              Swal.fire({
+                position: "top-end",
+                title: "Actualizando datos..",
+                timer: 1000,
+                timerProgressBar: true,
+                didOpen: () => {
+                  Swal.showLoading();
+                },
+                willClose: () => {
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Proyecto actualizado con exito",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true
+                  });
+                  clearInterval(timerInterval);
+                  handleGoProjects();
+                }
+              });
             }
-
-            try {
-                const userId = currentUser.id;
-                const project = await fetchProjectById(userId, projectId, storedToken);
-                setProject(project);
-                setLoading(false);  
-
-            } catch (error) {
-                const errorMessage = error.response ? error.response.data.message : error.message;
-                Swal.fire({
-                    title: 'Error!',
-                    text: errorMessage,
-                    icon: 'error',
-                    confirmButtonText: 'Volver'
-                });
-            }
-        };
-
-        fetchProject();
-    }, [projectId]);
-
-    return { project, loading }
-}
+      
+        } catch (error) {
+            const errorMessage = error.response ? error.response.data.message : error.message;
+            Swal.fire({
+                title: 'Error!',
+                text: errorMessage,
+                icon: 'error',
+                confirmButtonText: 'Volver'
+            });
+        }
+    };
+    return { editProject };
+};

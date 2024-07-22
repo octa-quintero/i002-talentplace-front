@@ -1,28 +1,29 @@
 import { useEffect, useState } from "react";
-import Swal from 'sweetalert2'
+import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 import { useUserContext } from "../context/UserProvider";
-import { fetchAllProjectsByUserId } from "../api/fecthAllProjectsByUserId";
+import { fetchProjectById } from "../api/fetchProjectById";
 
+export const useFetchProjectById = () => {
 
-export const useAllProjectsByUserId = () => {
-
-    const [projects, setProjects] = useState([]);    
-    const { setToken, token, user } = useUserContext();
+    const { projectId } = useParams();
+    const { setToken, user } = useUserContext();
+    const [project, setProject] = useState(null);
     const [loading, setLoading] = useState(true);
     const recoverUser = JSON.parse(user);
 
     useEffect(() => {
-        const fetchAllProjects = async () => {
-            
+        const fetchProject = async () => {
+
             const storedToken = localStorage.getItem("token");
             setToken(storedToken);
 
-            try {        
+            try {
                 const userId = recoverUser.id;
-                const projects = await fetchAllProjectsByUserId(userId, storedToken);
-                setProjects(projects);
-                setLoading(false);
-                
+                const project = await fetchProjectById(userId, projectId, storedToken);
+                setProject(project);
+                setLoading(false);  
+
             } catch (error) {
                 const errorMessage = error.response ? error.response.data.message : error.message;
                 Swal.fire({
@@ -33,9 +34,9 @@ export const useAllProjectsByUserId = () => {
                 });
             }
         };
-    
-        fetchAllProjects();
-    }, [setToken]);
 
-    return { projects, loading }
+        fetchProject();
+    }, [projectId]);
+
+    return { project, loading }
 }
