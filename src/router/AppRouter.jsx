@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import { LandingPage, AboutUs, Login, Register, Opportunities, PaginaEnConstruccion } from "../pages"
 import { Dashboard } from "../pages/Dashboard/Dashboard"
 import { Projects } from "../pages/Projects/Projects"
+import Nosotros from "../pages/Nosotros/Nosotros"
 
 export const AppRouter = () => {
   return (
@@ -14,6 +15,8 @@ export const AppRouter = () => {
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
         <Route path="/opportunities" element={<Opportunities />} />
+        <Route path="/nosotros" element={<Nosotros />} />
+
 
         {/* Dashboard */}
         <Route path="dashboard/*" element={<Dashboard />}>
@@ -22,7 +25,6 @@ export const AppRouter = () => {
           {/* <Route path="edit-project" element={<EditProject />} /> */}
         </Route>
 
-        {/* <Route path="/contratar" element={<PaginaEnConstruccion />} /> */}
         <Route path="/nosotros" element={<PaginaEnConstruccion />} />
         <Route path="/contacto" element={<PaginaEnConstruccion />} />
         <Route path="/paginaenconstruccion" element={<PaginaEnConstruccion />} />
