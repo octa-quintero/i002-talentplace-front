@@ -3,27 +3,28 @@ import Swal from 'sweetalert2'
 import { useUserContext } from "../context/UserProvider";
 import { fetchAllProjectsByUserId } from "../api/fecthAllProjectsByUserId";
 
+
 export const useAllProjectsByUserId = () => {
 
     const [projects, setProjects] = useState([]);    
-    const { setUser, setToken } = useUserContext();
+    const { setToken, token, user } = useUserContext();
     const [loading, setLoading] = useState(true);
+    const recoverUser = JSON.parse(user)
+    console.log(recoverUser.id);
 
     useEffect(() => {
         const fetchAllProjects = async () => {
 
-            const storedToken = localStorage.getItem("token");
-            setToken(storedToken);
-            const storedUser = localStorage.getItem("user");
-            const currentUser = JSON.parse(storedUser);
-            if (currentUser) {
-              setUser(currentUser);
-            }
-            const userId = currentUser.id;
-
             try {
+                const storedToken = localStorage.getItem("token");
+
+                console.log(token);
+                // const storedToken = token;
+                console.log("storedToken",storedToken);
+                setToken(storedToken);
         
-                const projects = await fetchAllProjectsByUserId(userId, storedToken);    
+                const projects = await fetchAllProjectsByUserId(recoverUser.id, storedToken);
+                console.log(projects);    
                 setProjects(projects);
                 setLoading(false);
                 

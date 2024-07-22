@@ -3,9 +3,20 @@ import { useState } from "react";
 import logo from "../../assets/assets-png/2.png"
 import './Navbar.css';
 import Button from "../../components/Button/Button";
+import { useUserContext } from "../../context/UserProvider";
+import useLoginForm from '../../hooks/useLoginForm';
+import { FaUserAlt } from "react-icons/fa";
+
 
 export const Navbar = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const { token, user } = useUserContext();
+  const recoverUser = JSON.parse(user)
+  
+console.log(token);
+  const {
+    closeSession
+} = useLoginForm();
 
   const toggleNavbar = () => {
     setIsCollapsed(!isCollapsed);
@@ -20,7 +31,7 @@ export const Navbar = () => {
 
         <button
           className="navbar-toggler"
-          type="button"
+          type="button"  
           onClick={toggleNavbar}
           aria-controls="navbarNavAltMarkup"
           aria-expanded={!isCollapsed}
@@ -31,15 +42,26 @@ export const Navbar = () => {
 
         <div className={`collapse navbar-collapse ${isCollapsed ? "" : "show"}`} id="navbarNavAltMarkup">
           <div className="navbar-nav mx-auto justify-content-center">
-            <NavLink
-              onClick={toggleNavbar}
-              className={({ isActive }) =>
-                `nav-item nav-link ${isActive ? "active" : ""}`
-              }
-              to="/dashboard/projects"
-            >
+            {token ? 
+              <NavLink
+                onClick={toggleNavbar}
+                className={({ isActive }) =>
+                  `nav-item nav-link ${isActive ? "active" : ""}`
+                }
+                to="/dashboard/projects"
+              >
               Contratar
-            </NavLink>
+              </NavLink>
+            :
+              <NavLink
+                onClick={toggleNavbar}
+                className={({ isActive }) =>
+                  `nav-item nav-link ${isActive ? "active" : ""}`
+                }
+                to="/login">
+              Contratar
+              </NavLink>
+            }
             <NavLink
               onClick={toggleNavbar}
               className={({ isActive }) =>
@@ -69,9 +91,15 @@ export const Navbar = () => {
             </NavLink>
           </div>
           <div className="d-flex justify-content-center">
-            <NavLink to="/login" onClick={toggleNavbar}>
-              <Button width="160px" type='default' to="/login">Ingresar</Button>
-            </NavLink>
+
+            {/* Si se esta logueado muestra el nombre del usuario, sino se ingresa */}
+            {token ?
+              <>
+                <p className="p-user">{recoverUser.nombre}&nbsp;{recoverUser.apellido}</p> 
+                <button className="btn-userAlt" onClick={()=>{closeSession()}}><FaUserAlt className="userAlt"/></button>
+              </>
+              : 
+                <Button onClick={toggleNavbar} width="160px" type='default' to="/login">Ingresar</Button>}
           </div>
         </div>
       </div>
