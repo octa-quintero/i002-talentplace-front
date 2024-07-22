@@ -16,7 +16,6 @@
     display: flex;
     width: 100%;
     gap: 15px;
-    margin-block: 15px;
 }
 
 .container-section-proyectCard{
@@ -31,12 +30,4 @@
     .container-section-proyectCard{
         width: 100%;
     }
-}
-
-.loading{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    background-color: var(--color-white);
 }
