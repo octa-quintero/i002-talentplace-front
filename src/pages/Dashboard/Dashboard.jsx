@@ -1,17 +1,22 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import "./Dashboard.css"
-import Sidebar from "../../components/Sidebar/Sidebar";
+import SidebarEmpresa from "../../components/Sidebar/SidebarEmpresa";
+import SidebarFreelancer from "../../components/Sidebar/SidebarFreelancer";
 
 export const Dashboard = () => {
     return(
-        <main className="container-sidebar bg-white">
+        <main className="container-sidebar">
             <Container fluid className="d-flex">
                 <Row className="min-vw-100">
-                    <Col md={3} className="d-md-block bg-success">
-                        <Sidebar />
+
+                    <Col md={3} className="d-md-block">
+                        <SidebarEmpresa />
                     </Col>
-                    <Col md={9}>
+                    {/* <Col md={3} className="d-md-block">
+                        <SidebarFreelancer />
+                    </Col> */}
+                    <Col md={9} className="bg-white">
                         {/* header */}
                         <div className="bg-info">
                             <h2>Menu Header</h2>

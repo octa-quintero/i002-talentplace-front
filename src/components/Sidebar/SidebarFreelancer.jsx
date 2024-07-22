@@ -38,7 +38,7 @@ const SidebarFreelancer = () => {
 
         <Container fluid className="dashboard-container d-flex">
 
-            <div className="sidebar-container w-25 d-flex justify-content-center align-items-around">
+            <div className="sidebar-container w-100 d-flex justify-content-center align-items-around">
 
                 <div className="sidebar-button">
                     {isMobile && (
@@ -177,11 +177,6 @@ const SidebarFreelancer = () => {
 
                 </Offcanvas>
 
-            </div>
-
-            <div className="d-flex w-75 flex-column projects-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan sit amet nulla facilisi morbi tempus iaculis. Eget felis eget nunc lobortis mattis aliquam. Ac felis donec et odio pellentesque diam. Pharetra diam sit amet nisl suscipit adipiscing bibendum. Urna cursus eget nunc scelerisque viverra mauris in. Leo a diam sollicitudin tempor id eu nisl nunc mi. Porta nibh venenatis cras sed felis eget velit aliquet. Sagittis eu volutpat odio facilisis mauris. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum. At imperdiet dui accumsan sit amet nulla. Nec ullamcorper sit amet risus nullam eget felis eget nunc. Praesent tristique magna sit amet purus gravida quis. Ipsum consequat nisl vel pretium lectus. Tempus iaculis urna id volutpat lacus. In nulla posuere sollicitudin aliquam ultrices sagittis orci. Quis enim lobortis scelerisque fermentum dui faucibus in ornare quam. Nulla posuere sollicitudin aliquam ultrices sagittis orci a. Proin sed libero enim sed faucibus turpis in. Amet nisl purus in mollis.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan sit amet nulla facilisi morbi tempus iaculis. Eget felis eget nunc lobortis mattis aliquam. Ac felis donec et odio pellentesque diam. Pharetra diam sit amet nisl suscipit adipiscing bibendum. Urna cursus eget nunc scelerisque viverra mauris in. Leo a diam sollicitudin tempor id eu nisl nunc mi. Porta nibh venenatis cras sed felis eget velit aliquet. Sagittis eu volutpat odio facilisis mauris. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum. At imperdiet dui accumsan sit amet nulla. Nec ullamcorper sit amet risus nullam eget felis eget nunc. Praesent tristique magna sit amet purus gravida quis. Ipsum consequat nisl vel pretium lectus. Tempus iaculis urna id volutpat lacus. In nulla posuere sollicitudin aliquam ultrices sagittis orci. Quis enim lobortis scelerisque fermentum dui faucibus in ornare quam. Nulla posuere sollicitudin aliquam ultrices sagittis orci a. Proin sed libero enim sed faucibus turpis in. Amet nisl purus in mollis.</p>
             </div>
 
         </Container>
