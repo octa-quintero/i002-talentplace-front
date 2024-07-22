@@ -1,18 +1,9 @@
-import React, {useEffect} from "react";
 import './Form.css';
 import logo from '../../assets/assets-png/2.png';
-import { NavLink } from "react-router-dom";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import useEditRegisterForm from '../../hooks/useEditRegisterForm';
 import Loading from "../../pages/shared/Loading";
-import { UserProvider } from "../../context/UserProvider";
-
-
-useEffect(() => {
-    const { user } = UserProvider();
-    console.log(user)
-}, [])
-
+import { useNavigate } from "react-router-dom";
 
 const EditRegisterForm = () => {
     const {
@@ -25,11 +16,8 @@ const EditRegisterForm = () => {
         togglePasswordVisible,
         handleSubmit
     } = useEditRegisterForm();
-    // console.log('useEditRegisterForm: \n test');
-    // console.log(registerData);
-
-    
-
+    const navigate = useNavigate();
+  
     return(
         <form onSubmit={handleSubmit} className='container-forms container form-width p-5 my-5'>
 
@@ -141,21 +129,20 @@ const EditRegisterForm = () => {
                         {errors.contrasenia && <p style={{color: 'red'}}>{errors.contrasenia}</p>}
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group d-flex justify-content-between">
                         <button 
-                            className="border-0 button primary w-100 p-2 my-3" 
+                            className="border-0 button primary-outline w-25 p-2 my-3" 
+                            type="button"
+                            onClick={ ()=> navigate(-1) }
+                        >Volver atras</button>
+                        <button 
+                            className="border-0 button primary w-25 p-2 my-3" 
                             type="submit"
                             disabled={isSubmitting}
-                        >Registrarse</button>
+                        >Guardar</button>
                     </div>
                 </div>
             }
-            <p className="mx-auto w-50 text-center">¿Ya tienes una cuenta?&nbsp;
-                <br />
-                <NavLink to="/login" className="text-decoration-none">
-                    <strong>Inicia sesión</strong>
-                </NavLink> 
-            </p>
         </form>
     )
 }

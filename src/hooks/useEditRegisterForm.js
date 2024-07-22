@@ -1,22 +1,22 @@
 import { useState } from "react";
-import { fetchRegisterForm } from '../api/fetchRegsiterForm';
+import { getUserById } from '../api/editRegisterForm';
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { UserProvider } from "../context/UserProvider";
+import  { useUserContext  } from "../context/UserProvider"
 
 const useEditRegisterForm = () => {
 
-    // const { user } = UserProvider();
-    // console.log(user);
+    const {token, user} =  useUserContext();
+    const objUser = JSON.parse(user);
 
     const [registerData, setRegisterData] = useState({
-        nombre: '',
-        apellido: '',
-        telefono: '',
-        pais: '',
-        tipo: '',
+        nombre: objUser.nombre,
+        apellido: objUser.apellido,
+        telefono: objUser.telefono,
+        pais: objUser.pais,
+        tipo: objUser.tipo,
         contrasenia: '',
-        email: ''
+        email: objUser.email
     });
 
     const [inputType, setInputType] = useState("password");
@@ -97,24 +97,27 @@ const useEditRegisterForm = () => {
             setLoading(true)
 
             try {
-                // En caso de éxito, muestra una notificacion y lleva al home
-                const data = await fetchRegisterForm(registerData);
+                
+                debugger
+                console.log(objUser.id);
+                const data = await getUserById(objUser.id, token);
+                console.log(data);
 
-                Swal.fire({
-                    icon: "success",
-                    title: "Usuario creado con éxito",
-                    text: "Puede iniciar sesión",
-                    timer: 3000,
-                });
-                navigate('/login');
-
+                // Swal.fire({
+                //     icon: "success",
+                //     title: "Usuario actualizado con éxito",
+                //     text: "Los cambios han sido guardados",
+                //     timer: 3000,
+                // });
+                // navigate('/home');
+                
             } catch (error) {
 
                 // Si hay un error lo notifica
                 console.log(error);
                 Swal.fire({
                     icon: "error",
-                    title: "El correo electrónico ya existe.",
+                    title: "Hubo un error!",
                     timer: 3000,
                 });
 
