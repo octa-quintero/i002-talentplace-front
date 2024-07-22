@@ -5,13 +5,18 @@
     gap: 9px;
 }
 
+.bg-white{
+    background-color: white;
+}
+
 .card-container h3{
     font-size: 16px;
     line-height: 24px;
 }
 
 .card{
-    background-color: white;
+    /* background-color: white; */
+    background-color: transparent;
     padding: 12px;
     border-radius: 16px;
     border: none;
@@ -29,7 +34,6 @@
 .card.large{
     width: 90%;
     padding: 30%;
-   
 }
 
 .card-icon {
@@ -40,5 +44,12 @@
 
 .card-img{
     width: 100%;
-   
+}
+
+@media (width<576px){
+    .card-container p{
+        font-size: 12px;
+        padding-inline: 5px;
+        text-align: center;
+    }    
 }
