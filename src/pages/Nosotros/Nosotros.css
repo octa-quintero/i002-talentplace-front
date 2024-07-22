@@ -1,4 +1,36 @@
-.cardInfo-container{
+/* .cardInfo-container{
     width: 100%;
     height: 146;
+} */
+
+@media (width <576px){
+    .nosotros-head{
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center;
+    }
+}
+.nosotros-head__icon{
+    font-size: 40px;
+    margin-block: 10px;
+    color: var(--main-color-purple);
+}
+
+p{
+    font-size: var(--font-size-body-2);
+}
+
+
+@media (width < 992px){
+    .cardInfo-container{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+.nosotros-section3{
+    background-color: white;
+    margin-inline: -16px;
+    padding-inline: 32px;
 }

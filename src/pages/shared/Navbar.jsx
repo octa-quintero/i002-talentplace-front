@@ -78,7 +78,7 @@ export const Navbar = () => {
               Contactanos
             </NavLink>
             <NavLink
-              onClick="toggleNavbar"
+              onClick={toggleNavbar}
               className={({ isActive }) =>
                 `nav-item nav-link ${isActive ? "active" : ""}`
               }
