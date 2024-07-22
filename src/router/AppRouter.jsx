@@ -3,6 +3,7 @@ import { LandingPage, AboutUs, Login, Register, Opportunities, PaginaEnConstrucc
 import { Dashboard } from "../pages/Dashboard/Dashboard"
 import { Projects } from "../pages/Projects/Projects"
 import ProjectEdit from "../components/ProjectEdit/ProjectEdit"
+import { EditProfile } from "../components/EditProfile/EditProfile"
 
 export const AppRouter = () => {
   return (
@@ -27,6 +28,7 @@ export const AppRouter = () => {
         <Route path="/nosotros" element={<PaginaEnConstruccion />} />
         <Route path="/contacto" element={<PaginaEnConstruccion />} />
         <Route path="/paginaenconstruccion" element={<PaginaEnConstruccion />} />
+        <Route path="/editprofile" element={<EditProfile />} />
 
       </Routes>
     </>
