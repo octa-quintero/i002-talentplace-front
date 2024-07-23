@@ -1,13 +1,17 @@
-import { Button, Card, Col, Nav, Row } from "react-bootstrap"
+import { Button, Card, CardTitle, Col, Nav, Row } from "react-bootstrap"
+import { useNavigate } from "react-router-dom";
 import { AiOutlineMail } from "react-icons/ai";
 import { GoEye } from "react-icons/go";
 import { LuPencilLine } from "react-icons/lu";
+import { GoEyeClosed } from "react-icons/go";
 import formatDateLocal from "../../utils/formatDateLocal";
 import { useAllProjectsByUserId } from "../../hooks/useAllProjectsByUserId";
-import "./ProjectList.css";
 import Loading from "../../pages/shared/Loading";
+import "./ProjectList.css";
 
 export const ProjectList = () => {
+
+    const navigate = useNavigate();
 
     const { projects, loading } = useAllProjectsByUserId();
 
@@ -21,11 +25,40 @@ export const ProjectList = () => {
         return firstLetter + restText;
     }
 
+    const handleEditClick = (projectId) => {
+        navigate(`/dashboard/projects/edit/${projectId}`);
+    }
+    const handleGoCreate = () => {
+        navigate(`/dashboard/projects/new`);
+      }
+
     return(
         <>
-            {loading ? (
+            { loading ? (
                     <div className="loading"><Loading/></div>
-                ) : projects.map((project) => (
+                ) : 
+                projects.length === 0 ?
+                <Card className="my-5 py-5 align-items-center">
+                    <CardTitle className="fs-2 fw-bold">
+                    No tienes ningún proyecto publicado
+                    </CardTitle>
+                    <GoEyeClosed size={"6em"} color={"#8C52FF"} />
+                    <Card.Text className="text">
+                    No esperes más, tu próximo gran talento podría estar a solo una publicación de distancia. 
+                    </Card.Text>
+                    <Card.Text className="text">
+                    ¡Empieza ahora y encuentra a tu futuro colaborador!
+                    </Card.Text>
+                    <Row className='d-flex justify-content-lg-end mx-3 py-3'>         
+                        <Button
+                        className='button primary border-1 my-2 w-100'
+                        onClick={handleGoCreate}
+                        >
+                            Publicar nuevo proyecto
+                        </Button>       
+                    </Row>
+                </Card>
+                : projects.map((project) => (
                 <Card key={project.id} className="border border-info align-items-start m-3">
                     <Card.Body className="pt-0">
                         <Row>
@@ -134,13 +167,13 @@ export const ProjectList = () => {
                             </Col>
                             <Col lg={3}>
                                 <Nav activeKey="" className="justify-content-lg-end justify-content-center">
-                                    <Nav.Link eventKey="link-event-key">
+                                    <Nav.Link onClick={() => handleEditClick(project.id)}>
                                         <LuPencilLine className="color-purple fs-2"/>                                            
                                     </Nav.Link>
-                                    <Nav.Link eventKey="link-event-key">
+                                    <Nav.Link>
                                         <GoEye className="color-purple fs-2"/>
                                     </Nav.Link>
-                                    <Nav.Link eventKey="link-event-key">
+                                    <Nav.Link>
                                         <AiOutlineMail className="color-purple fs-2"/>                                            
                                     </Nav.Link>                                        
                                 </Nav>

@@ -1,8 +1,6 @@
 import { Route, Routes } from "react-router-dom"
-import { LandingPage, AboutUs, Login, Register, Opportunities, PaginaEnConstruccion } from "../pages"
-import { Dashboard } from "../pages/Dashboard/Dashboard"
-import { Projects } from "../pages/Projects/Projects"
-import {Nosotros} from "../pages/Nosotros/Nosotros"
+import { LandingPage, AboutUs, Login, Register, Opportunities, PaginaEnConstruccion, Dashboard, Projects, Nosotros } from "../pages"
+import ProjectEdit from "../components/ProjectEdit/ProjectEdit"
 
 export const AppRouter = () => {
   return (
@@ -21,8 +19,8 @@ export const AppRouter = () => {
         {/* Dashboard */}
         <Route path="dashboard/*" element={<Dashboard />}>
           <Route path="projects" element={<Projects />} />
+          <Route path="projects/edit/:projectId" element={<ProjectEdit />} />
           {/* <Route path="public-project" element={<PublicProject />} /> */}
-          {/* <Route path="edit-project" element={<EditProject />} /> */}
         </Route>
 
         <Route path="/contacto" element={<PaginaEnConstruccion />} />

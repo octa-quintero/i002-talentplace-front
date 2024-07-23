@@ -52,3 +52,29 @@
 .button.white:hover{
     border: 2px solid #08121F;
 }
+
+.dash{
+    width: 50px !important;
+    height: 50px !important;
+    padding: 0;
+    justify-content: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center; /* Add this line */
+    border: none;
+}
+
+.button.dash img {
+    width: 120%;
+    height: 120%;
+    object-fit:cover; /* Try this instead of cover */
+    border-radius: 50%;
+    justify-items: center;
+    margin-top: 8px;
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+  }
+.user{
+    background-color: #F29200;
+   border-color: none;
+}
