@@ -63,18 +63,3 @@
     align-items: center; /* Add this line */
     border: none;
 }
-
-.button.dash img {
-    width: 120%;
-    height: 120%;
-    object-fit:cover; /* Try this instead of cover */
-    border-radius: 50%;
-    justify-items: center;
-    margin-top: 8px;
-    clip-path: circle(50% at 50% 50%);
-    -webkit-clip-path: circle(50% at 50% 50%);
-  }
-.user{
-    background-color: #F29200;
-   border-color: none;
-}

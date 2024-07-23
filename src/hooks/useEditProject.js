@@ -17,7 +17,7 @@ export const useEditProject = () => {
         setToken(storedToken);
 
         const handleGoProjects = () => {
-            navigate(`/dashboard/projects/`);
+            navigate(`/dashboard/projects`);
         }
     
         try {

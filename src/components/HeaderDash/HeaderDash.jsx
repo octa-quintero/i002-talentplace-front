@@ -1,76 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { Col, Container, Row } from "react-bootstrap";
 import "./HeaderDash.css";
 import Button from '../Button/Button';
-import { FaEnvelope } from 'react-icons/fa';
-import { MdNotifications } from 'react-icons/md';
 import profile from '../../assets/assets-img/man-profile.jpeg';
 import { useUserContext } from '../../context/UserProvider';
-
-
-// const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+import { matchPath, useLocation } from 'react-router-dom';
+import { useMemo } from 'react';
+import { AiOutlineMail } from "react-icons/ai";
+import { FaRegBell } from "react-icons/fa";
 
 const HeaderDash = () => {
-  const [rutaDashboard, setRutaDashboard] = useState({
-    ruta: 'Hola',
-    perfil: '',
-    nombreEmpresa: '',
-  });
-  const { token, setToken, setUser, user } = useUserContext();
-  const recoverUser = JSON.parse(user)
-  const recoverUserId = recoverUser.id
-  console.log(recoverUserId);
-  console.log(recoverUser);
 
+  const location = useLocation();
+  const pathLocal = location.pathname;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // const userId = localStorage.getItem('userId');
-        if (!recoverUserId) {
-          console.error("No user ID found in local storage");
-          return;
-        }
+  const { user } = useUserContext();
+  const recoverUser = JSON.parse(user);
 
-        // const response = await axios.get(`${BACKEND_URL}/api/usuarios/${userId}`);
-        // const user = response.data;
+  const { nombre, apellido } = recoverUser;
 
-        const nombreEmpresa = recoverUser.nombre.length > 0 ? recoverUser.nombre[0] : 'No tiene empresa';
-
-        setRutaDashboard({
-          ruta: 'Dashboard',
-          perfil: recoverUser.nombre,
-          nombreEmpresa: nombreEmpresa,
-        });
-      } catch (error) {
-        console.error("Error fetching the dashboard route data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const renderHeading = () => {
-    if (rutaDashboard.ruta === 'Dashboard') {
-      return `¡Bienvenido ${rutaDashboard.perfil} de ${rutaDashboard.nombreEmpresa}`;
-    }
-    return rutaDashboard.ruta;
+  const headings = {
+    '/dashboard': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
+    '/dashboard/projects': "Proyectos",
+    '/dashboard/payments': "Facturación",
+    '/dashboard/talents': "Personas",
+    '/dashboard/projects/new': "Publicar Proyecto",
+    '/dashboard/chat': "Mensajería",
+    '/dashboard/profile': "Editar Perfil"
   };
 
+  const renderHeading = useMemo(() => {
+    if (headings[pathLocal]) {
+      return headings[pathLocal];
+    } else if (matchPath('/dashboard/projects/edit/:id', pathLocal)) {
+      return "Editar Proyecto";
+    }
+    return "";
+  }, [pathLocal, headings]);
+
   return (
-    <header className='headerDash container-fluid'>
-      <h3>{renderHeading()}</h3>
-      <div className='icon-buttons'>
-        <Button type='dash user'>
-          <img src={profile} alt="Profile image" />
-        </Button>
-        <Button type="primary dash">
-          <FaEnvelope className='icono' style={{ strokeWidth: 20 }} />
-        </Button>
-        <Button type="primary dash">
-          <MdNotifications className='icono' />
-        </Button>
-      </div>
+    <header className='headerDash container-fluid mt-5 mb-xl-3 justify-content-center'>
+      <Row className='w-100'>
+        <Col xl={7} md={6}>
+          <h3 className='fs-2'>{renderHeading}</h3>
+        </Col>
+        <Col xl={3} md={4} className='ms-auto d-flex p-xl-0 justify-content-xl-end py-2 px-0'>
+          <Button type='dash user border-0 button-profile-button mx-2'>
+            <img src={profile} alt="Profile image" className='profile-button' />
+          </Button>
+          <Button type="primary dash border-0 mx-2">
+            <AiOutlineMail className='fs-4' />
+          </Button>
+          <Button type="primary dash border-0 mx-2">
+            <FaRegBell className='fs-4' />
+          </Button>
+        </Col>
+      </Row>
     </header>
   );
 };
