@@ -1,9 +1,15 @@
-import { useState } from "react";
-import { fetchRegisterForm } from '../api/fetchRegsiterForm';
+import { useState, useEffect } from "react";
+import { getUserById, updateUser } from '../api/editRegisterForm';
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import  { useUserContext  } from "../context/UserProvider"
 
-const useRegisterForm = () => {
+const useEditRegisterForm = () => {
+    
+    let {token, user, setUser} =  useUserContext();
+    const userContext = JSON.parse(user);
+    const { id } = userContext;
+    const [objUser, setObjUser] = useState({});
     const [registerData, setRegisterData] = useState({
         nombre: '',
         apellido: '',
@@ -14,6 +20,29 @@ const useRegisterForm = () => {
         email: ''
     });
 
+    const getDataUserById = async () => {
+        const data = await getUserById(id, token);
+        setObjUser(data);
+    };
+
+    useEffect(() => {
+        getDataUserById();
+    }, []);
+
+    useEffect(() => {
+        if (objUser) {
+            setRegisterData({
+                nombre: objUser.nombre || '',
+                apellido: objUser.apellido || '',
+                telefono: objUser.telefono || '',
+                pais: objUser.pais || '',
+                tipo: objUser.tipo || '',
+                contrasenia: objUser.contrasenia || '',
+                email: objUser.email || ''
+            });
+        }
+    }, [objUser]);
+   
     const [inputType, setInputType] = useState("password");
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -92,30 +121,29 @@ const useRegisterForm = () => {
             setLoading(true)
 
             try {
-                // En caso de éxito, muestra una notificacion y lleva al home
-                const data = await fetchRegisterForm(registerData);
-
+                const data = await updateUser(registerData, id, token);
+                setUser(JSON.stringify(data))
+                
                 Swal.fire({
                     icon: "success",
-                    title: "Usuario creado con éxito",
-                    text: "Puede iniciar sesión",
+                    title: "Usuario actualizado con éxito",
+                    text: "Los cambios han sido guardados",
                     timer: 3000,
                 });
-                navigate('/login');
-
+                navigate('/dashboard');
+                
             } catch (error) {
 
                 // Si hay un error lo notifica
                 console.log(error);
                 Swal.fire({
                     icon: "error",
-                    title: "El correo electrónico ya existe.",
+                    title: "Hubo un error!",
                     timer: 3000,
                 });
 
             } finally {
                 setIsSubmitting(false);
-                setLoading(false)
             }
         }
     };
@@ -132,4 +160,4 @@ const useRegisterForm = () => {
     };
 };
 
-export default useRegisterForm;
+export default useEditRegisterForm;

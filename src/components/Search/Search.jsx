@@ -1,5 +1,4 @@
 import React, { useState } from 'react';    
-import Dropdown from '../Dropdown/Dropdown'
 import { BiSearch } from 'react-icons/bi'
 import '../../index.css'
 import './Search.css'
@@ -32,7 +31,6 @@ const Search = ({ onSearch }) => {
                     </div>
                 </div>
             </div>
-            <Dropdown classForSearch="classForSearch" />
         </div>
         
     );

@@ -9,3 +9,4 @@ export * from './Opportunities/Opportunities';
 export * from './Sidebar';
 export * from './Dashboard/Dashboard';
 export * from './Projects/Projects';
+export * from './Nosotros/Nosotros';

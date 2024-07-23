@@ -63,3 +63,30 @@
     align-items: center; /* Add this line */
     border: none;
 }
+
+.button.dash img {
+    width: 120%;
+    height: 120%;
+    object-fit:cover; /* Try this instead of cover */
+    border-radius: 50%;
+    justify-items: center;
+    margin-top: 8px;
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+  }
+
+.user{
+    background-color: #F29200;
+   border-color: none;
+}
+
+.button.primary-outline{
+    color: #B07CFF;
+    background-color: white;
+    border: 2px solid #B07CFF !important;
+}
+
+.button.primary-outline:hover{
+    color: white;
+    background-color: #B07CFF;
+}
