@@ -1,0 +1,30 @@
+.border-cardInfo{
+    border: 2px solid var(--main-color-purple);
+    background-color: white;
+}
+.cardInfo{
+    width: 33%;
+    padding-block: 30px;
+}
+
+.color{
+    color: var(--main-color-purple)
+}
+
+@media (width < 768px){
+    .border-cardInfo{
+        width: 80%;
+    }
+    .cardInfo{
+        width: 80%;
+    }
+}
+
+@media (width < 576px){
+    .border-cardInfo{
+        width: 100%;
+    }
+    .cardInfo{
+        width: 100%;
+    }
+} 

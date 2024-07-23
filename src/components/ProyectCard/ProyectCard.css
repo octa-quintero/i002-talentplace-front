@@ -32,3 +32,10 @@
         margin-bottom: 0px;
     }
 }
+
+@media (width<576px){
+
+    .w-sm-100{
+        width: 100% !important;
+    }
+}
