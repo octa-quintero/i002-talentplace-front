@@ -166,10 +166,6 @@ const Filter = () => {
                             </ul>
                         </div>
                     </li>
-
-                    <li className="border-top my-3"></li>
-                    <Dropdown />
-
                 </ul>
             </div>
         </aside>

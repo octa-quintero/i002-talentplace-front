@@ -96,6 +96,7 @@ const useLoginForm = () => {
                 // En caso de éxito
                 // Guarda el token y el usuario en el contexto y localStorage y dirige al home
                 const data = await fetchLoginForm(loginData);
+                console.log(data);
 
                 setToken(data.refreshToken);
                 setUser(JSON.stringify(data.user));
