@@ -43,7 +43,7 @@ export const Navbar = () => {
                 className={({ isActive }) =>
                   `nav-item nav-link ${isActive ? "active" : ""}`
                 }
-                to="/dashboard/projects"
+                to={ recoverUser.tipo === 'empresa' ? "/dashboard/projects" : "/dashboard" } 
               >
                 Dashboard
               </NavLink>

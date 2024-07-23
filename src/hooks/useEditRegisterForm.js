@@ -130,7 +130,7 @@ const useEditRegisterForm = () => {
                     text: "Los cambios han sido guardados",
                     timer: 3000,
                 });
-                navigate('/home');
+                navigate('/dashboard');
                 
             } catch (error) {
 

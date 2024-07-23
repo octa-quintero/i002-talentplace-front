@@ -155,7 +155,7 @@ const SidebarEmpresa = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/profile"
+                                to="/editprofile"
                             >
                                 <h4>Perfil</h4>
                             </NavLink>
