@@ -7,7 +7,6 @@ import Layout from "./components/Layout/Layout";
 import ScrollToTop from './components/Scrolltop/ScrollToTop';
 import "./App.css";
 
-
 function App() {
   return (
     <>

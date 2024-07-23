@@ -1,0 +1,44 @@
+/*  General */
+.dashboard-container {
+    height: 100%;
+}
+
+.sidebar-top, .sidebar-menu, .sidebar-options {
+    width: 80%;
+}
+
+.sidebar-top {
+    height: 20%;
+}
+
+.sidebar-menu {
+    height: 50%;
+}
+
+.sidebar-options {
+    height: 20%;
+}
+
+
+/*  Images & Icons  */
+.sidebar-top-logo {
+    width: 120px;
+}
+
+.sidebar-menu-icon, .sidebar-options-icon {
+    padding-right: 5%;
+}
+
+.sidebar-menu-row:hover, .sidebar-options-row:hover {
+    cursor: pointer;
+}
+
+
+/*  Media queries  */
+
+@media (max-width: 992px) {
+    .dashboard-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

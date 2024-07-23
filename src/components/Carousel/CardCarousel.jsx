@@ -10,6 +10,7 @@ import { PiChartLineBold } from "react-icons/pi";
 import Bullhorn from "../../assets/assets-svg/Bullhorn.svg"
 import Admin from "../../assets/assets-svg/Admin.svg"
 import '../Carousel/CardCarousel.css'
+import { Fade } from "react-awesome-reveal";
 
 
 export default function CardCarousel() {
@@ -38,25 +39,39 @@ export default function CardCarousel() {
     
       <Slider {...settings} className='custom-slider'>
         <div>
-          <Card Icon={BiGitPullRequest} container="bg-white" type='large' alt="It y programación" title="It y Programación"/>
+          <Fade triggerOnce="true" direction="left">
+            <Card Icon={BiGitPullRequest} container="bg-white" type='large' alt="It y programación" title="It y Programación"/>
+          </Fade>
         </div>
         <div>
-          <Card Icon={TfiMarkerAlt} container="bg-white" type='large' alt="Diseño y Multimedia" title="Diseño y Multimedia"/>
+          <Fade triggerOnce="true" delay="20" direction="left">
+            <Card Icon={TfiMarkerAlt} container="bg-white" type='large' alt="Diseño y Multimedia" title="Diseño y Multimedia"/>
+          </Fade>
         </div>
         <div>
-          <Card Icon={MdTranslate} container="bg-white" type='large' alt="Redacción y Traducción" title="Redacción y Traducción"/>
+          <Fade triggerOnce="true" delay="40" direction="left">
+            <Card Icon={MdTranslate} container="bg-white" type='large' alt="Redacción y Traducción" title="Redacción y Traducción"/>
+          </Fade>
         </div>
         <div>
-          <Card Icon={PiChartLineBold} container="bg-white" type='large' alt="Gestión y Finanzas" title="Gestión y Finanzas"/>
+          <Fade triggerOnce="true" delay="60" direction="left">
+            <Card Icon={PiChartLineBold} container="bg-white" type='large' alt="Gestión y Finanzas" title="Gestión y Finanzas"/>
+          </Fade>
         </div>
         <div>
-          <Card Icon={BiCog} container="bg-white" type='large' alt="Ingeniería y Fabricación" title="Ingeniería y Fabricación"/>
+          <Fade triggerOnce="true" delay="80" direction="left">
+            <Card Icon={BiCog} container="bg-white" type='large' alt="Ingeniería y Fabricación" title="Ingeniería y Fabricación"/>
+          </Fade>
         </div>
         <div>
-          <Card imgSrc={Bullhorn} container="bg-white" type='large' alt="Ventas y Marketing" title="Ventas y Marketing"/>
+          <Fade triggerOnce="true" delay="100" direction="left">
+            <Card imgSrc={Bullhorn} container="bg-white" type='large' alt="Ventas y Marketing" title="Ventas y Marketing"/>
+          </Fade>
         </div> 
         <div>
-          <Card imgSrc={Admin} container="bg-white" type='large' alt="Administración y Soporte" title="Administración y Soporte"/>
+          <Fade triggerOnce="true" delay="120" direction="left">
+            <Card imgSrc={Admin} container="bg-white" type='large' alt="Administración y Soporte" title="Administración y Soporte"/>
+          </Fade>
         </div> 
       </Slider>
     
