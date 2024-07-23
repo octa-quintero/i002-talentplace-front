@@ -4,6 +4,7 @@ import { AppRouter } from "./router/AppRouter";
 import { Navbar, Footer } from "./pages";
 import ScrollToTop from './components/Scrolltop/ScrollToTop';
 import "./App.css";
+import HeaderDash from './components/HeaderDash/HeaderDash';
 
 
 function App() {
@@ -14,6 +15,9 @@ function App() {
         <ScrollToTop />
         <div className="main-content">
           <AppRouter />
+        </div>
+        <div>
+          <HeaderDash/>
         </div>
         <Footer />
       </BrowserRouter>

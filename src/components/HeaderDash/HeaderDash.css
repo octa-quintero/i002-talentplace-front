@@ -1,0 +1,31 @@
+.headerDash {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distributes space between h3 and buttons */
+  margin-top: 89px;
+  background-color: #fff;
+  margin-bottom: 56px;
+  padding: 0 20px; /* Optional: Add padding for better spacing */
+}
+
+.icon-buttons {
+  display: flex;
+  gap: 10px;
+  /* Removed margin-left: auto; */
+}
+
+h3 {
+  font-size: var(--font-size-headline-3);
+  font-weight: var(--font-weight-bold);
+  line-height: 42px;
+  margin: 0; /* Remove default margins */
+  /* Removed justify-content: flex-start !important; */
+}
+
+.icono {
+  width: 24px;
+  height: 24px;
+  stroke: #ffffff;
+  stroke-width: 1px;
+  fill: transparent;
+}
