@@ -101,7 +101,7 @@ const useLoginForm = () => {
                 setUser(JSON.stringify(data.user));
                 localStorage.setItem('user', JSON.stringify(data.user));
                 localStorage.setItem('token', data.refreshToken);
-                navigate('/');
+                navigate('/dashboard');
 
                 // Notificación de éxito al iniciar sesión
                 Toast.fire({

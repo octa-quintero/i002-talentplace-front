@@ -19,7 +19,7 @@ export const Dashboard = () => {
                     </Col> */}
                     <Col md={9} className="bg-white">
                         {/* header */}
-                        <div className="bg-info">
+                        <div>
                             <HeaderDash />
                         </div>
                         {/* body */}

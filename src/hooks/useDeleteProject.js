@@ -17,7 +17,7 @@ export const useDeleteProject = () => {
         const userId = recoverUser.id;
 
         const handleGoProjects = () => {
-            navigate(`/dashboard/projects/`);
+            navigate(`/dashboard/projects`);
         }
     
         try {

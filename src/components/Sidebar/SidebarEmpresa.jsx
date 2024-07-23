@@ -81,7 +81,7 @@ const SidebarEmpresa = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/proyectos"
+                                to="/dashboard/projects"
                             >
                                 <h4>Proyectos</h4>
                             </NavLink>
@@ -95,7 +95,7 @@ const SidebarEmpresa = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/payments"
+                                to="/dashboard/payments"
                             >
                                 <h4>Facturacion</h4>
                             </NavLink>
@@ -109,7 +109,7 @@ const SidebarEmpresa = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/talentos"
+                                to="/dashboard/talents"
                             >
                                 <h4>Personas</h4>
                             </NavLink>
@@ -123,7 +123,7 @@ const SidebarEmpresa = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/proyectos"
+                                to="/dashboard/projects/new"
                             >
                                 <h4>Publicar proyectos</h4>
                             </NavLink>
@@ -141,7 +141,7 @@ const SidebarEmpresa = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/chat"
+                                to="/dashboard/chat"
                             >
                                 <h4>Chat</h4>
                             </NavLink>
@@ -155,7 +155,7 @@ const SidebarEmpresa = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/profile"
+                                to="/dashboard/profile"
                             >
                                 <h4>Perfil</h4>
                             </NavLink>
