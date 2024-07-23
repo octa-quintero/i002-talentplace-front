@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import "./Dashboard.css"
 import SidebarEmpresa from "../../components/Sidebar/SidebarEmpresa";
 import SidebarFreelancer from "../../components/Sidebar/SidebarFreelancer";
+import HeaderDash from "../../components/HeaderDash/HeaderDash";
 
 export const Dashboard = () => {
     return(
@@ -19,7 +20,7 @@ export const Dashboard = () => {
                     <Col md={9} className="bg-white">
                         {/* header */}
                         <div className="bg-info">
-                            <h2>Menu Header</h2>
+                            <HeaderDash />
                         </div>
                         {/* body */}
                         <div className="vh-100 overflow-scroll dashboard-container">

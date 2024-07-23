@@ -13,7 +13,6 @@ export const Navbar = () => {
   const { token, user } = useUserContext();
   const recoverUser = JSON.parse(user)
   
-console.log(token);
   const {
     closeSession
 } = useLoginForm();
