@@ -1,14 +1,30 @@
 .border-cardInfo{
     border: 2px solid var(--main-color-purple);
-    width: 33%;
     background-color: white;
 }
+.cardInfo{
+    width: 33%;
+    padding-block: 30px;
+}
 
-@media (width < 992px){
+.color{
+    color: var(--main-color-purple)
+}
+
+@media (width < 768px){
     .border-cardInfo{
         width: 80%;
-        justify-content: center;
-        column-gap: 20px;
-        margin-inline: 25px;
+    }
+    .cardInfo{
+        width: 80%;
     }
 }
+
+@media (width < 576px){
+    .border-cardInfo{
+        width: 100%;
+    }
+    .cardInfo{
+        width: 100%;
+    }
+} 

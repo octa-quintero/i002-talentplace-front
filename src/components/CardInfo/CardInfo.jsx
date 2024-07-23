@@ -1,13 +1,19 @@
 import Card from 'react-bootstrap/Card';
 import './CardInfo.css'
 
-function BasicExample({title, text, paddingTop}) {
+function CardInfo({title, text, textColor, imagen, border, }) {
+
+    const borderCard = border ? "border-cardInfo" : "cardInfo"
+    
     return (
-        <Card className="border-cardInfo">
-            <Card.Body className={`align-content-center ${paddingTop}`}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" />  */}
-                <Card.Title className={`text-center fs-4 ${paddingTop}`}>{title}</Card.Title>
-                <Card.Text className='text-center'>
+        <Card className={`cardInfo ${borderCard}`}>
+            <Card.Body className={`align-content-center`}>
+                {imagen ? 
+                    <Card.Img className='nosotros-head__icon' variant="top" src={imagen} /> 
+                : 
+                    <Card.Title className={`text-center fs-4`}>{title}</Card.Title>
+                }
+                <Card.Text className={`text-center fs-5 ${textColor}`}>
                     {text}
                 </Card.Text>
             </Card.Body>
@@ -17,4 +23,4 @@ function BasicExample({title, text, paddingTop}) {
 
 
 
-export default BasicExample;
+export default CardInfo;
