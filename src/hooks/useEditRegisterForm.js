@@ -1,24 +1,48 @@
-import { useState } from "react";
-import { getUserById } from '../api/editRegisterForm';
+import { useState, useEffect } from "react";
+import { getUserById, updateUser } from '../api/editRegisterForm';
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import  { useUserContext  } from "../context/UserProvider"
 
 const useEditRegisterForm = () => {
-
-    const {token, user} =  useUserContext();
-    const objUser = JSON.parse(user);
-
+    
+    let {token, user, setUser} =  useUserContext();
+    const userContext = JSON.parse(user);
+    const { id } = userContext;
+    const [objUser, setObjUser] = useState({});
     const [registerData, setRegisterData] = useState({
-        nombre: objUser.nombre,
-        apellido: objUser.apellido,
-        telefono: objUser.telefono,
-        pais: objUser.pais,
-        tipo: objUser.tipo,
+        nombre: '',
+        apellido: '',
+        telefono: '',
+        pais: '',
+        tipo: '',
         contrasenia: '',
-        email: objUser.email
+        email: ''
     });
 
+    const getDataUserById = async () => {
+        const data = await getUserById(id, token);
+        setObjUser(data);
+    };
+
+    useEffect(() => {
+        getDataUserById();
+    }, []);
+
+    useEffect(() => {
+        if (objUser) {
+            setRegisterData({
+                nombre: objUser.nombre || '',
+                apellido: objUser.apellido || '',
+                telefono: objUser.telefono || '',
+                pais: objUser.pais || '',
+                tipo: objUser.tipo || '',
+                contrasenia: objUser.contrasenia || '',
+                email: objUser.email || ''
+            });
+        }
+    }, [objUser]);
+   
     const [inputType, setInputType] = useState("password");
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -97,19 +121,16 @@ const useEditRegisterForm = () => {
             setLoading(true)
 
             try {
+                const data = await updateUser(registerData, id, token);
+                setUser(JSON.stringify(data))
                 
-                debugger
-                console.log(objUser.id);
-                const data = await getUserById(objUser.id, token);
-                console.log(data);
-
-                // Swal.fire({
-                //     icon: "success",
-                //     title: "Usuario actualizado con éxito",
-                //     text: "Los cambios han sido guardados",
-                //     timer: 3000,
-                // });
-                // navigate('/home');
+                Swal.fire({
+                    icon: "success",
+                    title: "Usuario actualizado con éxito",
+                    text: "Los cambios han sido guardados",
+                    timer: 3000,
+                });
+                navigate('/home');
                 
             } catch (error) {
 
