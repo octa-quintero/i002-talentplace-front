@@ -115,6 +115,7 @@ const useRegisterForm = () => {
 
             } finally {
                 setIsSubmitting(false);
+                setLoading(false)
             }
         }
     };

@@ -6,7 +6,6 @@ import Filter from '../../components/Filter/Filter';
 import Search from '../../components/Search/Search';
 import Loading from '../shared/Loading';
 import useAllProjects from '../../hooks/useAllProjects';
-import useCategories from '../../hooks/useCategories';
 
 export const Opportunities = () => {
     const [filteredProjects, setFilteredProjects] = useState([]);

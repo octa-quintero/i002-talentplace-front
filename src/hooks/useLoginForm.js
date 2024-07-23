@@ -120,15 +120,18 @@ const useLoginForm = () => {
                         icon: "error",
                         title: `Usuario o contraseña inválida`,
                     });
+
                 } else {
                     Toast.fire({
                         icon: "error",
                         title: `Error al intentar iniciar sesión`,
                     });
+
                 }
 
             } finally {
                 setIsSubmitting(false);
+                setLoading(false)
             }
         }
     };
