@@ -124,7 +124,7 @@ const ProjectEdit = () => {
   };
 
   const handleCancel = () => {
-    const route = '/dashboard/projects/'
+    const route = '/dashboard/projects'
     discardChanges(route);
   };
 
