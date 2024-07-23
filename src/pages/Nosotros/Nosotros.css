@@ -1,0 +1,60 @@
+.nosotros-head__icon{
+    width: 40px;
+    margin-block: 10px;
+    color: var(--main-color-purple);
+}
+
+.cardInfo-container{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    padding-inline: 48px;
+}
+
+.suitCaseFill, .userGraduate{
+    font-size: 90px;
+    margin: 40px;
+}
+
+.cardText{
+    margin: 5%;
+    padding-inline: 10%;
+}
+
+
+.nosotros-section3{
+    background-color: white;
+    margin-inline: -16px;
+    padding-inline: 32px;
+}
+@media (width < 768px){
+    .cardInfo-container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .accordion{
+        padding-inline: 16px !important;
+    }
+    .cardText{
+        margin: 20px;
+        padding-inline: 0px;
+    }
+    .suitCaseFill, .userGraduate{
+        margin: 10px;
+    }
+}
+@media (width <576px){
+    .cardInfo-container{
+        padding-inline: 16px ;
+    }
+    .accordion{
+        padding-inline: 6px !important;
+    }
+    .cardText{
+        margin: 0px;
+        padding-inline: 0px;
+    }
+    .suitCaseFill, .userGraduate{
+        margin: 10px;
+    }
+}

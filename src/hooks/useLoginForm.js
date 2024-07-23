@@ -96,12 +96,13 @@ const useLoginForm = () => {
                 // En caso de éxito
                 // Guarda el token y el usuario en el contexto y localStorage y dirige al home
                 const data = await fetchLoginForm(loginData);
+                console.log(data);
 
                 setToken(data.refreshToken);
                 setUser(JSON.stringify(data.user));
                 localStorage.setItem('user', JSON.stringify(data.user));
                 localStorage.setItem('token', data.refreshToken);
-                navigate('/');
+                navigate('/dashboard');
 
                 // Notificación de éxito al iniciar sesión
                 Toast.fire({
@@ -119,15 +120,18 @@ const useLoginForm = () => {
                         icon: "error",
                         title: `Usuario o contraseña inválida`,
                     });
+
                 } else {
                     Toast.fire({
                         icon: "error",
                         title: `Error al intentar iniciar sesión`,
                     });
+
                 }
 
             } finally {
                 setIsSubmitting(false);
+                setLoading(false)
             }
         }
     };

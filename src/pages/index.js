@@ -4,6 +4,9 @@ export * from './Login';
 export * from './Register';
 export * from './shared/Footer';
 export * from './shared/Navbar';
-export * from './Opportunities/Opportunities';
 export * from './shared/PaginaEnConstruccion';
-
+export * from './Opportunities/Opportunities';
+export * from './Sidebar';
+export * from './Dashboard/Dashboard';
+export * from './Projects/Projects';
+export * from './Nosotros/Nosotros';
