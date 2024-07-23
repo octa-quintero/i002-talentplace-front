@@ -36,7 +36,7 @@ export const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className={`collapse navbar-collapse ${isCollapsed ? "" : "show"}`}id="navbarNavAltMarkup">
+        <div className={`collapse fade-in navbar-collapse ${isCollapsed ? "" : "show"}`}id="navbarNavAltMarkup">
           <div className="navbar-nav mx-auto justify-content-center">
             {token ? 
               <NavLink
@@ -46,7 +46,7 @@ export const Navbar = () => {
                 }
                 to="/dashboard/projects"
               >
-                Contratar
+                Dashboard
               </NavLink>
             :
               <NavLink
@@ -114,3 +114,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+

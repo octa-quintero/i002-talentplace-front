@@ -2,13 +2,19 @@ import React from 'react';
 import Button from '../Button/Button';
 import './ProyectCard.css';
 import '../../index.css';
+import { Fade } from 'react-awesome-reveal';
+import { useUserContext } from '../../context/UserProvider';
 
 const ProyectCard = ({ projects }) => {
+
+    const { token, user } = useUserContext();
+
 
     return (
         <div>
             {projects.map((project) => (
-                <article key={project.id} className='container-fluid my-3 container-proyect-card'>
+                <Fade key={project.id}>
+                <article  className='container-fluid my-3 container-proyect-card'>
                     <div className='d-flex container-fluid pt-3 flex-column flex-sm-row'>
                         <div className='w-100'>
                             <h3 className='mb-0'>{project.titulo}</h3>
@@ -45,11 +51,16 @@ const ProyectCard = ({ projects }) => {
 
                         <div className='d-flex justify-content-end mt-1 container-item'>
                             <div className='col-md-4 col-lg-2'>
-                                <Button type='primary' to="/login">Postularse</Button>
+                                {token?
+                                    <Button type='primary' to="/dashboard/projects">Postularse</Button>
+                                :
+                                    <Button type='primary' to="/login">Postularse</Button>
+                                }
                             </div>
                         </div>
                     </div>
                 </article>
+                </Fade>
             ))}
         </div>
     );

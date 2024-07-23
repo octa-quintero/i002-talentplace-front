@@ -6,6 +6,7 @@ import Filter from '../../components/Filter/Filter';
 import Search from '../../components/Search/Search';
 import Loading from '../shared/Loading';
 import useAllProjects from '../../hooks/useAllProjects';
+import { Fade } from 'react-awesome-reveal';
 
 export const Opportunities = () => {
     const [filteredProjects, setFilteredProjects] = useState([]);
@@ -23,23 +24,34 @@ export const Opportunities = () => {
     };
 
     return (
-        <main className='container-opportunities'>
-            <Filter />
-            <section className='container-section-proyectCard'>
-                <Search onSearch={handleFilteredProjects} />
-                {loading ? (
-                    <Loading/>
-                ) : (
-                    filteredProjects.length > 0 ? (
-                        <ProyectCard projects={filteredProjects}/>
-                    ) : noResults ? (
-                        <p className='fs-3'>No hay resultados</p>
+        <Fade>
+            <main className='container-opportunities'>
+
+                <Filter />
+                <section className='container-section-proyectCard'>
+                    <Search onSearch={handleFilteredProjects} />
+                    {loading ? (
+                        <Loading/>
                     ) : (
-                        <ProyectCard projects={projects} />
-                    )
-                )}
-            </section>
-        </main>
+                        filteredProjects.length > 0 ? (
+                            <>
+                                <Fade duration="1500">
+                                    <ProyectCard projects={filteredProjects}/>
+                                </Fade>
+                            </>
+                        ) : noResults ? (
+                            <p className='fs-3'>No hay resultados</p>
+                        ) : (
+                            <>
+                                <Fade duration="1500">
+                                    <ProyectCard projects={projects} />
+                                </Fade>
+                            </>
+                        )
+                    )}
+                </section>
+            </main>
+        </Fade>
     );
 };
 
