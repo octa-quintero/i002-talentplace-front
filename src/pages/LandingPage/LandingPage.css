@@ -1,3 +1,7 @@
+.landing-page{
+    background: var(--bg-color);
+}
+
 .landing-page p{
     font-size: var(--font-size-body-1);
 }
@@ -13,10 +17,9 @@
     padding-left: 2em;
 }
 
-
 .section1-right{
     border-radius: 63px 0 0 63px;
-    padding: 60px 12% 62px 65px;
+    padding: 60px 12% 62px 8%;
     box-shadow: -7px 3px 80px -29px #5B5B5B66;
     background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(../../assets/assets-svg/3.svg);
     background-position: -65% 50%; 
@@ -25,7 +28,8 @@
 }
 
 .section1-right h1{
-    font-size: var(--font-size-headline-1);
+    font-size: var(--font-size-headline-2);
+    /* font-size: 3rem; */
     font-weight: var( --font-weight-bold);
 }
 

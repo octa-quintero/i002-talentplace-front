@@ -25,8 +25,22 @@ const ProyectCard = ({ projects }) => {
                     <div className='container-fluid pb-3'>
                         <p>{project.descripcion}</p>
                         
-                        <p className='mb-0'><strong>Categoría: </strong>{project.categoria.nombre}</p>
-                        <p className='mb-0'><strong>Habilidades: </strong>{project.habilidades.map((habilidad)=>(<li key={habilidad.id}>{habilidad.nombre}</li>))}</p>
+                        <p className='mb-0 category-container d-flex'>
+                            <strong>Categoría:&nbsp;</strong>
+                            <div>
+                                {project.categoria.nombre}
+                            </div>
+                        </p>
+                        
+                        <p className='mb-0 d-flex hability-container'>
+                            <strong>Habilidades:&nbsp;</strong>
+                            <div className='d-flex hability-group'>
+                                {project.habilidades.map((habilidad)=>(
+                                    <p key={habilidad.id}>{habilidad.nombre},&nbsp; </p>
+                                ))}
+                            </div>
+                        </p>
+
                         <div className='d-flex justify-content-between mt-1 container-item'>
                             <div className='d-flex gap-3 container-ri'>
                                 {project.clickedHeart 

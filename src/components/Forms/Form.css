@@ -10,3 +10,33 @@
 .container-forms small {
     font-size: small;
 }
+
+.form-width{
+    width: 50%;
+}
+
+.form-group-password{
+    position: relative;
+}
+
+.ioEye{
+    position: absolute;
+    right: 10px;
+    top: 3%;
+    font-size: 20px;
+    border: none;
+    background: transparent;
+}
+
+
+@media (width <1200px){
+    .form-width{
+        width: 80%;
+    }
+}
+
+@media (width < 992px){
+    .form-width{
+        width: 100%;
+    }
+}

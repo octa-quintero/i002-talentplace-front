@@ -11,11 +11,9 @@ import {FaBriefcase, FaUserGraduate} from 'react-icons/fa'
 
 
 
-
-
 export const LandingPage = () => {
   return (
-    <div className="landing-page d-flex flex-column">
+    <div className="landing-page d-flex flex-column asd">
       <section className="container-fluid section1 mb-5">
         <div className="row h-100">
           <div className="col-12 col-md-6  section1-left-container">
@@ -73,7 +71,7 @@ export const LandingPage = () => {
         <div className='row text-center w-75 section2-svgs'>
           <div className='col-12 section2-content'>
             <h1 className='mb-4'>TalentPlace es el lugar ideal para trabajar ágilmente. Ya sea que estés contratando o seas freelancer, encontrarás lo que necesitas aquí.</h1>
-            <Button className="section2-button" width="auto" type='primary'>Forma parte aquí</Button>
+            <Button className="section2-button" width="auto" type='primary' to="/register">Forma parte aquí</Button>
           </div>
         </div>
       </section>

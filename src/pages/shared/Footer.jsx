@@ -3,11 +3,12 @@ import { FaLinkedin } from "react-icons/fa";
 import { FiYoutube } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import logo from "../../assets/assets-png/2.png"
 import "./Footer.css";
 
 export const Footer = () => {
   return (
-    <footer className="footer py-4 container-fluid bg-white">
+    <footer className="footer py-4 container-fluid bg-white" id="footer-dom">
       <Row className="px-lg-5">
         <Col
           xs={12}
@@ -55,19 +56,19 @@ export const Footer = () => {
               <p className="footer-subtitle mt-4 mt-lg-0">Comunidad</p>
               <ul className="list-group align-items-center align-items-lg-start">
                 <li>
-                  <a href="#!">Nosotros</a>
+                  <NavLink to="/nosotros">Nosotros</NavLink>
                 </li>
                 <li>
-                  <a href="#!">Contactanos</a>
+                  <NavLink to="/contacto">Contactanos</NavLink>
                 </li>
                 <li>
-                  <a href="#!">Aprende a contratar</a>
+                  <NavLink to="/paginaenconstruccion">Aprende a contratar</NavLink>
                 </li>
                 <li>
-                  <a href="#!">Aprende a trabajar</a>
+                  <NavLink to="/paginaenconstruccion">Aprende a trabajar</NavLink>
                 </li>
                 <li>
-                  <a href="#!">Ayuda y soporte</a>
+                  <NavLink to="/paginaenconstruccion">Ayuda y soporte</NavLink>
                 </li>
               </ul>
             </Col>
@@ -79,19 +80,19 @@ export const Footer = () => {
               <p className="footer-subtitle mt-4 mt-lg-0">Informacion</p>
               <ul className="list-group align-items-center align-items-lg-start">
                 <li>
-                  <a href="#!">Cargos y tarifas</a>
+                  <NavLink to="/paginaenconstruccion">Cargos y tarifas</NavLink>
                 </li>
                 <li>
-                  <a href="#!">Membresia</a>
+                  <NavLink to="/paginaenconstruccion">Membresia</NavLink>
                 </li>
                 <li>
-                  <a href="#!">Politica de privacidad</a>
+                  <NavLink to="/paginaenconstruccion">Politica de privacidad</NavLink>
                 </li>
                 <li>
-                  <a href="#!">Mapa del sitio</a>
+                  <NavLink to="/paginaenconstruccion">Mapa del sitio</NavLink>
                 </li>
                 <li>
-                  <a href="#!">Accesibilidad</a>
+                  <NavLink to="/paginaenconstruccion">Accesibilidad</NavLink>
                 </li>
               </ul>
             </Col>
@@ -126,7 +127,7 @@ export const Footer = () => {
               </ul>
               <div className="mt-5">
                 <img
-                  src="src/assets/assets-png/2.png"
+                  src={logo}
                   alt="talentplace-icon"
                   width={100}
                   height={80}
