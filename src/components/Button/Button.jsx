@@ -3,20 +3,33 @@ import { NavLink } from 'react-router-dom'
 import "../Button/Button.css"
 
 
-const Button = ({type, children, to, width}) => {
+const Button = ({type, children, to, htmlType, width, onClick}) => {
   const buttonStyle = {
     width: width || '100%'
   };
-  return (
-    <NavLink
+
+  if (to) {
+    return (
+      <NavLink
         to={to}
         className={`button ${type}`}
         style={buttonStyle}
-    >
+      >
         {children}
-    </NavLink>
-    
-  )
+      </NavLink>
+    );
+  }
+
+  return (
+    <button
+      type={htmlType || 'button'}
+      className={`button ${type}`}
+      style={buttonStyle}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
 }
 
 export default Button

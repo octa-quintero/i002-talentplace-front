@@ -1,39 +1,61 @@
 import React from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Col, Row, FormControl } from 'react-bootstrap'
+import Select from 'react-select';
 
-const Input = ({name, placeholder, width, options, value, onChange}) => {
-  return (
+const Input = ({name, placeholder, width, options = [], onChange, label, errors, multiple, value, type}) => {
+  const handleChange = (selectedOptions) => {
+    if (multiple) {
+      const values = selectedOptions ? selectedOptions.map(option => option.value) : [];
+      onChange({
+        target: { name, value: values }
+      });
+    } else {
+      onChange({
+        target: { name, value: selectedOptions ? selectedOptions.value : '' }
+      });
+    }
+  };
+
+  const selectedValue = multiple
+    ? options.filter(option => value.includes(option.value))
+    : options.find(option => option.value === value);
+  
+   return (
     <Row >
       <Col className='d-flex align-items-center gap-2'>
-        <p className='mb-0 align-self-center fs-5 fw-bold'>{name}</p>
-        
-        {options ? (
-          <select
-            className='rounded-3 border-1 border-black px-3 py-2 text-muted'
-            style={{width: width}}
-            name={name.toLowerCase().replace(/ /g, '')}
-            value={value}
-            onChange={onChange}
-          >
-            {options.map((option, index)=>(
-              <option key={index} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        ) : (
-          <input 
-            className='rounded-3 border-1 border-black ps-3 py-2' 
-            type="text" 
+        <p className='mb-0 align-self-center fs-5 fw-bold'>{label}</p>
+        {options.length > 0 ? (
+          <Select
+            classNamePrefix='border-black rounded-3 border-1'
+            className='w-100'
+            isMulti={multiple}
+            closeMenuOnSelect={false}
+            options={options}
+            onChange={handleChange}
+            value={selectedValue}
             placeholder={placeholder}
             style={{width: width}}
-            name={name.toLowerCase().replace(/ /g, '')}
+            
+          />
+
+        ): (
+          <FormControl
+            className='border-black rounded-3 border-1'
+            type={type || 'text'}
+            placeholder={placeholder}
             value={value}
-            onChange={onChange}
+            onChange={(e) => onChange({ target: { name, value: e.target.value } })}
+            style={{ width }}
           />
         )}
+
+
       </Col>
+        {errors && errors[name.toLowerCase().replace(/ /g, '')] && (
+          <p className='text-danger mt-1 mb-0'>{errors[name.toLowerCase().replace(/ /g, '')]}</p>
+        )}
     </Row>
+    
   )
 }
 

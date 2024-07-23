@@ -3,6 +3,7 @@ import { LandingPage, AboutUs, Login, Register, Opportunities, PaginaEnConstrucc
 import { Dashboard } from "../pages/Dashboard/Dashboard"
 import { Projects } from "../pages/Projects/Projects"
 import ProjectEdit from "../components/ProjectEdit/ProjectEdit"
+import PublishProject from "../pages/PublishProject/PublishProject"
 
 export const AppRouter = () => {
   return (
@@ -10,7 +11,7 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/home" element={<LandingPage />} /> 
         <Route path="/*" element={<LandingPage />} /> 
-        <Route path="/about" element={<AboutUs />} /> npm run dev
+        <Route path="/about" element={<AboutUs />} /> 
         <Route path="/opportunities" element={<Opportunities />} /> 
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
@@ -20,7 +21,7 @@ export const AppRouter = () => {
         <Route path="dashboard/*" element={<Dashboard />}>
           <Route path="projects" element={<Projects />} />
           <Route path="projects/edit/:projectId" element={<ProjectEdit />} />
-          {/* <Route path="public-project" element={<PublicProject />} /> */}
+          <Route path="publish-project" element={<PublishProject />} />
         </Route>
 
         {/* <Route path="/contratar" element={<PaginaEnConstruccion />} /> */}

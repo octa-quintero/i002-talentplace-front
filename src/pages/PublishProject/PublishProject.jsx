@@ -3,40 +3,52 @@ import {  Card, Col, Nav, Row } from "react-bootstrap"
 import { AiOutlineSave } from "react-icons/ai";
 import { GoEye } from "react-icons/go";
 import Button from '../../components/Button/Button';
-import { useState } from 'react';
+import { useUserContext } from '../../context/UserProvider';
+import usePublishProjectForm from '../../hooks/usePublishProjectForm';
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 
 const PublishProject = () => {
-    const { user } = useUserContext();
-    const [formData, setFormData] = useState({
-        titulo: '',
-        descripcion: '',
-        // idEmpresa:'',
-        estado:'',
-        presupuesto:'',
-        modalidad: '',
-        habilidad: '',
-        categorias: '',
-        requisitos: ''
-      });
+   
+    const {
+        formData,
+        errors,
+        isSubmitting,
+        loading,
+        handleChange,
+        handleSelectChange,
+        handleSubmit,
+        resetForm
+    } = usePublishProjectForm();
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-          ...formData,
-          [name]: value
-        });
-    };
-
-    const handleSubmit = async () => {
-        try {
-          const response = await axios.post(`${backendUrl}/projects`, formData);
-          console.log('Proyecto publicado:', response.data);
-        } catch (error) {
-          console.error('Error al publicar el proyecto:', error);
-        }
-      };
+    
+    
+    const habilitiesOptions = [
+        {value: 'HTML', label: "HTML"},
+        {value: 'CSS', label: "CSS"},
+        {value: 'Javascript', label: "Javascript"},
+        {value: 'ReactJs', label: "ReactJs"},
+        {value: 'SQL', label: "SQL"},
+        {value: 'Python', label: "Python"},
+        {value: 'Java', label: "Java"},
+        {value: 'C#', label: "C#"}
+    ]
+    const categoriesOptions = [
+        {value: 'Frontend', label: "Frontend"},
+        {value: 'Backend', label: "Backend"},
+        {value: 'UX/UI', label: "UX/UI"},
+        {value: 'QA', label: "QA"},
+        {value: 'PM', label: "PM"}
+    ]
+    const modalityOptions = [
+        {value: 'Presencial', label: "Presencial"},
+        {value: 'Remoto', label: "Remoto"},
+        {value: 'Hibrido', label: "Hibrido"}
+    ]
+    const statusOptions = [
+        {value: 'Vigente', label: "Vigente"},
+        {value: 'Caducado', label: "Caducado"}
+    ]
 
   return (
     <>  
@@ -44,26 +56,60 @@ const PublishProject = () => {
             <Card  className="border border-info align-items-start m-3">
                 <Card.Body className="pt-0">
                     <Row className='gap-3'>
-                        <Input name="Proyecto:" placeholder="Título de proyecto" width="50%" value={formData.titulo} onChange={handleChange}/>
-                        <Input name="Descripción:" placeholder="Descripción de proyecto " width="100%" value={formData.descripcion} onChange={handleChange}/>
-                        <Input name="Requisitos:" placeholder="Requisitos para tu proyecto" width="100%" value={formData.requisitos} onChange={handleChange}/>
-                        <Row >
-                            <Col lg={6} className="mb-3">
-                                <Input name="Habilidades:" placeholder="Seleccione habilidad" width="100%" value={formData.habilidad} onChange={handleChange}
-                                    options={[
-                                        { value: 'opcion1', label: 'Opción 1' },
-                                        { value: 'opcion2', label: 'Opción 2' },
-                                        { value: 'opcion3', label: 'Opción 3' }
-                                    ]}
-                                />
+                        <Input
+                            label="Título:" 
+                            name="titulo" 
+                            placeholder="Título de proyecto" 
+                            width="50%" 
+                            onChange={handleChange} 
+                            value={formData.titulo} 
+                            errors={errors}
+                            type='text'
+                        />
+                        <Input 
+                            label="Descripción:" 
+                            name="descripcion" 
+                            placeholder="Descripción de proyecto " 
+                            width="100%" 
+                            onChange={handleChange} 
+                            value={formData.descripcion} 
+                            errors={errors}
+                            type='text'
+                        />
+                        <Input 
+                            label="Requisitos:" 
+                            name="requisitos" 
+                            placeholder="Requisitos para tu proyecto" 
+                            width="100%" 
+                            onChange={handleChange} 
+                            value={formData.requisitos} 
+                            errors={errors}
+                            type='text'
+                        />
+                        <Row>
+                            <Col lg={6} className="mb-3">  
+                                <Input 
+                                    label="Habilidades:" 
+                                    name="habilidades" 
+                                    placeholder="Seleccione habilidad" 
+                                    width="50%" 
+                                    onChange={handleChange} 
+                                    value={formData.habilidades} 
+                                    multiple={true} 
+                                    errors={errors}
+                                    options={habilitiesOptions}
+                                /> 
                             </Col>
                             <Col lg={6} >
-                                <Input name="Categorias:" placeholder="Seleccione categoria" width="100%" value={formData.categorias} onChange={handleChange}
-                                    options={[
-                                        { value: 'opcion1', label: 'Opción 1' },
-                                        { value: 'opcion2', label: 'Opción 2' },
-                                        { value: 'opcion3', label: 'Opción 3' }
-                                    ]}
+                                <Input 
+                                    label="Categorias:" 
+                                    name="categoria" 
+                                    placeholder="Seleccione categoria" 
+                                    width="100%" 
+                                    onChange={handleChange} 
+                                    value={formData.categoria} 
+                                    errors={errors}
+                                    options={categoriesOptions}
                                 />
                             </Col>
                         </Row>
@@ -71,25 +117,31 @@ const PublishProject = () => {
                             Contrataciones
                         </Card.Title>
                         <Row>
-                            <Col lg={3} className="mb-3">
-                                <Input name="Modalidad:" placeholder="Seleccione modalidad" width="100%" value={formData.modalidad} onChange={handleChange}
-                                    options={[
-                                        { value: 'opcion1', label: 'Opción 1' },
-                                        { value: 'opcion2', label: 'Opción 2' },
-                                        { value: 'opcion3', label: 'Opción 3' }
-                                    ]}
+                            <Col lg={4} className="mb-3">
+                                <Input 
+                                    label="Modalidad:" 
+                                    name="modalidad" 
+                                    placeholder="Seleccione modalidad" 
+                                    width="100%" 
+                                    onChange={handleChange} 
+                                    value={formData.modalidad} 
+                                    errors={errors}
+                                    options={modalityOptions}
                                 />
                             </Col>
-                            <Col lg={3} >
-                                <Input name="Estado:" placeholder="Seleccione estado" width="100%" value={formData.estado} onChange={handleChange}
-                                    options={[
-                                        { value: 'opcion1', label: 'Opción 1' },
-                                        { value: 'opcion2', label: 'Opción 2' },
-                                        { value: 'opcion3', label: 'Opción 3' }
-                                    ]}
+                            <Col lg={4} >
+                                <Input 
+                                    label="Estado:" 
+                                    name="estado" 
+                                    placeholder="Seleccione estado" 
+                                    width="100%" 
+                                    onChange={handleChange} 
+                                    value={formData.estado} 
+                                    errors={errors}
+                                    options={statusOptions}
                                 />
                             </Col>
-                            <Col lg={6} >
+                            <Col lg={4} >
                                 <Nav activeKey="" className="justify-content-lg-end justify-content-center">
                                     <Nav.Link eventKey="link-event-key">
                                         <GoEye className="color-purple fs-2"/>
@@ -102,13 +154,24 @@ const PublishProject = () => {
             </Card>
             <Row className='m-0'>
                 <Col lg={8} className='d-flex justify-content-center justify-content-lg-start mb-2'>
-                    <button className="rounded-3 border-1 border-black p-2 ms-1">
+                    <button onClick={resetForm} className="rounded-3 border-1 border-black p-2 ms-1">
                         <AiOutlineSave className='fs-3'/>                
                     </button>
                 </Col>
                 <Col lg={4} className='d-flex gap-5 mb-2' >
-                    <Button type="secondary" >Descartar</Button>             
-                    <Button type="primary" htmlType='submit'>Publicar</Button>             
+                    <Button 
+                        type="secondary" 
+                        onClick={resetForm}
+                    >
+                        Descartar
+                    </Button>             
+                    <Button 
+                        type="primary" 
+                        htmlType='submit' 
+                        disabled={isSubmitting || loading}
+                    >
+                        {loading ? 'Publicando...' : 'Publicar'}
+                    </Button>             
                 </Col>
             </Row>        
         </form>
