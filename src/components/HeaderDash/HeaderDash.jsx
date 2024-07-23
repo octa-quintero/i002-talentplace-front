@@ -5,8 +5,10 @@ import Button from '../Button/Button';
 import { FaEnvelope } from 'react-icons/fa';
 import { MdNotifications } from 'react-icons/md';
 import profile from '../../assets/assets-img/man-profile.jpeg';
+import { useUserContext } from '../../context/UserProvider';
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
+// const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const HeaderDash = () => {
   const [rutaDashboard, setRutaDashboard] = useState({
@@ -14,24 +16,30 @@ const HeaderDash = () => {
     perfil: '',
     nombreEmpresa: '',
   });
+  const { token, setToken, setUser, user } = useUserContext();
+  const recoverUser = JSON.parse(user)
+  const recoverUserId = recoverUser.id
+  console.log(recoverUserId);
+  console.log(recoverUser);
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userId = localStorage.getItem('userId');
-        if (!userId) {
+        // const userId = localStorage.getItem('userId');
+        if (!recoverUserId) {
           console.error("No user ID found in local storage");
           return;
         }
 
-        const response = await axios.get(`${BACKEND_URL}/api/usuarios/${userId}`);
-        const user = response.data;
+        // const response = await axios.get(`${BACKEND_URL}/api/usuarios/${userId}`);
+        // const user = response.data;
 
-        const nombreEmpresa = user.nombre.length > 0 ? user.nombre[0] : 'No tiene empresa';
+        const nombreEmpresa = recoverUser.nombre.length > 0 ? recoverUser.nombre[0] : 'No tiene empresa';
 
         setRutaDashboard({
           ruta: 'Dashboard',
-          perfil: user.nombre,
+          perfil: recoverUser.nombre,
           nombreEmpresa: nombreEmpresa,
         });
       } catch (error) {
