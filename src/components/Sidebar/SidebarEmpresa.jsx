@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import './Sidebar.css';
+import useLoginForm from "../../hooks/useLoginForm";
+import { useUserContext } from "../../context/UserProvider";
 import { NavLink, useLocation } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import './Sidebar.css';
 
 
 /*  IMAGES & LOGOS  */
@@ -16,11 +18,10 @@ import { BsChatDots } from "react-icons/bs";
 import { GoPerson } from "react-icons/go";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
-import { useUserContext } from "../../context/UserProvider";
-import useLoginForm from "../../hooks/useLoginForm";
 
 
 const SidebarEmpresa = () => {
+    
 
     const { user } = useUserContext();
     const recoverUser = JSON.parse(user);
@@ -61,6 +62,7 @@ const SidebarEmpresa = () => {
                 <Offcanvas show={show} onHide={handleClose} responsive="lg" className="offcanvas-large offcanvas-small d-flex flex-column p-3 justify-content-around align-items-center">
 
                     <div className="sidebar-top d-flex flex-column align-items-center">
+                        <span><strong>***EMPRESA***</strong></span>
                         <NavLink
                         to="/"
                         end
