@@ -23,7 +23,9 @@ export const AppRouter = () => {
         {/* Dashboard */}
         <Route path="/dashboard" element={<DashboardRedirection />}/>
         <Route path="dashboard/*" element={<Dashboard />}>
-          <Route path="empresa" element={<MainEmpresa />} />
+
+          {/* <Route path="empresa" element={<MainEmpresa />} /> */}
+
           {/* <Route path="junior" element={<MainFreelancer />} /> */}
           {/* <Route path="junior/proyectos" element={<PostulacionesFreelancer />} /> */}
           <Route path="projects" element={<Projects />} />

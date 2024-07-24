@@ -1,23 +1,32 @@
 import React, { useState, useEffect } from "react";
-import useLoginForm from "../../hooks/useLoginForm";
-import { useUserContext } from "../../context/UserProvider";
-import { NavLink, useLocation  } from "react-router-dom";
+
+/*import useLoginForm from "../../hooks/useLoginForm";
 import Container from "react-bootstrap/Container";
 import { Offcanvas } from "react-bootstrap";
+import { NavLink, useLocation  } from "react-router-dom";*/
+import { useUserContext } from "../../context/UserProvider";
+
 import './Sidebar.css';
+import { NavLink, useLocation } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import useLoginForm from "../../hooks/useLoginForm";
 
 
-/*  Images & Logos  */
+/*  IMAGES & LOGOS  */
+
 import TalentplaceLogo from '../../assets/assets-png/2.png';
 import { LuTable2 } from "react-icons/lu";
 import { AiOutlineProject } from "react-icons/ai";
 import { PiMoneyWavy } from "react-icons/pi";
 import { MdOutlineUpload } from "react-icons/md";
-import { IoSearch } from "react-icons/io5";
 import { BsChatDots } from "react-icons/bs";
 import { GoPerson } from "react-icons/go";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
+
+import { useUserContext } from "../../context/UserProvider";
+import { IoSearch } from "react-icons/io5";
 
 
 const SidebarFreelancer = () => {
@@ -25,7 +34,9 @@ const SidebarFreelancer = () => {
 
     const { user } = useUserContext();
     const recoverUser = JSON.parse(user);
-    const location = useLocation();
+
+    const location = useLocation(); // Obtiene la ubicación actual
+
     const { closeSession } = useLoginForm();
 
     const [show, setShow] = useState(false);
@@ -59,9 +70,10 @@ const SidebarFreelancer = () => {
                     )}
                 </div>
 
-                <Offcanvas show={show} onHide={handleClose} responsive="lg" className="d-flex flex-column p-3 justify-content-around align-items-center">
+                <Offcanvas show={show} onHide={handleClose} responsive="lg" className="offcanvas-large offcanvas-small d-flex flex-column p-3 justify-content-around align-items-center">
 
                     <div className="sidebar-top d-flex flex-column align-items-center">
+
                     <span><strong>***FREELANCER***</strong></span>
 
                         <NavLink
@@ -71,7 +83,7 @@ const SidebarFreelancer = () => {
                             <img className="sidebar-top-logo" src={TalentplaceLogo} alt="Logo"></img>
                         </NavLink>
                         <h5 className="sidebar-top-username">{recoverUser.nombre}</h5>
-                        <p className="sidebar-top-usermail">{recoverUser.email}</p>
+                        <p className="sidebar-top-usermail color">{recoverUser.email}</p>
                     </div>
 
 
@@ -83,6 +95,7 @@ const SidebarFreelancer = () => {
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
                                 to="/dashboard/junior"
+                                end
                             >
                                 <div className="sidebar-menu-icon">
                                     <LuTable2 size={30} />
@@ -97,13 +110,15 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-                                to="/dashboard/junior/proyectos"
+                                to="/dashboard/junior/applications"
+                                end
                             >
 
                                 <div className="sidebar-menu-icon">
                                     <AiOutlineProject size={30} />
                                 </div>
-                                <h4>Mis proyectos</h4>
+                                <h4>Postulaciones</h4>
+
                             </NavLink>
                         </div>
 
@@ -112,7 +127,10 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-                                to="/paginaenconstruccion"
+
+                                to="/dashboard/junior/payments"
+                                end
+
                             >
                                 <div className="sidebar-menu-icon">
                                     <PiMoneyWavy size={30} />
@@ -126,12 +144,17 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-                                to="/paginaenconstruccion"
+
+                                to="/dashboard/junior/opportunities"
+                                end
+
                             >
                                 <div className="sidebar-menu-icon">
                                     <MdOutlineUpload size={30} />
                                 </div>
-                                <h4>Publicar servicio</h4>
+
+                                <h4>Publicar Servicio</h4>
+
                             </NavLink>
                         </div>
 
@@ -140,12 +163,17 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-                                to="/opportunities"
+
+                                to="/dashboard/junior/find"
+                                end
+
                             >
                                 <div className="sidebar-menu-icon">
                                     <IoSearch size={30} />
                                 </div>
-                                <h4>Buscar Proyecto</h4>
+
+                                <h4>Buscar proyectos</h4>
+
                             </NavLink>
                         </div>
 
@@ -158,7 +186,10 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-                                to="/chat"
+
+                                to="/dashboard/junior/chat"
+                                end
+
                             >
                                 <div className="sidebar-options-icon">
                                     <BsChatDots size={30} />
@@ -172,8 +203,12 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
+
                                 to="/editprofile"
-                            >
+
+                                end
+                             >
+
                                 <div className="sidebar-options-icon">
                                     <GoPerson size={30} />
                                 </div>
@@ -187,7 +222,9 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "hover-logout" : ""}`
                                 }
-                                onClick={() => closeSession() } 
+
+                                onClick={() => closeSession() }                            
+
                             >
                                 <div className="sidebar-options-icon">
                                     <RiLogoutCircleRLine size={30} />
@@ -203,6 +240,7 @@ const SidebarFreelancer = () => {
             </div>
 
         </Container>
+
     );
 };
 
