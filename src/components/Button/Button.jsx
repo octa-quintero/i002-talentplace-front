@@ -11,7 +11,7 @@ const Button = ({type, children, to, htmlType, width, onClick}) => {
   if (to) {
     return (
       <NavLink
-      onClick={onClick}
+        onClick={onClick}
         to={to}
         className={`button ${type}`}
         style={buttonStyle}
