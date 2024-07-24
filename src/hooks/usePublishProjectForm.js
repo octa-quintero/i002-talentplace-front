@@ -1,76 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { fetchPublishProject } from "../api/fetchPublishProject";
 import { useUserContext } from "../context/UserProvider";
+import { fetchAllHabilities } from "../api/fetchAllHabilities";
+import { fetchAllCategories } from "../api/fetchAllCategories";
 
 const usePublishProjectForm = () => {
-    const { userId, storedToken } = useUserContext();
-    const [formData, setFormData] = useState({
-        // idEmpresa:'',
+    const { user, token } = useUserContext();
+    const parsedUser = user ? JSON.parse(user) : null;
+    const userId = parsedUser ? parsedUser.id : null;
+    const [projectState, setProjectState] = useState({
         titulo: '',
         descripcion: '',
-        // presupuesto:'',
         requisitos: '',
         habilidades: [],
         categoria: '',
         modalidad: '',
-        estado:''
+        estado: false,
     });
 
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [loading, setLoading] = useState(false);
-
     const navigate = useNavigate();
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormData(prevData => ({
-          ...prevData,
-          [name]: value
-        }));
-    };
+    const handleChange = (e) => {
+    const { name, value } = e.target;
 
-    const handleSelectChange = (name, selectedOptions) => {
-        setFormData({ ...formData, [name]: selectedOptions.map(option => option.value) });
-    };
+    let newValue = value;
+    if (name === 'estado') {
+      newValue = value === 'true';
+    }
+
+    setProjectState((prevState) => ({
+      ...prevState,
+      [name]: newValue,
+    }));
+  };
 
     // Validación simple
     const validate = () => {
         const newErrors = {};
 
-        if (!formData.titulo) {
-            newErrors.titulo = "Título es requerido";
-        }
-
-        if (!formData.descripcion) {
-            newErrors.descripcion = "Descripción es requerida";
-        }
-
-        if (!formData.estado) {
-            newErrors.estado = "Estado es requerido";
-        }
-
-        // if (!formData.presupuesto) {
-        //     newErrors.presupuesto = "Presupuesto es requerido";
-        // }
-
-        if (!formData.modalidad) {
-            newErrors.modalidad = "Modalidad es requerida";
-        }
-
-        if (!formData.habilidades) {
-            newErrors.habilidad = "Habilidad es requerida";
-        }
-
-        if (!formData.categoria) {
-            newErrors.categoria = "Categorías son requeridas";
-        }
-
-        if (!formData.requisitos) {
-            newErrors.requisitos = "Requisitos son requeridos";
-        }
+        if (!projectState.titulo) newErrors.titulo = "Título es requerido";
+        if (!projectState.descripcion) newErrors.descripcion = "Descripción es requerida";
+        if (!projectState.modalidad) newErrors.modalidad = "Modalidad es requerida";
+        if (projectState.habilidades.length === 0) newErrors.habilidades = "Habilidad es requerida";
+        if (!projectState.categoria) newErrors.categoria = "Categorías son requeridas";
+        if (!projectState.requisitos) newErrors.requisitos = "Requisitos son requeridos";
 
         return newErrors;
     };
@@ -78,7 +56,7 @@ const usePublishProjectForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log("Form data before validation:", formData);
+        console.log("Form data before validation:", projectState);
 
         const formErrors = validate();
         if (Object.keys(formErrors).length > 0) {
@@ -91,9 +69,15 @@ const usePublishProjectForm = () => {
 
             try {
                 // Enviar datos al backend
-                console.log("Sending data to API:", formData);
-                const response = await fetchPublishProject(formData, userId, storedToken);
-                console.log("API response:", response);
+                const category = projectState.categoria.nombre; 
+                const habilities = projectState.habilidades.map(h => h.nombre) 
+            
+                const formattedData= {
+                    ...projectState,
+                    habilidades: habilities,
+                    categoria: category
+                };
+                const response = await fetchPublishProject(formattedData, userId, token);
                 Swal.fire({
                     icon: "success",
                     title: "Proyecto publicado con éxito",
@@ -118,24 +102,24 @@ const usePublishProjectForm = () => {
     };
 
     const resetForm = () => {
-        setFormData({
+        setProjectState({
             titulo: '',
             descripcion: '',
             requisitos: '',
             habilidades: [],
             categoria: '',
             modalidad: '',
-            estado: ''
+            estado: false
         });
         setErrors({});
     };
 
     return {
-        formData,
+        projectState,
+        setProjectState,
         errors,
         isSubmitting,
         loading,
-        handleSelectChange,
         handleChange,
         handleSubmit,
         resetForm

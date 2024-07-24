@@ -2,7 +2,8 @@ import { Route, Routes } from "react-router-dom"
 import { LandingPage, AboutUs, Login, Register, Opportunities, PaginaEnConstruccion, Dashboard, Projects, Nosotros } from "../pages"
 import ProjectEdit from "../components/ProjectEdit/ProjectEdit"
 import { EditProfile } from "../components/EditProfile/EditProfile"
-import PublishProject from "../pages/PublishProject/PublishProject"
+import PublishProject from "../components/PublishProject/PublishProject"
+import PublishProjectCopy from "../components/PublishProject copy/PublishProject"
 
 export const AppRouter = () => {
   return (
@@ -23,7 +24,7 @@ export const AppRouter = () => {
         <Route path="dashboard/*" element={<Dashboard />}>
           <Route path="projects" element={<Projects />} />
           <Route path="projects/edit/:projectId" element={<ProjectEdit />} />
-          <Route path="publish-project" element={<PublishProject />} />
+          <Route path="projects/new" element={<PublishProject />} />
         </Route>
 
         <Route path="/contacto" element={<PaginaEnConstruccion />} />
