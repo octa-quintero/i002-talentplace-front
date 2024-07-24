@@ -1,0 +1,21 @@
+.custom-height {
+    height: 6vh;
+}
+
+
+
+.button {
+    background-color: white;
+}
+
+.button:hover {
+    background-color: grey;
+}
+
+.custom-close-button {
+    color: var(--main-color-purple);
+}
+
+.custom-close-button:hover {
+    opacity: 50%;
+}
