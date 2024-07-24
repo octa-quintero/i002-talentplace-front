@@ -83,7 +83,7 @@ const SidebarFreelancer = () => {
                                 }
                                 to="/dashboard/junior/proyectos"
                             >
-                                <h4>Mis proyectos</h4>
+                                <h4>Mis postulaciones</h4>
                             </NavLink>
                         </div>
 
