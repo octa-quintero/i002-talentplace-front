@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import { Offcanvas } from "react-bootstrap";
 import { NavLink, useLocation  } from "react-router-dom";*/
-import { useUserContext } from "../../context/UserProvider";
 
 import './Sidebar.css';
 import { NavLink, useLocation } from "react-router-dom";
