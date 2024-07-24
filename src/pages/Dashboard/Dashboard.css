@@ -1,3 +1,7 @@
 .dashboard-container {
     box-sizing: border-box;
 }
+
+.container-sidebar > div {
+    padding: 0;
+}

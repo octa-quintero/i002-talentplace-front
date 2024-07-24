@@ -3,6 +3,10 @@
     height: 100%;
 }
 
+.sidebar-container {
+    padding: 0;
+}
+
 .sidebar-top, .sidebar-menu, .sidebar-options {
     width: 80%;
 }
