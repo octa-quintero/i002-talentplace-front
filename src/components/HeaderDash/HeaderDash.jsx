@@ -21,7 +21,7 @@ const HeaderDash = () => {
 
   const headings = {
     //empresa
-    '/dashboard': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
+    '/dashboard/empresa': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
     '/dashboard/projects': "Proyectos",
     '/dashboard/payments': "Facturación",
     '/dashboard/talents': "Personas",
@@ -30,7 +30,9 @@ const HeaderDash = () => {
     '/dashboard/profile': "Editar Perfil",
     //junior
     '/dashboard/junior': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
-    '/dashboard/junior/proyectos': "Mis proyectos",
+
+    '/dashboard/junior/applications': "Mis postulaciones",
+
     '/dashboard/junior/payments': "Pagos",
     '/dashboard/junior/opportunities': "Publicar servicio",
     '/dashboard/junior/find': "Buscar proyecto",
