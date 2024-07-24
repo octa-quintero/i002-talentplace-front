@@ -102,7 +102,14 @@ const useLoginForm = () => {
                 setUser(JSON.stringify(data.user));
                 localStorage.setItem('user', JSON.stringify(data.user));
                 localStorage.setItem('token', data.refreshToken);
-                navigate('/dashboard');
+                navigate('/dashboard')
+                // if (data.user.tipo === "junior") {
+                //     navigate('/dashboard/junior');
+                    
+                // } else {
+                //     navigate('/dashboard/projects');
+                    
+                // }
 
                 // Notificación de éxito al iniciar sesión
                 Toast.fire({
