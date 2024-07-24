@@ -78,7 +78,7 @@ const SidebarEmpresa = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-                                to="/dashboard"
+                                to="/dashboard/empresa"
                                 end
                             >
                                 <div className="sidebar-menu-icon">
