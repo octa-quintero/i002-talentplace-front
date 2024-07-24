@@ -18,7 +18,7 @@ import { BsChatDots } from "react-icons/bs";
 import { GoPerson } from "react-icons/go";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
-
+import { IoHomeOutline } from "react-icons/io5";
 
 const SidebarEmpresa = () => {
     
@@ -110,13 +110,13 @@ const SidebarEmpresa = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-                                to="/dashboard/payments"
+                                to="/home"
                                 end
                             >
                                 <div className="sidebar-menu-icon">
-                                    <PiMoneyWavy size={30} />
+                                    <IoHomeOutline size={30} />
                                 </div>
-                                <h4>Facturacion</h4>
+                                <h4>Home</h4>
                             </NavLink>
                         </div>
 
