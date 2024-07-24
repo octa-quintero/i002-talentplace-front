@@ -16,9 +16,13 @@ import { BsChatDots } from "react-icons/bs";
 import { GoPerson } from "react-icons/go";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
+import { useUserContext } from "../../context/UserProvider";
 
 
 const SidebarEmpresa = () => {
+
+    const { user } = useUserContext();
+    const recoverUser = JSON.parse(user);
 
     const [show, setShow] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
@@ -34,8 +38,6 @@ const SidebarEmpresa = () => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
-
-
 
     return (
 
@@ -53,8 +55,8 @@ const SidebarEmpresa = () => {
 
                     <div className="sidebar-top d-flex flex-column align-items-center">
                         <img className="sidebar-top-logo" src={TalentplaceLogo} alt="Logo"></img>
-                        <h5 className="sidebar-top-username">Username</h5>
-                        <p className="sidebar-top-usermail">username@test.com</p>
+                        <h5 className="sidebar-top-username">{recoverUser.nombre}</h5>
+                        <p className="sidebar-top-usermail">{recoverUser.email}</p>
                     </div>
 
 

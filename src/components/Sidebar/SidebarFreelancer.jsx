@@ -15,9 +15,12 @@ import { BsChatDots } from "react-icons/bs";
 import { GoPerson } from "react-icons/go";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
-
+import { useUserContext } from "../../context/UserProvider";
 
 const SidebarFreelancer = () => {
+
+    const { user } = useUserContext();
+    const recoverUser = JSON.parse(user);
 
     const [show, setShow] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
@@ -50,8 +53,8 @@ const SidebarFreelancer = () => {
 
                     <div className="sidebar-top d-flex flex-column align-items-center">
                         <img className="sidebar-top-logo" src={TalentplaceLogo} alt="Logo"></img>
-                        <h5 className="sidebar-top-username">Username</h5>
-                        <p className="sidebar-top-usermail">username@test.com</p>
+                        <h5 className="sidebar-top-username">{recoverUser.nombre}</h5>
+                        <p className="sidebar-top-usermail">{recoverUser.email}</p>
                     </div>
 
 
@@ -64,7 +67,7 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/dashboard"
+                                to="/dashboard/junior"
                             >
                                 <h4>Dashboard</h4>
                             </NavLink>
@@ -78,7 +81,7 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/proyectos"
+                                to="/dashboard/junior/proyectos"
                             >
                                 <h4>Mis proyectos</h4>
                             </NavLink>
@@ -92,7 +95,7 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/payments"
+                                to="/dashboard/junior/payments"
                             >
                                 <h4>Pagos</h4>
                             </NavLink>
@@ -106,7 +109,7 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/opportunities"
+                                to="/dashboard/junior/opportunities"
                             >
                                 <h4>Publicar servicio</h4>
                             </NavLink>
@@ -120,7 +123,7 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/proyectos"
+                                to="/dashboard/junior/find"
                             >
                                 <h4>Buscar Proyecto</h4>
                             </NavLink>
@@ -138,7 +141,7 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/chat"
+                                to="/dashboard/junior/chat"
                             >
                                 <h4>Chat</h4>
                             </NavLink>
@@ -152,7 +155,7 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link ${isActive ? "active" : ""}`
                                 }
-                                to="/profile"
+                                to="/editprofile"
                             >
                                 <h4>Perfil</h4>
                             </NavLink>

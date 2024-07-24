@@ -20,13 +20,23 @@ const HeaderDash = () => {
   const { nombre, apellido } = recoverUser;
 
   const headings = {
+    //empresa
     '/dashboard': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
     '/dashboard/projects': "Proyectos",
     '/dashboard/payments': "Facturación",
     '/dashboard/talents': "Personas",
     '/dashboard/projects/new': "Publicar Proyecto",
     '/dashboard/chat': "Mensajería",
-    '/dashboard/profile': "Editar Perfil"
+    '/dashboard/profile': "Editar Perfil",
+    //junior
+    '/dashboard/junior': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
+    '/dashboard/junior/proyectos': "Mis proyectos",
+    '/dashboard/junior/payments': "Pagos",
+    '/dashboard/junior/opportunities': "Publicar servicio",
+    '/dashboard/projects/new': "Publicar Proyecto",
+    '/dashboard/junior/find': "Buscar proyecto",
+    '/dashboard/junior/chat': "Mensajería",
+    '/dashboard/profile': "Editar Perfil",
   };
 
   const renderHeading = useMemo(() => {
@@ -45,8 +55,8 @@ const HeaderDash = () => {
           <h3 className='fs-2'>{renderHeading}</h3>
         </Col>
         <Col xl={3} md={4} className='ms-auto d-flex p-xl-0 justify-content-xl-end py-2 px-0'>
-          <Button type='dash user border-0 button-profile-button mx-2'>
-            <img src={profile} alt="Profile image" className='profile-button' />
+          <Button type='border-0 button-profile-button mx-2 p-0'>
+            <img src={profile} alt="Profile image" className='profile-button rounded-1' />
           </Button>
           <Button type="primary dash border-0 mx-2">
             <AiOutlineMail className='fs-4' />
