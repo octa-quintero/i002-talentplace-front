@@ -1,3 +1,27 @@
 .dashboard-container {
     box-sizing: border-box;
 }
+
+.content {
+margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    .position-md-fixed {
+      position: fixed;
+      height: 100%;
+      width: 25%;
+    }
+}
+
+@media (min-width: 768px) {
+    .content{
+        margin-left: 25%;
+    }
+}
+
+@media (max-width: 992px) {
+    .menu-color {
+        background-color: #B07CFF;
+    }
+}

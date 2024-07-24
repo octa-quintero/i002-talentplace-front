@@ -15,19 +15,23 @@ export const Dashboard = () => {
     return(
         <main className="container-sidebar">
             <Container fluid className="d-flex">
-                    <Col md={3} className="sidebar bg-dark text-white vh-100">
+                <Row className="min-vw-100">
+                    <Col md={3} className="text position-md-fixed overflow-hidden menu-color">
                         {rol === "empresa" || rol === "admin" ? <SidebarEmpresa /> : <SidebarFreelancer />}
+                        <img className="sidebar-bg1 d-none d-lg-flex" alt=" " />
+                        <img className="sidebar-bg2 d-none d-lg-flex" alt=" " />
                     </Col>
-                    <Col md={9} className="content flex-grow-1">
+                    <Col md={9} className="content min-vh-100 bg-white px-0">
                         {/* header */}
-                        <div>
+                        <div className="mt-md-5 mb-md-3">
                             <HeaderDash />
                         </div>
                         {/* body */}
-                        <div className="overflow-scroll dashboard-container">
+                        <div className="overflow-scroll dashboard-container bg-white">
                             <Outlet />
                         </div>
                     </Col>
+                </Row>
             </Container>
         </main>
     );
