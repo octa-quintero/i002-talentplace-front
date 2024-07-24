@@ -10,3 +10,6 @@ export * from './Sidebar';
 export * from './Dashboard/Dashboard';
 export * from './Projects/Projects';
 export * from './Nosotros/Nosotros';
+export * from './DashboardFreelancer/DashboardFreelancer';
+export * from './DashboardEmpresa/DashboardEmpresa';
+export * from './Postulaciones/Postulaciones';

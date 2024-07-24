@@ -14,4 +14,6 @@ export const DashboardRedirection = () => {
   }, [rol, navigate]);
 
   return null;
+
 }
+

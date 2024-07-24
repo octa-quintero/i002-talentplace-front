@@ -30,7 +30,9 @@ const HeaderDash = () => {
     '/dashboard/profile': "Editar Perfil",
     //junior
     '/dashboard/junior': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
+
     '/dashboard/junior/applications': "Mis postulaciones",
+
     '/dashboard/junior/payments': "Pagos",
     '/dashboard/junior/opportunities': "Publicar servicio",
     '/dashboard/junior/find': "Buscar proyecto",
