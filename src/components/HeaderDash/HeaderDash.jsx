@@ -21,7 +21,7 @@ const HeaderDash = () => {
 
   const headings = {
     //empresa
-    '/dashboard': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
+    '/dashboard/empresa': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
     '/dashboard/projects': "Proyectos",
     '/dashboard/payments': "Facturación",
     '/dashboard/talents': "Personas",

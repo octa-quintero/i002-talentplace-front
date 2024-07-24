@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import { LandingPage, AboutUs, Login, Register, Opportunities, PaginaEnConstruccion, Dashboard, Projects, Nosotros, MainFreelancer, MainEmpresa, PostulacionesFreelancer } from "../pages"
 import ProjectEdit from "../components/ProjectEdit/ProjectEdit"
 import { EditProfile } from "../components/EditProfile/EditProfile"
+import { DashboardRedirection } from "../pages/Dashboard/DashboardRedirection"
 
 
 export const AppRouter = () => {
@@ -20,10 +21,11 @@ export const AppRouter = () => {
 
 
         {/* Dashboard */}
+        <Route path="/dashboard" element={<DashboardRedirection />}/>
         <Route path="dashboard/*" element={<Dashboard />}>
-          <Route path="" element={<MainEmpresa />} />
-          <Route path="junior" element={<MainFreelancer />} />
-          <Route path="junior/proyectos" element={<PostulacionesFreelancer />} />
+          <Route path="empresa" element={<MainEmpresa />} />
+          {/* <Route path="junior" element={<MainFreelancer />} /> */}
+          {/* <Route path="junior/proyectos" element={<PostulacionesFreelancer />} /> */}
           <Route path="projects" element={<Projects />} />
           <Route path="projects/edit/:projectId" element={<ProjectEdit />} />
           {/* <Route path="public-project" element={<PublicProject />} /> */}
