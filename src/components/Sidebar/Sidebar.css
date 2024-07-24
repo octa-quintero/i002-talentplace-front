@@ -36,6 +36,10 @@
     color: #8c52ff;
 }
 
+.hover-logout:hover {
+    color: #8c52ff;
+}
+
 .offcanvas-small {
 width: 100%;
 }

@@ -17,6 +17,7 @@ import { GoPerson } from "react-icons/go";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
 import { useUserContext } from "../../context/UserProvider";
+import useLoginForm from "../../hooks/useLoginForm";
 
 
 const SidebarEmpresa = () => {
@@ -24,6 +25,7 @@ const SidebarEmpresa = () => {
     const { user } = useUserContext();
     const recoverUser = JSON.parse(user);
     const location = useLocation(); // Obtiene la ubicación actual
+    const { closeSession } = useLoginForm();
 
     const [show, setShow] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
@@ -185,10 +187,9 @@ const SidebarEmpresa = () => {
                         <div className="sidebar-options-row d-flex justify-content-start">
                             <NavLink
                                 className={({ isActive }) =>
-                                    `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
+                                    `nav-item nav-link d-flex w-100 ${isActive ? "hover-logout" : ""}`
                                 }
-                                to="/logout"
-                                end
+                                onClick={() => closeSession() }                            
                             >
                                 <div className="sidebar-options-icon">
                                     <RiLogoutCircleRLine size={30} />
