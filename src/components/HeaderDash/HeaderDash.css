@@ -13,12 +13,15 @@ h3 {
   margin: 0; /* Remove default margins */
 }
 
+.button-profile-button {
+  width: 50px !important;
+}
+
 .profile-button {
-  width: 120%;
-  height: 120%;
+  width: 50px !important;
+  height: 50px !important;
   object-fit:cover;
   justify-items: center;
-  margin-top: 8px;
 }
 
 .button-profile-button:hover {

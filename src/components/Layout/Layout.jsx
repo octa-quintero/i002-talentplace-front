@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
   return (
     <>
       {!hideNavbarRoutes && <Navbar />}
-      <div className="main-content">{children}</div>
+      <div className="main-layout-content">{children}</div>
       {!hideNavbarRoutes && <Footer />}
     </>
   );
