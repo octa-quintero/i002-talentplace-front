@@ -17,6 +17,7 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
 import { useUserContext } from "../../context/UserProvider";
 import { IoSearch } from "react-icons/io5";
+import { IoHomeOutline } from "react-icons/io5";
 
 const SidebarFreelancer = () => {
 
@@ -106,13 +107,13 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-                                to="/dashboard/junior/payments"
+                                to="/home"
                                 end
                             >
                                 <div className="sidebar-menu-icon">
-                                    <PiMoneyWavy size={30} />
+                                    <IoHomeOutline size={30} />
                                 </div>
-                                <h4>Pagos</h4>
+                                <h4>Home</h4>
                             </NavLink>
                         </div>
 
@@ -136,7 +137,7 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-                                to="/dashboard/junior/find"
+                                to="/junior/find"
                                 end
                             >
                                 <div className="sidebar-menu-icon">

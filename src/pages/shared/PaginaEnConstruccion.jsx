@@ -11,11 +11,11 @@ export const PaginaEnConstruccion = () => {
   const navigate = useNavigate();
 
   const hideNavbar = () => {
-    document.getElementById("navbar-dom").classList.add("d-none");
+    document.getElementById("navbar-dom")?.classList.add("d-none");
   };
 
   const showNavbar = () => {
-    document.getElementById("navbar-dom").classList.remove("d-none");
+    document.getElementById("navbar-dom")?.classList.remove("d-none");
   };
 
   const onClickBack = () => {
@@ -34,7 +34,7 @@ export const PaginaEnConstruccion = () => {
 
   return (
     <Fade>
-      <Container fluid>
+      <Container fluid className="container-en-cosntruccion">
         <Row>
           <Col xs={12}>
             <button className="btn-custom" onClick={() => onClickBack()}>
