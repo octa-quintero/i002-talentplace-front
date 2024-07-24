@@ -33,10 +33,8 @@ const HeaderDash = () => {
     '/dashboard/junior/proyectos': "Mis proyectos",
     '/dashboard/junior/payments': "Pagos",
     '/dashboard/junior/opportunities': "Publicar servicio",
-    '/dashboard/projects/new': "Publicar Proyecto",
     '/dashboard/junior/find': "Buscar proyecto",
     '/dashboard/junior/chat': "Mensajería",
-    '/dashboard/profile': "Editar Perfil",
   };
 
   const renderHeading = useMemo(() => {
@@ -49,7 +47,7 @@ const HeaderDash = () => {
   }, [pathLocal, headings]);
 
   return (
-    <header className='headerDash container-fluid mt-5 mb-xl-3 justify-content-center'>
+    <header className='headerDash container-fluid justify-content-center'>
       <Row className='w-100'>
         <Col xl={7} md={6}>
           <h3 className='fs-2'>{renderHeading}</h3>

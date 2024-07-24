@@ -127,12 +127,12 @@ export const ProjectList = () => {
                                 <Row className="text-center px-1">
                                     <Col className="p-0 m-1">
                                         <Card.Title className="fw-bold p-1 m-1 text-end">
-                                            Personal:
+                                            Region:
                                         </Card.Title>
                                     </Col>
                                     <Col className="border border-1 p-0 m-1 rounded-4 card-border">
                                         <Card.Text className="p-1 m-1">
-                                            Cesar Ausa
+                                            LATAM
                                         </Card.Text>
                                     </Col>                            
                                 </Row>
