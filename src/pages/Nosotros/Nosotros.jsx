@@ -49,7 +49,7 @@ export const Nosotros = () => {
 
                 <section>
                     <h3 className='my-4 pt-4 pb-3'>Nuestros objetivos</h3>
-                    <Fade duration="1500" triggerOnce="true">
+                    <Fade duration="2000" triggerOnce="true">
                         <div className='cardInfo-container'>
                             {infoObjetivos.map(({id, title, text})=>(
                                 <CardInfo key={id} title={title} text={text} border="true"/>
@@ -216,7 +216,7 @@ export const Nosotros = () => {
                     </Accordion>
                 </section>
                 <section>
-                    <h5 className='my-4 pt-4'>Mapa del sitio</h5>
+                    <h5 className='my-4 pt-4'></h5>
                 </section>
             </main>
         </Fade>

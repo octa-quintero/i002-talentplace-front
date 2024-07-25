@@ -175,7 +175,7 @@ const SidebarEmpresa = () => {
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
 
-                                to="/editprofile"
+                                to="/dashboard/editprofile"
                                 end
                              >
                                 <div className="sidebar-options-icon">

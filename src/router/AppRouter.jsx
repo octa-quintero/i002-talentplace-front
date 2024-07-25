@@ -41,13 +41,13 @@ export const AppRouter = () => {
           <Route path="chat" element={<DashboardEnConstruccion />} />
           <Route path="junior/opportunities" element={<DashboardEnConstruccion />} />
           <Route path="junior/chat" element={<DashboardEnConstruccion />} />
+          <Route path="editprofile" element={<EditProfile />} />
 
         </Route>
 
         <Route path="/junior/find" element={<Opportunities />} />
         <Route path="/contacto" element={<PaginaEnConstruccion />} />
         <Route path="/paginaenconstruccion" element={<PaginaEnConstruccion />} />
-        <Route path="/editprofile" element={<EditProfile />} />
 
       </Routes>
     </>
