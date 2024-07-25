@@ -16,14 +16,11 @@ export const useAllProjectsByUserId = () => {
             
             const storedToken = localStorage.getItem("token");
             setToken(storedToken);
-            console.log(storedToken);
 
             try {        
                 const userId = recoverUser.id;
-                console.log(userId);
                 const projects = await fetchAllProjectsByUserId(userId, storedToken);
                 setProjects(projects);
-                console.log(projects);
                 
             } catch (error) {
                 const errorMessage = error.response ? error.response.data.message : error.message;
