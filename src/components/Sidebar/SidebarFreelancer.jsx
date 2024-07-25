@@ -159,7 +159,12 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-                                to="/junior/find"
+
+                                //to="/junior/find"
+
+
+                                to="/opportunities"
+
                                 end
 
                             >

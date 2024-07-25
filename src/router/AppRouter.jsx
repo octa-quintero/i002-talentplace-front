@@ -4,7 +4,11 @@ import ProjectEdit from "../components/ProjectEdit/ProjectEdit"
 import { EditProfile } from "../components/EditProfile/EditProfile"
 import PublishProject from "../components/PublishProject/PublishProject"
 import { DashboardRedirection } from "../pages/Dashboard/DashboardRedirection"
+
 import { DashboardEnConstruccion } from "../pages/Dashboard/DashboardEnConstruccion"
+
+import { ApplicationJunior } from "../pages/Application/Application"
+
 
 
 export const AppRouter = () => {
@@ -45,7 +49,11 @@ export const AppRouter = () => {
 
         </Route>
 
-        <Route path="/junior/find" element={<Opportunities />} />
+        /* de la rama kn-update-merge*/
+        /*<Route path="/junior/find" element={<Opportunities />} />*/
+
+        <Route path="/project/application/:projectId" element={<ApplicationJunior />} />
+
         <Route path="/contacto" element={<PaginaEnConstruccion />} />
         <Route path="/paginaenconstruccion" element={<PaginaEnConstruccion />} />
 

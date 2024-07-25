@@ -52,7 +52,7 @@ const ProyectCard = ({ projects }) => {
                         <div className='d-flex justify-content-end mt-1 container-item'>
                             <div className='col-md-4 col-lg-2'>
                                 {token?
-                                    <Button type='primary' to="/dashboard/projects">Postularse</Button>
+                                    <Button type='primary' to={`/project/application/${project.id}`}>Postularse</Button>
                                 :
                                     <Button type='primary' to="/login">Postularse</Button>
                                 }
