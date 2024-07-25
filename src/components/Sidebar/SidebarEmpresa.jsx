@@ -62,7 +62,6 @@ const SidebarEmpresa = () => {
                 <Offcanvas show={show} onHide={handleClose} responsive="lg" className="offcanvas-large offcanvas-small d-flex flex-column p-3 justify-content-around align-items-center">
 
                     <div className="sidebar-top d-flex flex-column align-items-center">
-                        <span><strong>***EMPRESA***</strong></span>
                         <NavLink
                         to="/"
                         end

@@ -74,7 +74,6 @@ const SidebarFreelancer = () => {
 
                     <div className="sidebar-top d-flex flex-column align-items-center">
 
-                    <span><strong>***FREELANCER***</strong></span>
 
                         <NavLink
                         to="/"
