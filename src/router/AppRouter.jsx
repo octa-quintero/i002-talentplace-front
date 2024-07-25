@@ -3,6 +3,7 @@ import { LandingPage, AboutUs, Login, Register, Opportunities, PaginaEnConstrucc
 import ProjectEdit from "../components/ProjectEdit/ProjectEdit"
 import { EditProfile } from "../components/EditProfile/EditProfile"
 import { DashboardRedirection } from "../pages/Dashboard/DashboardRedirection"
+import { ApplicationJunior } from "../pages/Application/Application"
 
 
 export const AppRouter = () => {
@@ -33,6 +34,7 @@ export const AppRouter = () => {
           {/* <Route path="public-project" element={<PublicProject />} /> */}
         </Route>
 
+        <Route path="/project/application/:projectId" element={<ApplicationJunior />} />
         <Route path="/contacto" element={<PaginaEnConstruccion />} />
         <Route path="/paginaenconstruccion" element={<PaginaEnConstruccion />} />
         <Route path="/editprofile" element={<EditProfile />} />
