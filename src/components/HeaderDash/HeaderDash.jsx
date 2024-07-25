@@ -27,7 +27,7 @@ const HeaderDash = () => {
     '/dashboard/talents': "Personas",
     '/dashboard/projects/new': "Publicar Proyecto",
     '/dashboard/chat': "Mensajería",
-    '/dashboard/profile': "Editar Perfil",
+    '/dashboard/editprofile': "Editar Perfil",
     //junior
     '/dashboard/junior': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
 
@@ -37,6 +37,7 @@ const HeaderDash = () => {
     '/dashboard/junior/opportunities': "Publicar servicio",
     '/dashboard/junior/find': "Buscar proyecto",
     '/dashboard/junior/chat': "Mensajería",
+    '/dashboard/editprofile': "Editar Perfil",
   };
 
   const renderHeading = useMemo(() => {

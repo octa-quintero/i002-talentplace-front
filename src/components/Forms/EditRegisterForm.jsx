@@ -86,7 +86,7 @@ const EditRegisterForm = () => {
                         {errors.telefono && <p style={{color: 'red'}}>{errors.telefono}</p>}
                     </div>
 
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <select 
                             className="form-control p-2 mt-3"
                             name="tipo"
@@ -98,7 +98,7 @@ const EditRegisterForm = () => {
                             <option value="empresa">Contratar</option>
                         </select>
                         {errors.tipo && <p style={{color: 'red'}}>{errors.tipo}</p>}
-                    </div>
+                    </div> */}
 
                     <div className="form-group">
                         <input 

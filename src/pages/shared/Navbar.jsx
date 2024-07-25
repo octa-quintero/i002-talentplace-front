@@ -6,6 +6,7 @@ import Button from "../../components/Button/Button";
 import { useUserContext } from "../../context/UserProvider";
 import useLoginForm from '../../hooks/useLoginForm';
 import { FaUserAlt } from "react-icons/fa";
+import { Accordion } from "react-bootstrap";
 
 export const Navbar = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -86,16 +87,23 @@ export const Navbar = () => {
               Nosotros
             </NavLink>
           </div>
-          <div className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center btn-login">
             {/* Si se está logueado muestra el nombre del usuario, sino se ingresa */}
             {token ?
               <>
-                <p className="p-user">{recoverUser.nombre}&nbsp;{recoverUser.apellido}</p> 
-                <button 
-                  className="btn-userAlt" 
-                  onClick={() => { closeSession(); toggleNavbar(); }}>
-                  <FaUserAlt className="userAlt"/>
-                </button>
+              <Accordion>
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header><p className="p-user">{recoverUser.nombre}&nbsp;{recoverUser.apellido}</p><FaUserAlt className="userAlt"/>&nbsp; </Accordion.Header>
+                  <Accordion.Body>
+                  
+                    <button 
+                      className="btn-userAlt" 
+                      onClick={() => { closeSession(); toggleNavbar(); }}>
+                      Cerrar Sesion
+                    </button>
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
               </>
               : 
               <Button 
