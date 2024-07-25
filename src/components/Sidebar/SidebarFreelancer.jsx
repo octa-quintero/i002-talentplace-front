@@ -163,7 +163,7 @@ const SidebarFreelancer = () => {
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
 
-                                to="/dashboard/junior/find"
+                                to="/opportunities"
                                 end
 
                             >
