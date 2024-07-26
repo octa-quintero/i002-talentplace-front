@@ -89,7 +89,7 @@ export const DashboardFreelancer = () => {
                                             <Card.Title className="fw-bold fs-xl-4">
                                                 {project.titulo}
                                             </Card.Title>
-                                            <Card.Text className="container-text my-3">
+                                            <Card.Text className="container-text my-1">
                                                 {project.descripcion}
                                             </Card.Text>
                                         </Card.Body>
@@ -120,7 +120,7 @@ export const DashboardFreelancer = () => {
                                                 </Col>
                                             </Row>
 
-                                            <Row className="w-100">
+                                            <Row className="w-100 mb-1">
                                                 <Col lg={12} xl={6}>
                                                     <Card.Title className="fw-bold">
                                                         Publicado

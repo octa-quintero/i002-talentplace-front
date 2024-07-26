@@ -1,4 +1,4 @@
-![WhatsApp Image 2024-03-06 at 21 48 31](/src/assets/assets-img/portada.jpg)
+![portada](/src/assets/assets-img/portada.jpg)
 
 # Introducción:
 
