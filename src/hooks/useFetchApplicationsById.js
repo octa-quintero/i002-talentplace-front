@@ -26,9 +26,14 @@ export const useFetchApplicationsById = () => {
                 const applications = await fetchApplicationsById(userId, projectId, storedToken);
                 setApplications(applications);
 
-                const projectPromises = applications.map(app => fetchProjectById(userId, app.proyectoId, storedToken));
-                const projectResults = await Promise.all(projectPromises);
-                setProjects(projectResults);
+                if(applications.length > 0){                    
+                    const projectPromises = applications.map(app => fetchProjectById(userId, app.proyectoId, storedToken));
+                    const projectResults = await Promise.all(projectPromises);
+                    setProjects(projectResults);
+                }
+                else {
+                    setProjects(applications);
+                }
                 
                 setLoading(false);
 

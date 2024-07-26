@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Row } from "react-bootstrap"
+import { Button, Card, Col, Row } from "react-bootstrap"
 import Loading from "../../pages/shared/Loading";
 import './Postulaciones.css';
 import { useFetchApplicationsById } from "../../hooks/useFetchApplicationsById";
+import { GoEyeClosed } from 'react-icons/go';
 
 
 export const Postulaciones = () => {
@@ -27,6 +28,29 @@ export const Postulaciones = () => {
                 loading ? (
                     <div className="loading" > <Loading /></div >
                 ) :
+                    projects.length === 0
+                    ? (                
+                        <Card className="my-5 py-5 align-items-center">
+                            <Card.Title className="fs-2 fw-bold">
+                            No tienes ningúna postulacion
+                            </Card.Title>
+                            <GoEyeClosed size={"6em"} color={"#8C52FF"} />
+                            <Card.Text className="text">
+                            No esperes más, tu próxima gran oportunidad podría estar a solo una postulación de distancia. 
+                            </Card.Text>
+                            <Card.Text className="text">
+                            ¡Empieza ahora y encuentra el trabajo perfecto para ti!
+                            </Card.Text>
+                            <Row className='d-flex justify-content-lg-end mx-3 py-3'>         
+                                <Button
+                                className='button primary border-1 my-2 w-100'
+                                href='/opportunities'
+                                >
+                                    Buscar oportunidades
+                                </Button>       
+                            </Row>
+                        </Card>
+                    ) :   
                     projects.map((project) => (
                         <div key={project.id}>
 

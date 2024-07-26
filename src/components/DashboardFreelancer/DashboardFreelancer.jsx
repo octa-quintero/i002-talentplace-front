@@ -1,8 +1,9 @@
-import { Card, Row, Col, Carousel } from "react-bootstrap";
+import { Card, Row, Col, Carousel, Button } from "react-bootstrap";
 import Loading from "../../pages/shared/Loading";
 import { useFetchApplicationsById } from "../../hooks/useFetchApplicationsById";
 import "./DashboardFreelancer.css"
 import { getDaysAgo } from "../../utils/getDaysAgo";
+import { GoEyeClosed } from "react-icons/go";
 
 
 export const DashboardFreelancer = () => {
@@ -36,19 +37,41 @@ export const DashboardFreelancer = () => {
                         <Card.Title className="fw-bold">Proyectos activos</Card.Title>
                         <Card.Text className=''>{ loading ? 0 : projects.length }</Card.Text>
                     </Col>
-
                     <Col lg={6}>
                         <Card.Title className='fw-bold'>Saldo disponible</Card.Title>
                         <Card.Text>{saldoFreelancer}</Card.Text>
                     </Col>
-
                 </Row>
 
             </Card>
 
             {loading ? (
                 <div className="loading"><Loading /></div>
-            ) : (
+            ) :
+            projects.length === 0
+            ? (                
+                <Card className="my-5 py-5 align-items-center">
+                    <Card.Title className="fs-2 fw-bold">
+                    No tienes ningúna postulacion
+                    </Card.Title>
+                    <GoEyeClosed size={"6em"} color={"#8C52FF"} />
+                    <Card.Text className="text">
+                    No esperes más, tu próxima gran oportunidad podría estar a solo una postulación de distancia. 
+                    </Card.Text>
+                    <Card.Text className="text">
+                    ¡Empieza ahora y encuentra el trabajo perfecto para ti!
+                    </Card.Text>
+                    <Row className='d-flex justify-content-lg-end mx-3 py-3'>         
+                        <Button
+                        className='button primary border-1 my-2 w-100'
+                        href='/opportunities'
+                        >
+                            Buscar oportunidades
+                        </Button>       
+                    </Row>
+                </Card>
+            ) :            
+             (
                 <>
                 <h3 className='fs-2 mx-3'>Mis Postulaciones</h3>
                 <div className="d-none d-lg-block">
