@@ -65,6 +65,7 @@ const SidebarEmpresa = () => {
                         <NavLink
                         to="/"
                         end
+                        onClick={handleClose}
                         >
                             <img className="sidebar-top-logo" src={TalentplaceLogo} alt="Logo"></img>
                         </NavLink>
@@ -82,6 +83,7 @@ const SidebarEmpresa = () => {
                                 }
                                 to="/dashboard/projects"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-menu-icon">
                                     <AiOutlineProject size={30} />
@@ -97,6 +99,7 @@ const SidebarEmpresa = () => {
                                 }
                                 to="/home"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-menu-icon">
                                     <IoHomeOutline size={30} />
@@ -112,6 +115,7 @@ const SidebarEmpresa = () => {
                                 }
                                 to="/dashboard/talents"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-menu-icon">
                                     <GoPeople size={30} />
@@ -127,6 +131,7 @@ const SidebarEmpresa = () => {
                                 }
                                 to="/dashboard/projects/new"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-menu-icon">
                                     <MdOutlineUpload size={30} />
@@ -146,6 +151,7 @@ const SidebarEmpresa = () => {
                                 }
                                 to="/dashboard/chat"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-options-icon">
                                     <BsChatDots size={30} />
@@ -162,6 +168,7 @@ const SidebarEmpresa = () => {
 
                                 to="/dashboard/editprofile"
                                 end
+                                onClick={handleClose}
                              >
                                 <div className="sidebar-options-icon">
                                     <GoPerson size={30} />
