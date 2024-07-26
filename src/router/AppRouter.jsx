@@ -32,8 +32,8 @@ export const AppRouter = () => {
         <Route path="dashboard/*" element={<Dashboard />}>
 
           {/* <Route path="empresa" element={<MainEmpresa />} /> */}
-
-          {/* <Route path="junior" element={<MainFreelancer />} /> */}
+          
+          <Route path="junior" element={<MainFreelancer />} />
           <Route path="junior/applications" element={<PostulacionesFreelancer />} />
           <Route path="projects" element={<Projects />} />
           <Route path="projects/edit/:projectId" element={<ProjectEdit />} />
