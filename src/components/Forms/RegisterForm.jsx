@@ -107,7 +107,7 @@ const RegisterForm = () => {
                             className="form-control p-2 my-3" 
                             placeholder="Email" 
                             name="email" 
-                            value={registerData.email} 
+                            value={registerData.email.toLowerCase()} 
                             onChange={handleChange}
                         />
                         {errors.email && <p style={{color: 'red'}}>{errors.email}</p>}

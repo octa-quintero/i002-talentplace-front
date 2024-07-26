@@ -39,7 +39,7 @@ const LoginForm = () => {
                             className="form-control p-2 my-3" 
                             name="email" 
                             placeholder="Email" 
-                            value={loginData.email} 
+                            value={loginData.email.toLowerCase()} 
                             onChange={handleChange}
                         />
                         {errors.name && <p style={{color: 'red'}}>{errors.name}</p>}
