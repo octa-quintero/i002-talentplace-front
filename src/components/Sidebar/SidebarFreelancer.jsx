@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-/*import useLoginForm from "../../hooks/useLoginForm";
-import Container from "react-bootstrap/Container";
-import { Offcanvas } from "react-bootstrap";
-import { NavLink, useLocation  } from "react-router-dom";*/
-
 import './Sidebar.css';
 import { NavLink, useLocation } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import useLoginForm from "../../hooks/useLoginForm";
-
 
 /*  IMAGES & LOGOS  */
 
@@ -73,11 +67,10 @@ const SidebarFreelancer = () => {
                 <Offcanvas show={show} onHide={handleClose} responsive="lg" className="offcanvas-large offcanvas-small d-flex flex-column p-3 justify-content-around align-items-center">
 
                     <div className="sidebar-top d-flex flex-column align-items-center">
-
-
                         <NavLink
                         to="/"
                         end
+                        onClick={handleClose}
                         >
                             <img className="sidebar-top-logo" src={TalentplaceLogo} alt="Logo"></img>
                         </NavLink>
@@ -87,14 +80,15 @@ const SidebarFreelancer = () => {
 
 
                     <div className="sidebar-menu d-flex flex-column justify-content-around">
-                        <div className="sidebar-menu-row d-flex justify-content-start">
 
+                        <div className="sidebar-menu-row d-flex justify-content-start">
                             <NavLink
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
                                 to="/dashboard/junior"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-menu-icon">
                                     <LuTable2 size={30} />
@@ -104,20 +98,18 @@ const SidebarFreelancer = () => {
                         </div>
 
                         <div className="sidebar-menu-row d-flex justify-content-start">
-
                             <NavLink
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
                                 to="/dashboard/junior/applications"
                                 end
+                                onClick={handleClose}
                             >
-
                                 <div className="sidebar-menu-icon">
                                     <AiOutlineProject size={30} />
                                 </div>
                                 <h4>Postulaciones</h4>
-
                             </NavLink>
                         </div>
 
@@ -128,6 +120,7 @@ const SidebarFreelancer = () => {
                                 }
                                 to="/home"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-menu-icon">
                                     <IoHomeOutline size={30} />
@@ -141,16 +134,14 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-
                                 to="/dashboard/junior/opportunities"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-menu-icon">
                                     <MdOutlineUpload size={30} />
                                 </div>
-
                                 <h4>Publicar Servicio</h4>
-
                             </NavLink>
                         </div>
 
@@ -159,26 +150,17 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-
-                                //to="/junior/find"
-
-
                                 to="/opportunities"
-
                                 end
-
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-menu-icon">
                                     <IoSearch size={30} />
                                 </div>
-
                                 <h4>Buscar proyectos</h4>
-
                             </NavLink>
                         </div>
-
                     </div>
-
 
                     <div className="sidebar-options d-flex flex-column justify-content-around">
                         <div className="sidebar-options-row d-flex justify-content-start">
@@ -186,10 +168,9 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-
                                 to="/dashboard/junior/chat"
                                 end
-
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-options-icon">
                                     <BsChatDots size={30} />
@@ -203,18 +184,15 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-
                                 to="/dashboard/editprofile"
-
                                 end
-                             >
-
+                                onClick={handleClose}
+                            >
                                 <div className="sidebar-options-icon">
                                     <GoPerson size={30} />
                                 </div>
                                 <h4>Perfil</h4>
                             </NavLink>
-
                         </div>
 
                         <div className="sidebar-options-row d-flex justify-content-start">
@@ -222,9 +200,7 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "hover-logout" : ""}`
                                 }
-
                                 onClick={() => closeSession() }                            
-
                             >
                                 <div className="sidebar-options-icon">
                                     <RiLogoutCircleRLine size={30} />
@@ -234,13 +210,9 @@ const SidebarFreelancer = () => {
                         </div>
 
                     </div>
-
                 </Offcanvas>
-
             </div>
-
         </Container>
-
     );
 };
 

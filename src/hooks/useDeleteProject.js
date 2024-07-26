@@ -19,7 +19,6 @@ export const useDeleteProject = () => {
         const handleGoProjects = () => {
             navigate(`/dashboard/projects`);
         }
-    
         try {
 
             const result = await Swal.fire({

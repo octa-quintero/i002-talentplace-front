@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { getUserById, updateUser } from '../api/editRegisterForm';
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import  { useUserContext  } from "../context/UserProvider"
+import { useUserContext } from "../context/UserProvider";
+import validateUpdate from "./useValidateProfileForm";
 
 const useEditRegisterForm = () => {
-    
-    let {token, user, setUser} =  useUserContext();
+    let { token, user, setUser } = useUserContext();
     const userContext = JSON.parse(user);
     const { id } = userContext;
     const [objUser, setObjUser] = useState({});
@@ -15,8 +15,10 @@ const useEditRegisterForm = () => {
         apellido: '',
         telefono: '',
         pais: '',
-        tipo: '',
+        // tipo: '',
         contrasenia: '',
+        nuevaContrasenia: '',
+        confirmarContrasenia:'',
         email: ''
     });
 
@@ -36,13 +38,15 @@ const useEditRegisterForm = () => {
                 apellido: objUser.apellido || '',
                 telefono: objUser.telefono || '',
                 pais: objUser.pais || '',
-                tipo: objUser.tipo || '',
-                contrasenia: objUser.contrasenia || '',
+                // tipo: objUser.tipo || '',
+                contrasenia: '',
+                nuevaContrasenia: '',
+                confirmarContrasenia: '',
                 email: objUser.email || ''
             });
         }
     }, [objUser]);
-   
+
     const [inputType, setInputType] = useState("password");
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -56,96 +60,89 @@ const useEditRegisterForm = () => {
             ...registerData,
             [name]: value
         });
+        setErrors(validateUpdate({ ...registerData, [name]: value }, [name]));
     };
 
-    // Funcion para validacion de inputs
-    const validate = () => {
-        const newErrors = {};
-
-        if (!registerData.nombre) {
-            newErrors.nombre = "Name is required";
-        }
-
-        if (!registerData.apellido) {
-            newErrors.apellido = "Surname is required";
-        }
-
-        if (!registerData.pais) {
-            newErrors.pais = "Country is required";
-        }
-
-        if (!registerData.telefono) {
-            newErrors.telefono = "Telephone is required";
-        } else if (!/^\d{10}$/.test(registerData.telefono)) {
-            newErrors.telefono = 'Telephone must contain 10 digits';
-        }
-
-        if (!registerData.tipo) {
-            newErrors.tipo = "Type is required";
-        }
-
-        if (!registerData.email) {
-            newErrors.email = "Email is required";
-        } else if (!/\S+@\S+\.\S+/.test(registerData.email)) {
-            newErrors.email = "Email format is invalid";
-        }
-
-        if (!registerData.contrasenia) {
-            newErrors.contrasenia = "Password is required";
-        } else if (registerData.contrasenia.length < 8) {
-            newErrors.contrasenia = "Password must be at least 8 characters";
-        } else if (!/[A-Z]/.test(registerData.contrasenia)) {
-            newErrors.contrasenia = 'Password must contain at least one uppercase letter';
-        } else if (!/[0-9]/.test(registerData.contrasenia)) {
-            newErrors.contrasenia = 'Password must contain at least one number';
-        }
-
-        return newErrors;
-    };
-
-    // Funcion para ver mostrar u ocultar la contraseña
     const togglePasswordVisible = () => {
         setInputType((prevType) => (prevType === 'password' ? 'text' : 'password'));
     };
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const formErrors = validate();
+        const formErrors = validateUpdate(registerData);
         if (Object.keys(formErrors).length > 0) {
             setErrors(formErrors);
-        } else {
-            setErrors({});
-            setIsSubmitting(true);
-            setLoading(true)
+        }
+        else {
+            if (registerData.contrasenia === '' && registerData.nuevaContrasenia === '' && registerData.confirmarContrasenia === '') {
 
-            try {
-                const data = await updateUser(registerData, id, token);
-                setUser(JSON.stringify(data))
-                
-                Swal.fire({
-                    icon: "success",
-                    title: "Usuario actualizado con éxito",
-                    text: "Los cambios han sido guardados",
-                    timer: 3000,
-                });
-                navigate('/');
-                
-            } catch (error) {
-
-                // Si hay un error lo notifica
-                console.log(error);
-                Swal.fire({
+                setErrors({});
+                setIsSubmitting(true);
+                setLoading(true);
+    
+                try {
+                    delete registerData.contrasenia;
+                    delete registerData.nuevaContrasenia;
+                    delete registerData.confirmarContrasenia;
+                    const data = await updateUser(registerData, id, token);
+                    setUser(JSON.stringify(data));
+                    Swal.fire({
+                        icon: "success",
+                        title: "Usuario actualizado con éxito",
+                        text: "Los cambios han sido guardados",
+                        timer: 3000,
+                    });
+                    navigate('/');
+                } catch (error) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Hubo un error!",
+                        text: `${error.response.data.message}`,
+                        // timer: 3000,
+                    });
+                } finally {
+                    setIsSubmitting(false);
+                    setLoading(false);
+                }
+            }
+            else if (registerData.contrasenia === '' || registerData.nuevaContrasenia === '' || registerData.confirmarContrasenia === '') {
+                return Swal.fire({
                     icon: "error",
-                    title: "Hubo un error!",
-                    timer: 3000,
+                    title: "Error",
+                    text: "Debes completar todos los campos necesarios para actualizar la contraseña",
                 });
-
-            } finally {
-                setIsSubmitting(false);
+            }
+            else {
+                setErrors({});
+                setIsSubmitting(true);
+                setLoading(true);
+    
+                try {
+                    delete registerData.confirmarContrasenia;
+                    const data = await updateUser(registerData, id, token);
+                    setUser(JSON.stringify(data));
+                    Swal.fire({
+                        icon: "success",
+                        title: "Usuario actualizado con éxito",
+                        text: "Los cambios han sido guardados",
+                        timer: 3000,
+                    });
+                    navigate('/');
+                } catch (error) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Hubo un error!",
+                        text: `${error.response.data.message}`,
+                        // timer: 3000,
+                    });
+                } finally {
+                    setIsSubmitting(false);
+                    setLoading(false);
+                }
             }
         }
+
     };
 
     return {

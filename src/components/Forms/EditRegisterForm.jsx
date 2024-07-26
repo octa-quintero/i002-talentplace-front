@@ -4,6 +4,7 @@ import { IoEye, IoEyeOff } from "react-icons/io5";
 import useEditRegisterForm from '../../hooks/useEditRegisterForm';
 import Loading from "../../pages/shared/Loading";
 import { useNavigate } from "react-router-dom";
+import { Col, Row } from "react-bootstrap"
 
 const EditRegisterForm = () => {
     const {
@@ -17,12 +18,12 @@ const EditRegisterForm = () => {
         handleSubmit
     } = useEditRegisterForm();
     const navigate = useNavigate();
-  
+
     return(
-        <form onSubmit={handleSubmit} className='container-forms container form-width p-5 my-5'>
+        <form onSubmit={handleSubmit} className='container-forms container form-width py-5 my-5'>
 
             <div className="container-forms-header row">
-                <h2 className="col-md-10">Edita tu cuenta</h2>
+                <h2 className="col-md-10">Editar tu cuenta</h2>
                 <img src={logo} alt="Logo"></img>
             </div>
 
@@ -86,20 +87,6 @@ const EditRegisterForm = () => {
                         {errors.telefono && <p style={{color: 'red'}}>{errors.telefono}</p>}
                     </div>
 
-                    {/* <div className="form-group">
-                        <select 
-                            className="form-control p-2 mt-3"
-                            name="tipo"
-                            value={registerData.tipo}
-                            onChange={handleChange}    
-                        >
-                            <option value="">Busco</option>
-                            <option value="junior">Trabajar</option>
-                            <option value="empresa">Contratar</option>
-                        </select>
-                        {errors.tipo && <p style={{color: 'red'}}>{errors.tipo}</p>}
-                    </div> */}
-
                     <div className="form-group">
                         <input 
                             type="email" 
@@ -112,13 +99,16 @@ const EditRegisterForm = () => {
                         {errors.email && <p style={{color: 'red'}}>{errors.email}</p>}
                     </div>
 
+                    <Row>
+                        <h6 className='fw-bold'>Modificar contraseña</h6>
+                    </Row>
+
                     <div className="form-group form-group-password">
                         <input 
                             type={inputType} 
                             className="form-control p-2 my-3" 
-                            placeholder="Password" 
+                            placeholder="Contraseña actual" 
                             name="contrasenia" 
-                            value={registerData.contrasenia} 
                             onChange={handleChange}
                         />
 
@@ -128,17 +118,59 @@ const EditRegisterForm = () => {
                         </button>
                         {errors.contrasenia && <p style={{color: 'red'}}>{errors.contrasenia}</p>}
                     </div>
+                    <Row>
+                        <Col lg={6}>
+                            <div className="form-group form-group-password">
+                                <input 
+                                    type={inputType} 
+                                    className="form-control p-2 my-3" 
+                                    placeholder="Nueva contraseña" 
+                                    name="nuevaContrasenia" 
+                                    onChange={handleChange}
+                                />
+
+                                {/* Boton para mostrar u ocultar la contraseña */}
+                                <button className="ioEye" type="button" onClick={togglePasswordVisible}>
+                                    {inputType==="password" ? <IoEye /> : <IoEyeOff />}
+                                </button>
+                                {errors.nuevaContrasenia && <p style={{color: 'red'}}>{errors.nuevaContrasenia}</p>}
+                            </div>
+                        </Col>
+                        <Col lg={6}>
+                            <div className="form-group form-group-password">
+                                <input 
+                                    type={inputType} 
+                                    className="form-control p-2 my-3" 
+                                    placeholder="Confirmar Nueva contraseña" 
+                                    name="confirmarContrasenia" 
+                                    onChange={handleChange}
+                                />
+
+                                {/* Boton para mostrar u ocultar la contraseña */}
+                                <button className="ioEye" type="button" onClick={togglePasswordVisible}>
+                                    {inputType==="password" ? <IoEye /> : <IoEyeOff />}
+                                </button>
+                                {errors.confirmarContrasenia && <p style={{color: 'red'}}>{errors.confirmarContrasenia}</p>}
+                            </div>
+                        </Col>
+                    </Row>
+
 
                     <div className="form-group d-flex justify-content-between">
                         <button 
-                            className="border-0 button primary-outline w-25 p-2 my-3" 
+                            className="border-0 button primary-outline col-4 col-lg-3 p-2 my-3" 
                             type="button"
                             onClick={ ()=> navigate(-1) }
                         >Volver atras</button>
                         <button 
-                            className="border-0 button primary w-25 p-2 my-3" 
+                            className={
+                                (Object.keys(errors).some(
+                                    (e) => errors[e],
+                                  )) ? `border-0 button-disabled rounded-2 col-4 col-lg-3 p-2 my-3` : `border-0 button primary col-4 col-lg-3 p-2 my-3`}
                             type="submit"
-                            disabled={isSubmitting}
+                            disabled={Object.keys(errors).some(
+                                (e) => errors[e],
+                              )}
                         >Guardar</button>
                     </div>
                 </div>

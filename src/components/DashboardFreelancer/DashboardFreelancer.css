@@ -1,0 +1,40 @@
+.card-size {
+    height: 33em;    
+}
+
+.card-size-movil {
+    height: 25em;    
+}
+
+.container-text {
+    height: 150px;
+    overflow-y: auto;
+}
+
+.container-text-movil {
+    height: 140px;
+    overflow-y: auto;
+}
+
+.container-text p {
+    margin: 0;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: rgb(78, 74, 74);
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media (min-width: 1300px) {
+    .fs-xl-4 {
+      font-size: 1.6rem; /* Ajusta el tamaño según tus necesidades */
+    }
+    .card-size {
+        height: 25em;    
+    }
+}

@@ -2,7 +2,6 @@ import React from 'react'
 import { RotatingLines } from 'react-loader-spinner'
 import '../../index.css'
 
-
 const Loading = () => {
 
     return (

@@ -7,7 +7,6 @@ import useLoginForm from '../../hooks/useLoginForm';
 import Loading from "../../pages/shared/Loading";
 
 
-
 const LoginForm = () => {
 
     const {
@@ -29,7 +28,6 @@ const LoginForm = () => {
                 <img src={logo} alt="Logo"></img>
             </div>
 
-
             {loading? 
                 <Loading /> 
             :
@@ -44,7 +42,7 @@ const LoginForm = () => {
                             value={loginData.email} 
                             onChange={handleChange}
                         />
-                        {errors.name && <p style={{color: 'red'}}>{errors.name}</p>}
+                        {errors.email && <p style={{color: 'red'}}>{errors.email}</p>}
                     </div>
 
                     <div className="form-group form-group-password">

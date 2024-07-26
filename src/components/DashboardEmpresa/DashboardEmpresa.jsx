@@ -104,7 +104,6 @@ export const DashboardEmpresa = () => {
                                 </Row>
                             </Card.Body>
                         </Card>
-
                     ))[0]
                     }
                 </div>

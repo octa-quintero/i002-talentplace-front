@@ -21,23 +21,20 @@ const HeaderDash = () => {
 
   const headings = {
     //empresa
-    '/dashboard/empresa': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
-    '/dashboard/projects': "Proyectos",
+    '/dashboard/empresa': `¡Bienvenid@ de nuevo ${nombre} ${apellido}!`,
+    '/dashboard/projects': `¡Bienvenid@ de nuevo ${nombre} ${apellido}!`,
     '/dashboard/payments': "Facturación",
     '/dashboard/talents': "Personas",
     '/dashboard/projects/new': "Publicar Proyecto",
     '/dashboard/chat': "Mensajería",
     '/dashboard/editprofile': "Editar Perfil",
     //junior
-    '/dashboard/junior': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
-
+    '/dashboard/junior': `¡Bienvenid@ de nuevo ${nombre} ${apellido}!`,
     '/dashboard/junior/applications': "Mis postulaciones",
-
     '/dashboard/junior/payments': "Pagos",
     '/dashboard/junior/opportunities': "Publicar servicio",
     '/dashboard/junior/find': "Buscar proyecto",
     '/dashboard/junior/chat': "Mensajería",
-    '/dashboard/editprofile': "Editar Perfil",
   };
 
   const renderHeading = useMemo(() => {
@@ -50,7 +47,7 @@ const HeaderDash = () => {
   }, [pathLocal, headings]);
 
   return (
-    <header className='headerDash container-fluid justify-content-center'>
+    <header className='headerDash container-fluid justify-content-center pe-4'>
       <Row className='w-100'>
         <Col xl={7} md={6}>
           <h3 className='fs-2'>{renderHeading}</h3>
@@ -59,10 +56,10 @@ const HeaderDash = () => {
           <Button type='border-0 button-profile-button mx-2 p-0'>
             <img src={profile} alt="Profile image" className='profile-button rounded-1' />
           </Button>
-          <Button type="primary dash border-0 mx-2">
+          <Button type="primary dash border-0 mx-2 align-self-center">
             <AiOutlineMail className='fs-4' />
           </Button>
-          <Button type="primary dash border-0 mx-2">
+          <Button type="primary dash border-0 mx-2 align-self-center">
             <FaRegBell className='fs-4' />
           </Button>
         </Col>

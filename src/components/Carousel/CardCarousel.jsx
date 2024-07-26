@@ -34,7 +34,6 @@ export default function CardCarousel() {
   };
 
 
-
   return (
     
       <Slider {...settings} className='custom-slider'>
@@ -74,6 +73,5 @@ export default function CardCarousel() {
           </Fade>
         </div> 
       </Slider>
-    
   );
 }
