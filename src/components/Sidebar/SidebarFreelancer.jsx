@@ -70,6 +70,7 @@ const SidebarFreelancer = () => {
                         <NavLink
                         to="/"
                         end
+                        onClick={handleClose}
                         >
                             <img className="sidebar-top-logo" src={TalentplaceLogo} alt="Logo"></img>
                         </NavLink>
@@ -87,6 +88,7 @@ const SidebarFreelancer = () => {
                                 }
                                 to="/dashboard/junior"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-menu-icon">
                                     <LuTable2 size={30} />
@@ -102,6 +104,7 @@ const SidebarFreelancer = () => {
                                 }
                                 to="/dashboard/junior/applications"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-menu-icon">
                                     <AiOutlineProject size={30} />
@@ -117,6 +120,7 @@ const SidebarFreelancer = () => {
                                 }
                                 to="/home"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-menu-icon">
                                     <IoHomeOutline size={30} />
@@ -132,6 +136,7 @@ const SidebarFreelancer = () => {
                                 }
                                 to="/dashboard/junior/opportunities"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-menu-icon">
                                     <MdOutlineUpload size={30} />
@@ -147,6 +152,7 @@ const SidebarFreelancer = () => {
                                 }
                                 to="/opportunities"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-menu-icon">
                                     <IoSearch size={30} />
@@ -164,6 +170,7 @@ const SidebarFreelancer = () => {
                                 }
                                 to="/dashboard/junior/chat"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-options-icon">
                                     <BsChatDots size={30} />
@@ -179,6 +186,7 @@ const SidebarFreelancer = () => {
                                 }
                                 to="/dashboard/editprofile"
                                 end
+                                onClick={handleClose}
                             >
                                 <div className="sidebar-options-icon">
                                     <GoPerson size={30} />
