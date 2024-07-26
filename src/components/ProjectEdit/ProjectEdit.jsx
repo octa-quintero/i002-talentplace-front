@@ -136,10 +136,10 @@ const ProjectEdit = () => {
     <Form className='justify-content-center' onSubmit={handleSubmit}>
         <Col className="border border-info align-items-start mx-3 py-3 px-4 rounded-4 bg-white">
           <Row className="mb-3">
-              <Form.Label column xl={1} md={2} className='fw-bold fs-5 me-2'>
+              <Form.Label column xl={1} md={2} className='fw-bold fs-5 me-5'>
                   Proyecto:
               </Form.Label>
-              <Col xl={5} md={7}>
+              <Col xl={10} md={8}>
                   <Form.Control
                     className='py-2 border-dark rounded-4'
                     type="text"
@@ -152,10 +152,10 @@ const ProjectEdit = () => {
           </Row>
 
           <Row className="mb-3">
-              <Form.Label column xl={1} md={2} className='fw-bold fs-5 me-2 align-content-center'>
+              <Form.Label column xl={1} md={2} className='fw-bold fs-5 me-5 align-content-center'>
                   Descripción:
               </Form.Label>
-              <Col xl={10} md={7}>
+              <Col xl={10} md={8}>
                   <Form.Control
                     className='rounded-4 border-dark custom-height no-resize'
                     as="textarea"
@@ -169,10 +169,10 @@ const ProjectEdit = () => {
           </Row>
 
           <Row className="mb-3">
-              <Form.Label column xl={1} md={2} className='fw-bold fs-5 me-2 align-content-center'>
+              <Form.Label column xl={1} md={2} className='fw-bold fs-5 me-5 align-content-center'>
                   Requisitos:
               </Form.Label>
-              <Col xl={10} md={7}>
+              <Col xl={10} md={8}>
                   <Form.Control
                     className='rounded-4 border-dark no-resize'
                     as="textarea"
@@ -186,10 +186,10 @@ const ProjectEdit = () => {
           </Row>
 
           <Row className="mb-3">     
-              <Form.Label column xl={1} md={2} className='fw-bold fs-5 me-2'>
+              <Form.Label column xl={1} md={2} className='fw-bold fs-5 me-5'>
                 Habilidades:
               </Form.Label>
-              <Col xl={5} md={8}>
+              <Col xl={4} md={8}>
                 <Form.Select
                 className='rounded-4 border-dark'
                 defaultValue="Seleccione habilidad"
@@ -225,7 +225,7 @@ const ProjectEdit = () => {
 
               </Col>
     
-              <Form.Label column xl={1} md={2} className='fw-bold fs-5 me-2'>
+              <Form.Label column xl={1} md={2} className='fw-bold fs-5 me-5'>
                 Categoria:
               </Form.Label>
               <Col xl={4} md={8}>
@@ -259,16 +259,16 @@ const ProjectEdit = () => {
           </Row>
 
           <Row>     
-              <Form.Label className='fw-bold fs-5 me-2'>
+              <Form.Label className='fw-bold fs-5 me-5 mb-4'>
                 Contrataciones
               </Form.Label>
           </Row>
 
           <Row>   
-            <Form.Label column xl={1} md={2} className='fw-bold fs-5 me-2'>
+            <Form.Label column xl={1} md={2} className='fw-bold fs-5 me-5'>
                 Modalidad:
               </Form.Label> 
-              <Col xl={2} md={2}>
+              <Col xl={4} md={3}>
                 <Form.Select 
                 className='rounded-4 border-dark' 
                 name='modalidad'
@@ -282,10 +282,10 @@ const ProjectEdit = () => {
                 </Form.Select>
               </Col>
     
-              <Form.Label column xl={1} md={1} className='fw-bold fs-5 me-2'>
+              <Form.Label column xl={1} md={1} className='fw-bold fs-5 me-5'>
                 Estado:
               </Form.Label>
-              <Col xl={2} md={2}>
+              <Col xl={4} md={3}>
                 <Form.Select 
                 className='rounded-4 border-dark'
                 name='estado'
