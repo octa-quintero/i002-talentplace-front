@@ -8,6 +8,7 @@ import { DashboardRedirection } from "../pages/Dashboard/DashboardRedirection"
 import { DashboardEnConstruccion } from "../pages/Dashboard/DashboardEnConstruccion"
 
 import { ApplicationJunior } from "../pages/Application/Application"
+import { Contacto } from "../pages/Contacto/Contacto"
 
 
 
@@ -54,7 +55,7 @@ export const AppRouter = () => {
 
         <Route path="/project/application/:projectId" element={<ApplicationJunior />} />
 
-        <Route path="/contacto" element={<PaginaEnConstruccion />} />
+        <Route path="/contacto" element={<Contacto />} />
         <Route path="/paginaenconstruccion" element={<PaginaEnConstruccion />} />
 
       </Routes>
