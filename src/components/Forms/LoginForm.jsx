@@ -39,10 +39,10 @@ const LoginForm = () => {
                             className="form-control p-2 my-3" 
                             name="email" 
                             placeholder="Email" 
-                            value={loginData.email.toLowerCase()} 
+                            value={loginData.email} 
                             onChange={handleChange}
                         />
-                        {errors.name && <p style={{color: 'red'}}>{errors.name}</p>}
+                        {errors.email && <p style={{color: 'red'}}>{errors.email}</p>}
                     </div>
 
                     <div className="form-group form-group-password">
