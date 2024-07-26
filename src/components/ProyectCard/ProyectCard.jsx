@@ -9,7 +9,6 @@ const ProyectCard = ({ projects }) => {
 
     const { token, user } = useUserContext();
 
-
     return (
         <div>
             {projects.map((project) => (

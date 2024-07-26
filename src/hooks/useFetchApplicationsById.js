@@ -28,9 +28,8 @@ export const useFetchApplicationsById = () => {
 
                 const projectPromises = applications.map(app => fetchProjectById(userId, app.proyectoId, storedToken));
                 const projectResults = await Promise.all(projectPromises);
+
                 setProjects(projectResults);
-                
-                setLoading(false);
 
             } catch (error) {
                 const errorMessage = error.response ? error.response.data.message : error.message;
@@ -40,6 +39,8 @@ export const useFetchApplicationsById = () => {
                     icon: 'error',
                     confirmButtonText: 'Volver'
                 });
+            } finally {
+                setLoading(false);
             }
         };
 

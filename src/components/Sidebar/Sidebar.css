@@ -87,12 +87,12 @@ width: 100%;
 
 @media (max-width: 576px) {
     .offcanvas-small {
-      width: 80% !important;
+        width: 80% !important;
     }
 }
 
 @media (max-width: 992px) {
     .offcanvas-large {
-      background: linear-gradient(to bottom, #E8E2E2, #B07CFF);
+        background: linear-gradient(to bottom, #E8E2E2, #B07CFF);
     }
 }

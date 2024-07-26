@@ -15,7 +15,6 @@
 }
 
 .card{
-    /* background-color: white; */
     background-color: transparent;
     padding: 12px;
     border-radius: 16px;
@@ -23,7 +22,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .card.small{

@@ -30,7 +30,7 @@ export const ProjectList = () => {
     }
     const handleGoCreate = () => {
         navigate(`/dashboard/projects/new`);
-      }
+    }
 
     return(
         <>
