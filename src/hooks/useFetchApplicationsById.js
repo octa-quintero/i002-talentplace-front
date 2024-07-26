@@ -26,7 +26,7 @@ export const useFetchApplicationsById = () => {
                 const applications = await fetchApplicationsById(userId, projectId, storedToken);
                 setApplications(applications);
 
-                const projectPromises = applications.map(app => fetchProjectById(userId, app.projectId, storedToken));
+                const projectPromises = applications.map(app => fetchProjectById(userId, app.proyectoId, storedToken));
                 const projectResults = await Promise.all(projectPromises);
                 setProjects(projectResults);
                 

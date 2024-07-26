@@ -28,9 +28,9 @@ export const Postulaciones = () => {
                     <div className="loading" > <Loading /></div >
                 ) :
                     projects.map((project) => (
-                        <div className="p-3 my-5">
+                        <div key={project.id}>
 
-                            <Card key={project.id} className="align-items-start m-3 border border-info p-2 m-1 rounded-4 pt-4 card-postulacion">
+                            <Card className="align-items-start m-3 border border-info p-2 m-1 rounded-4 pt-4 card-postulacion">
 
                                 <Card.Body className="pt-0">
                                     <Row className="">
@@ -72,7 +72,7 @@ export const Postulaciones = () => {
                                                     </Col>
                                                 </Row>
                                             </Col>
-                                            <Col className="border border-1 p-0 m-1 rounded-4 card-border" lg={4}>
+                                            <Col className="border border-1 p-0 m-1 rounded-4 card-border" lg={3}>
                                                 <Row className="text-center px-1">
                                                     <Col className="p-0 m-1">
                                                         <Card.Title className="fw-bold p-1 m-1 text-end">
