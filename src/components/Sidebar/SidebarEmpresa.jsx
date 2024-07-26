@@ -74,7 +74,7 @@ const SidebarEmpresa = () => {
 
 
                     <div className="sidebar-menu d-flex flex-column justify-content-around">
-                        <div className="sidebar-menu-row d-flex justify-content-start">
+                        {/* <div className="sidebar-menu-row d-flex justify-content-start">
                             <NavLink
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
@@ -87,7 +87,7 @@ const SidebarEmpresa = () => {
                                 </div>
                                 <h4>Dashboard</h4>
                             </NavLink>
-                        </div>
+                        </div> */}
 
                         <div className="sidebar-menu-row d-flex justify-content-start">
                             <NavLink
