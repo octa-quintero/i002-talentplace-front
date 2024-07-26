@@ -21,7 +21,7 @@ const HeaderDash = () => {
 
   const headings = {
     //empresa
-    '/dashboard/empresa': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
+    '/dashboard/empresa': `¡Bienvenid@ de nuevo ${nombre} ${apellido}!`,
     '/dashboard/projects': "Proyectos",
     '/dashboard/payments': "Facturación",
     '/dashboard/talents': "Personas",
@@ -29,13 +29,13 @@ const HeaderDash = () => {
     '/dashboard/chat': "Mensajería",
     '/dashboard/editprofile': "Editar Perfil",
     //junior
-    '/dashboard/junior': `¡Bienvenido de nuevo ${nombre} ${apellido}!`,
+    '/dashboard/junior': `¡Bienvenid@ de nuevo ${nombre} ${apellido}!`,
+
     '/dashboard/junior/applications': "Mis postulaciones",
     '/dashboard/junior/payments': "Pagos",
     '/dashboard/junior/opportunities': "Publicar servicio",
     '/dashboard/junior/find': "Buscar proyecto",
     '/dashboard/junior/chat': "Mensajería",
-    '/dashboard/editprofile': "Editar Perfil",
   };
 
   const renderHeading = useMemo(() => {
