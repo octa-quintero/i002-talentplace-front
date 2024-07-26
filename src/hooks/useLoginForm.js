@@ -40,10 +40,11 @@ const useLoginForm = () => {
     //funcion para validacion de inputs
     const validate = () => {
         const newErrors = {};
+        const emailLowerCase = loginData.email.toLowerCase();
 
         if (!loginData.email) {
             newErrors.email = "Email is required";
-        } else if (!/.+@.+\.[A-Za-z]+$/.test(loginData.email)) {
+        } else if (!/.+@.+\.[A-Za-z]+$/.test(emailLowerCase)) {
             newErrors.email = "Email format is invalid";
         }
 
