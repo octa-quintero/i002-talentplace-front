@@ -6,7 +6,6 @@ export * from './shared/Footer';
 export * from './shared/Navbar';
 export * from './shared/PaginaEnConstruccion';
 export * from './Opportunities/Opportunities';
-export * from './Sidebar';
 export * from './Dashboard/Dashboard';
 export * from './Projects/Projects';
 export * from './Nosotros/Nosotros';

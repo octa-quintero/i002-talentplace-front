@@ -32,6 +32,8 @@ export const useFetchProjectById = () => {
                     icon: 'error',
                     confirmButtonText: 'Volver'
                 });
+            } finally{
+                setLoading(false);  
             }
         };
 

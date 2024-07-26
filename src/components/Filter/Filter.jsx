@@ -1,7 +1,6 @@
 import React from 'react'
 import './Filter.css'
 import '../../index.css'
-import Dropdown from '../Dropdown/Dropdown'
 
 const Filter = () => {
     return (

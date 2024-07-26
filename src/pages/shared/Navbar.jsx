@@ -88,6 +88,7 @@ export const Navbar = () => {
             </NavLink>
           </div>
           <div className="d-flex justify-content-center btn-login">
+            
             {/* Si se está logueado muestra el nombre del usuario, sino se ingresa */}
             {token ?
               <>

@@ -1,8 +1,5 @@
 /* Global Styles */
 
-/**************************************/
-/* NO ESTA TERMINADO... VER CON UX/UI */
-/**************************************/
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 :root {
@@ -21,7 +18,6 @@
         hsl(252deg 100% 86%) 100%
     );
     
-
 
      /* colors */
     --main-color-purple: #8c52ff;
@@ -63,16 +59,6 @@
 
     --font-size-res-body-1: 28px;
     --font-size-res-body-2: 24px; 
-
-    /* regular:
-    font-family: "Lato", sans-serif;   
-    font-weight: 400;  
-    font-style: normal; 
-
-    bold:
-    font-family: "Lato", sans-serif;   
-    font-weight: 700;  
-    font-style: normal;  */
 
     /* spacing*/
     --space-padding-s: 0.5rem;

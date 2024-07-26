@@ -7,7 +7,6 @@ import useLoginForm from '../../hooks/useLoginForm';
 import Loading from "../../pages/shared/Loading";
 
 
-
 const LoginForm = () => {
 
     const {
@@ -28,7 +27,6 @@ const LoginForm = () => {
                 <h2 className="col-md-10">Ingreso a cuenta</h2>
                 <img src={logo} alt="Logo"></img>
             </div>
-
 
             {loading? 
                 <Loading /> 

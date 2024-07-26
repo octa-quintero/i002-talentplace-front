@@ -21,6 +21,4 @@ function CardInfo({title, text, textColor, imagen, border, }) {
     );
 }
 
-
-
 export default CardInfo;
