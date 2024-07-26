@@ -96,20 +96,17 @@ const useLoginForm = () => {
                 // En caso de éxito
                 // Guarda el token y el usuario en el contexto y localStorage y dirige al home
                 const data = await fetchLoginForm(loginData);
-                console.log(data);
 
                 setToken(data.refreshToken);
                 setUser(JSON.stringify(data.user));
                 localStorage.setItem('user', JSON.stringify(data.user));
                 localStorage.setItem('token', data.refreshToken);
-                navigate('/dashboard')
-                // if (data.user.tipo === "junior") {
-                //     navigate('/dashboard/junior');
-                    
-                // } else {
-                //     navigate('/dashboard/projects');
-                    
-                // }
+                
+                if (data.user.tipo === "empresa") {
+                    navigate('/dashboard/projects');
+                } else {
+                    navigate('/dashboard/junior')
+                } 
 
                 // Notificación de éxito al iniciar sesión
                 Toast.fire({

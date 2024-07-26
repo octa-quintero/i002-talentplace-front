@@ -18,7 +18,7 @@ import { BsChatDots } from "react-icons/bs";
 import { GoPerson } from "react-icons/go";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { CiMenuBurger } from "react-icons/ci";
-
+import { IoHomeOutline } from "react-icons/io5";
 
 const SidebarEmpresa = () => {
     
@@ -62,7 +62,6 @@ const SidebarEmpresa = () => {
                 <Offcanvas show={show} onHide={handleClose} responsive="lg" className="offcanvas-large offcanvas-small d-flex flex-column p-3 justify-content-around align-items-center">
 
                     <div className="sidebar-top d-flex flex-column align-items-center">
-                        <span><strong>***EMPRESA***</strong></span>
                         <NavLink
                         to="/"
                         end
@@ -75,7 +74,7 @@ const SidebarEmpresa = () => {
 
 
                     <div className="sidebar-menu d-flex flex-column justify-content-around">
-                        <div className="sidebar-menu-row d-flex justify-content-start">
+                        {/* <div className="sidebar-menu-row d-flex justify-content-start">
                             <NavLink
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
@@ -88,7 +87,7 @@ const SidebarEmpresa = () => {
                                 </div>
                                 <h4>Dashboard</h4>
                             </NavLink>
-                        </div>
+                        </div> */}
 
                         <div className="sidebar-menu-row d-flex justify-content-start">
                             <NavLink
@@ -110,13 +109,13 @@ const SidebarEmpresa = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-                                to="/dashboard/payments"
+                                to="/home"
                                 end
                             >
                                 <div className="sidebar-menu-icon">
-                                    <PiMoneyWavy size={30} />
+                                    <IoHomeOutline size={30} />
                                 </div>
-                                <h4>Facturacion</h4>
+                                <h4>Home</h4>
                             </NavLink>
                         </div>
 
@@ -175,7 +174,7 @@ const SidebarEmpresa = () => {
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
 
-                                to="/editprofile"
+                                to="/dashboard/editprofile"
                                 end
                              >
                                 <div className="sidebar-options-icon">

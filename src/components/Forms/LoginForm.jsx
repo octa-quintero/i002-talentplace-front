@@ -21,8 +21,6 @@ const LoginForm = () => {
         handleSubmit,
     } = useLoginForm();
 
-    console.log(loading);
-    
     return(
         <form id="login-form" onSubmit={handleSubmit} className='container-forms container p-5 my-5 form-width'>
 

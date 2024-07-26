@@ -29,17 +29,17 @@ export const LandingPage = () => {
                   </Fade>
                     </div>
                   <div className='col-6 col-md-3'>
-                  <Fade delay="50" triggerOnce="true">
+                  <Fade delay="20" triggerOnce="true">
                     <Card Icon={TfiMarkerAlt} type='small' alt="Diseño" title="Diseño"/>
                   </Fade>
                   </div>
                   <div className='col-6 col-md-3'>
-                  <Fade delay="100" triggerOnce="true">
+                  <Fade delay="40" triggerOnce="true">
                     <Card Icon={PiHandCoins} type='small' alt="Marketing" title="Marketing"/>
                   </Fade>
                   </div>
                   <div className='col-6 col-md-3'>
-                  <Fade delay="150" triggerOnce="true">
+                  <Fade delay="80" triggerOnce="true">
                     <Card Icon={MdTranslate} type='small' alt="Traducción" title="Traducción"/>
                   </Fade>
                   </div>
@@ -69,12 +69,12 @@ export const LandingPage = () => {
                 </div>
                 <div className='row '>
                     <div className='col-md-12 col-lg-6 sm-pb-1'>
-                      <Fade delay="70" triggerOnce="true" direction='up'>
+                      <Fade delay="40" triggerOnce="true" direction='up'>
                         <Button type='primary'  to="/opportunities">Busco Trabajar</Button>
                       </Fade>
                     </div>
                     <div className='col-md-12 col-lg-6'>
-                      <Fade delay="140" triggerOnce="true"direction='up'>
+                      <Fade delay="80" triggerOnce="true"direction='up'>
                         {token?
                           <Button type='secondary' to="/dashboard/projects">Ir a mi tablero</Button>
                         :

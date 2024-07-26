@@ -26,6 +26,7 @@ import { CiMenuBurger } from "react-icons/ci";
 
 import { useUserContext } from "../../context/UserProvider";
 import { IoSearch } from "react-icons/io5";
+import { IoHomeOutline } from "react-icons/io5";
 
 
 const SidebarFreelancer = () => {
@@ -73,7 +74,6 @@ const SidebarFreelancer = () => {
 
                     <div className="sidebar-top d-flex flex-column align-items-center">
 
-                    <span><strong>***FREELANCER***</strong></span>
 
                         <NavLink
                         to="/"
@@ -126,15 +126,13 @@ const SidebarFreelancer = () => {
                                 className={({ isActive }) =>
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
-
-                                to="/dashboard/junior/payments"
+                                to="/home"
                                 end
-
                             >
                                 <div className="sidebar-menu-icon">
-                                    <PiMoneyWavy size={30} />
+                                    <IoHomeOutline size={30} />
                                 </div>
-                                <h4>Pagos</h4>
+                                <h4>Home</h4>
                             </NavLink>
                         </div>
 
@@ -146,7 +144,6 @@ const SidebarFreelancer = () => {
 
                                 to="/dashboard/junior/opportunities"
                                 end
-
                             >
                                 <div className="sidebar-menu-icon">
                                     <MdOutlineUpload size={30} />
@@ -163,7 +160,11 @@ const SidebarFreelancer = () => {
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
 
+                                //to="/junior/find"
+
+
                                 to="/opportunities"
+
                                 end
 
                             >
@@ -203,7 +204,7 @@ const SidebarFreelancer = () => {
                                     `nav-item nav-link d-flex w-100 ${isActive ? "active" : ""}`
                                 }
 
-                                to="/editprofile"
+                                to="/dashboard/editprofile"
 
                                 end
                              >
