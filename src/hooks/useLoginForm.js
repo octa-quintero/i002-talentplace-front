@@ -101,10 +101,12 @@ const useLoginForm = () => {
                 setUser(JSON.stringify(data.user));
                 localStorage.setItem('user', JSON.stringify(data.user));
                 localStorage.setItem('token', data.refreshToken);
-                // navigate('/dashboard')
+                
                 if (data.user.tipo === "empresa") {
                     navigate('/dashboard/projects');
-                }
+                } else {
+                    navigate('/dashboard/junior')
+                } 
 
                 // Notificación de éxito al iniciar sesión
                 Toast.fire({
