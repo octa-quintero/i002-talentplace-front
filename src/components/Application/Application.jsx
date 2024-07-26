@@ -15,7 +15,7 @@ export const Application = () => {
         handleSubmit
     } = usePostApplicationsById();
     const navigate = useNavigate();
-  
+
     return(
         <form onSubmit={handleSubmit} className='container-forms container form-width p-5 my-5'>
 

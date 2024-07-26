@@ -42,7 +42,7 @@ const useEditRegisterForm = () => {
             });
         }
     }, [objUser]);
-   
+
     const [inputType, setInputType] = useState("password");
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);

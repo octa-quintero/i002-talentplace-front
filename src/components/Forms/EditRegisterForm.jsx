@@ -17,7 +17,7 @@ const EditRegisterForm = () => {
         handleSubmit
     } = useEditRegisterForm();
     const navigate = useNavigate();
-  
+
     return(
         <form onSubmit={handleSubmit} className='container-forms container form-width p-5 my-5'>
 
@@ -85,20 +85,6 @@ const EditRegisterForm = () => {
                         />
                         {errors.telefono && <p style={{color: 'red'}}>{errors.telefono}</p>}
                     </div>
-
-                    {/* <div className="form-group">
-                        <select 
-                            className="form-control p-2 mt-3"
-                            name="tipo"
-                            value={registerData.tipo}
-                            onChange={handleChange}    
-                        >
-                            <option value="">Busco</option>
-                            <option value="junior">Trabajar</option>
-                            <option value="empresa">Contratar</option>
-                        </select>
-                        {errors.tipo && <p style={{color: 'red'}}>{errors.tipo}</p>}
-                    </div> */}
 
                     <div className="form-group">
                         <input 

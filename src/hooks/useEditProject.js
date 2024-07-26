@@ -6,8 +6,6 @@ import { useUserContext } from "../context/UserProvider";
 export const useEditProject = () => {
 
     const { setToken, user } = useUserContext();
-    // const recoverUser = JSON.parse(user);
-    // console.log({ACAAAAAAAAAAAAAAA: recoverUser});
 
     const navigate = useNavigate();
 
@@ -21,7 +19,6 @@ export const useEditProject = () => {
         }
     
         try {
-          // console.log(recoverUser, storedToken);    
             const response = await putProject(JSON.parse(user).id, projectDataUpdate, storedToken);
       
             if (response.status === 200) {

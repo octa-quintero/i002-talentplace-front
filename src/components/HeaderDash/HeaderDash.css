@@ -3,11 +3,9 @@
   align-items: center;
   justify-content: space-between; /* Distributes space between h3 and buttons */
   background-color: #fff;
-  /* padding: 0 20px; Optional: Add padding for better spacing */
 }
 
 h3 {
-  /* font-size: var(--font-size-headline-3); */
   font-weight: var(--font-weight-bold);
   line-height: 42px;
   margin: 0; /* Remove default margins */

@@ -130,7 +130,6 @@ const useLoginForm = () => {
                         icon: "error",
                         title: `Error al intentar iniciar sesión`,
                     });
-
                 }
 
             } finally {

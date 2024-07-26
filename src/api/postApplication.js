@@ -3,8 +3,6 @@ import axios from "axios";
 export const postApplication = async (userId, proyectoId, storedToken) => {
     const BACKEND_ENDPOINT = import.meta.env.VITE_BACKEND_URL;
     
-    console.log({userId, proyectoId, storedToken});
-    
     try {
         const response = await axios.post(`${BACKEND_ENDPOINT}/applications/${userId}`, {proyectoId}, {
             headers: {

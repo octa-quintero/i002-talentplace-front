@@ -30,14 +30,14 @@ const usePublishProjectForm = () => {
 
     let newValue = value;
     if (name === 'estado') {
-      newValue = value === 'true';
+        newValue = value === 'true';
     }
 
     setProjectState((prevState) => ({
-      ...prevState,
-      [name]: newValue,
+        ...prevState,
+        [name]: newValue,
     }));
-  };
+    };
 
     // Validación simple
     const validate = () => {
@@ -55,8 +55,6 @@ const usePublishProjectForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        console.log("Form data before validation:", projectState);
 
         const formErrors = validate();
         if (Object.keys(formErrors).length > 0) {

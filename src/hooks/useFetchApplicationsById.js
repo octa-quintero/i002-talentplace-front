@@ -33,8 +33,7 @@ export const useFetchApplicationsById = () => {
                 }
                 else {
                     setProjects(applications);
-                }
-                
+                }                
                 setLoading(false);
 
             } catch (error) {
@@ -45,6 +44,8 @@ export const useFetchApplicationsById = () => {
                     icon: 'error',
                     confirmButtonText: 'Volver'
                 });
+            } finally {
+                setLoading(false);
             }
         };
 

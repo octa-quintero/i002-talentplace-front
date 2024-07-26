@@ -2,21 +2,15 @@
     box-sizing: border-box;
 }
 
-
-/* 
-.container-sidebar > div {
-    padding: 0;
-*/
-
 .content {
 margin-left: 0;
 }
 
 @media (min-width: 768px) {
     .position-md-fixed {
-      position: fixed;
-      height: 100%;
-      width: 25%;
+        position: fixed;
+        height: 100%;
+        width: 25%;
     }
 }
 

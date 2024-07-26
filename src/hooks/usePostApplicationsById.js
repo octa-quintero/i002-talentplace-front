@@ -60,7 +60,6 @@ export const usePostApplicationsById = () => {
             setLoading(true)
 
             try {
-                // const response = await postApplication(userContext.id, applicationData, storedToken);
                 const response = await postApplication(userContext.id, projectId, storedToken);
                 
                 Swal.fire({
@@ -113,7 +112,7 @@ export const usePostApplicationsById = () => {
                                 showCloseButton: true,
                                 focusConfirm: false,
                                 confirmButtonText: `
-                                  <i class="fa fa-thumbs-up"></i>Aceptar
+                                <i class="fa fa-thumbs-up"></i>Aceptar
                                 `,
                                 confirmButtonAriaLabel: "Thumbs up, great!",
                                 cancelButtonAriaLabel: "Thumbs down"
