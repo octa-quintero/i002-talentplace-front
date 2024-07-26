@@ -4,6 +4,7 @@ import Loading from "../../pages/shared/Loading";
 import './Postulaciones.css';
 import { useFetchApplicationsById } from "../../hooks/useFetchApplicationsById";
 import { GoEyeClosed } from 'react-icons/go';
+import { Link } from 'react-router-dom';
 
 
 export const Postulaciones = () => {
@@ -44,7 +45,8 @@ export const Postulaciones = () => {
                             <Row className='d-flex justify-content-lg-end mx-3 py-3'>         
                                 <Button
                                 className='button primary border-1 my-2 w-100'
-                                href='/opportunities'
+                                as={Link}
+                                to='/opportunities'
                                 >
                                     Buscar oportunidades
                                 </Button>       
